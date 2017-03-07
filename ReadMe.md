@@ -12,7 +12,7 @@ Support import and export non standart files
 ---
 
 # Нестандартный Импорт и Экспорт
-Подержка импорта и экспорта нестдандартных файлов
+Поддержка импорта и экспорта нестдандартных файлов
 
 ## Установка
 
@@ -21,3 +21,8 @@ Support import and export non standart files
 ### Документация
 
 ### Пакеты
+
+- [NonStandartCharacterEncoding`](./NonStandartCharacterEncoding/NonStandartCharacterEncoding.m)
+- [NonStandartDigitFormat`](./NonStandartDigitFormat/NonStandartDigitFormat.m)
+- [NonStandartImportExport`](./NonStandartDigitFormat/NonStandartImportExport.m)
+  - [NonStandartImportExport`Extensions`SEGY`](./NonStandartDigitFormat/Extensions/SEGY.m)
