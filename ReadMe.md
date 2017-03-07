@@ -25,4 +25,4 @@ Support import and export non standart files
 - [NonStandartCharacterEncoding`](./NonStandartCharacterEncoding/NonStandartCharacterEncoding.m)
 - [NonStandartDigitFormat`](./NonStandartDigitFormat/NonStandartDigitFormat.m)
 - [NonStandartImportExport`](./NonStandartDigitFormat/NonStandartImportExport.m)
-  - [NonStandartImportExport`Extensions`SEGY`](./NonStandartDigitFormat/Extensions/SEGY.m)
+  - [\`Extensions\`SEGY\`](./NonStandartDigitFormat/Extensions/SEGY.m)
