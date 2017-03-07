@@ -3,6 +3,11 @@ Support import and export non standart files
 
 ## Installation
 
+## Support Formats
+
+### SEG-Y
+...
+
 ## Project Overview
 
 ### Documentation
@@ -20,6 +25,11 @@ Support import and export non standart files
 Поддержка импорта и экспорта нестдандартных файлов
 
 ## Установка
+
+## Поддерживаемые форматы
+
+### SEG-Y
+Формат файла для хранения и передачи даных о сейсмографических измерениях
 
 ## Обзор Проекта
 
