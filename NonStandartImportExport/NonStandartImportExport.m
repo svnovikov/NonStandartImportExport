@@ -17,6 +17,9 @@ Begin["`Private`"];
 NonStandartImport::nofile = 
 "File `1` not found during non standart import"; 
 
+NonStandartImport::wrgfl = 
+"The wrong file `1`"; 
+
 NonStandartExport::wrgfl = 
 "The wrong file `1`"; 
 
@@ -24,9 +27,13 @@ NonStandartExport::wrgfl =
 
 NonStandartImport[file: (_File | _String), "SEGY" | "SGY", opts: OptionsPattern[SEGYImport]] /; 
 If[
-	FileExistsQ[file] && StringMatchQ[FileExtension[file], "sgy" | "segy", IgnoreCase -> True], 
+	FileExistsQ[file], 
 	True, 
-	Message[NonStandartImport::nofile, file]; False
+	If[
+		StringMatchQ[FileExtension[file], "sgy" | "segy", IgnoreCase -> True], 
+		Message[NonStandartImport::wrgfl, file]; False, 
+		Message[NonStandartImport::nofile, file]; False
+	]
 ] := 
 SEGYImport[file, opts]; 
 
@@ -37,6 +44,8 @@ If[
 	Message[NonStandartExport::wrgfl, file]; False
 ] := 
 SEGYExport[file, opts]; 
+
+(* /SEG-Y *) 
 
 End[]; (*`Private`*) 
 
