@@ -3,7 +3,7 @@
 BeginPackage["NonStandartImportExport`Extensions`SEGY`", 
 	{
 		"NonStandartCharacterEncoding`", 
-		"NonStandartDigitFormat`"
+		"NonStandartNumberFormat`"
 	}
 ]; 
 
@@ -12,130 +12,134 @@ SEGYData::usage =
 \"BinaryHeader\" -> {..}, \
 \"Tracks\" -> {\"Headers\" -> {..}, \"Data\" -> {..}}]"; 
 
-SEGYTextHeader::usage = 
-"SEGYTextHeader[data] \
-return \"TextHeader\" -> \"C 1 ..\""; 
+SEGYImport::usage = 
+"SEGYImport[file, \"SEGY\"]"; 
 
-SEGYBinaryHeader::usage = 
-"SEGYBinaryHeader[data] \
-return \"BinaryHeader\" -> {h1 -> v1, h2 -> ..}"; 
-
-SEGYTracks::usage = 
-"SEGYTracks[data]\
-return \"Tracks\" -> {\"Header\" -> {h1, ..}, \"Data\" -> {t1, ..}"; 
-
-SEGYBinTextHeader::usage = 
-"SEGYBinTextHeader[segy]\
-return binary representation of the text header"; 
-
-SEGYBinBinaryHeader::usage = 
-"SEGYBinBinaryHeader[segy]\
-return binary representation of the binary header"; 
-
-SEGYBinTracks::usage = 
-"SEGYBinTracks[segy]\
-return binary representation of tracks"; 
+SEGYExport::usage = 
+"SEGYExport[file, data, \"SEGY\"]"; 
 
 Begin["`Private`"]; 
 
-SEGYData /: 
-Part[SEGYData[___, key_String -> value_, ___], key_String] := value; 
+(* TextHeader *)
 
-SEGYData /: 
-Part[
-	SEGYData[___, key1_String -> {___, key2_String -> value_, ___}, ___], 
-	key1_String, key2_String
-] := value; 
+FromSEGYTextHeader::usage = 
+"FromSEGYTextHeader[bytes] \
+return \"TextHeader\" -> \"C 1 .. (3200 symbols)\""; 
 
-SEGYData /: 
-Part[
-	SEGYData[___, key1_String -> valueList_List, ___], 
-	key1_String, part_Integer
-] := valueList[[part]]; 
+FromSEGYTextHeader[bytes: {__Integer}] /; 
+Length[bytes] == 3200 := 
+"TextHeader" -> FromNonStandartCharacterCode[bytes, "EDCDIC"]; 
 
-SEGYData /: 
-Part[
-	segyData_SEGYData, 
-	key1_String, key2_String, part_Integer
-] := segyData[[key1, key2]][[part]]; 
+ToSEGYTextHeader::usage = 
+"ToSEGYTextHeader[text] \
+return {b1, b2, .. <3200 bytes> ..}"; 
 
-SEGYTextHeader[data: {__Integer}] := 
-"TextHeader" -> FromNonStandartCharacterCode[data[[1 ;; 3200]], "EDCDIC"]; 
+ToSEGYTextHeader[text_String | "TextHeader" -> text_String] := 
+Join[ToNonStandartCharacterCode[text, "EDCDIC"], ConstantArray[0, 3200]][[1 ;; 3200]]; 
 
-SEGYBinaryHeader[data: {__Integer}] /; 
-Length[data] == 400 := 
+(* /TextHeader *) 
+
+(* BinaryHeader *)
+
+FromSEGYBinaryHeader::usage = 
+"FromSEGYBinaryHeader[bytes] \
+return \"BinaryHeader\" -> {<file bin info>}"; 
+
+FromSEGYBinaryHeader[bytes: {__Integer}] /; 
+Length[bytes] == 400 := 
 "BinaryHeader" -> 
 {
-	"DigitFormat" -> FromDigits[data[[25 ;; 26]], 256], 
-	"TrackLength" -> FromDigits[data[[21 ;; 22]], 256], 
-	"StepSize" -> FromDigits[data[[17 ;; 18]], 256], 
-	"DigitSize" -> NonStandartDigitLength[FromDigits[data[[25 ;; 26]], 256]]
+	"TimeInterval" -> FromDigits[bytes[[17 ;; 18]], 256] / 10^6, 
+	"TrackLength" -> FromDigits[bytes[[21 ;; 22]], 256], 
+	"NumberFormat" -> FromDigits[bytes[[25 ;; 26]], 256]
 }; 
 
-SEGYTracks[data: {__Integer}] := 
-With[
-	{
-		binaryHeader = SEGYBinaryHeader[data], 
-		tracksData = data[[3600 + 1 ;; -1]]
-	}, 
+ToSEGYBinaryHeader::usage = 
+"ToSEGYBinaryHeader[{info}] \
+return {b1, b2, .. <400 bytes> ..}"; 
+
+ToSEGYBinaryHeader[binaryInfo_List | "BinaryHeader" -> binaryInfo_List] := 
+Module[{binaryHeader = ConstantArray[0, 400]}, 
+
+	binaryHeader[[17 ;; 18]] = 
+	IntegerDigits[Round[("TimeInterval" /. binaryInfo)  * 10^6], 256, 2]; 
+
+	binaryHeader[[21 ;; 22]] = 
+	IntegerDigits["TrackLength" /. binaryInfo, 256, 2]; 
 	
-	Module[
-		{
-			trackLength, 
-			digitFormat, 
-			digitLength, 
-			length 
-		}, 
+	binaryHeader[[25 ;; 26]] = 
+	IntegerDigits["NumberFormat" /. binaryInfo, 256, 2]; 
 
-		trackLength = "TrackLength" /. ("BinaryHeader" /. binaryHeader); 
-		digitFormat = "DigitFormat" /. ("BinaryHeader" /. binaryHeader); 
-		digitLength = NonStandartDigitLength[digitFormat]; 
-		length = digitLength * trackLength + 240; 
-
-		"Tracks" -> 
-		{
-			"Headers" -> 
-			Map[FromNonStandartCharacterCode[#, "EDCDIC"]&,  
-			Partition[tracksData, length][[All, 1 ;; 240]]], 
-			
-			"Data" -> 
-			Map[FromNonStandartDigitFormat[#, digitFormat]&, 
-			Partition[#, 4]& /@ 
-			Partition[tracksData, length][[All, 240 + 1 ;; -1]], {2}]
-		}
-	]
+	(* return *)
+	binaryHeader
 ]; 
 
-SEGYBinTextHeader[data_SEGYData] := 
-Join[
-	ToNonStandartCharacterCode[data[["TextHeader"]], "EDCDIC"], 
-	ConstantArray[0, 3200]
-][[1 ;; 3200]]; 
+(* BinaryHeader *)
 
-SEGYBinBinaryHeader[data_SEGYData] := 
-ReplacePart[
-	ConstantArray[0, 400], 
+(* SYGYTracks *)
+
+FromSEGYTrack::usage = 
+"FromSEGYTracks[bynaryInfo][bytes] \
+return list of numbers"; 
+
+FromSEGYTrack["BinaryHeader" -> binaryInfo_List] := 
+FromSEGYTrack["BinaryHeader" -> binaryInfo] = 
+Module[
 	{
-		17 -> IntegerDigits[data[["BinaryHeader", "StepSize"]], 256, 2][[1]], 
-		18 -> IntegerDigits[data[["BinaryHeader", "StepSize"]], 256, 2][[2]], 
-		21 -> IntegerDigits[data[["BinaryHeader", "TrackLength"]], 256, 2][[1]], 
-		22 -> IntegerDigits[data[["BinaryHeader", "TrackLength"]], 256, 2][[2]], 
-		25 -> IntegerDigits[data[["BinaryHeader", "DigitFormat"]], 256, 2][[1]], 
-		26 -> IntegerDigits[data[["BinaryHeader", "DigitFormat"]], 256, 2][[2]]
-	}
+		timeInterval, 
+		trackLength, 
+		numberFormat, 
+		numberbutesize
+	}, 
+
+	timeInterval = "TimeInterval" /. binaryInfo; 
+	trackLength = "TrackLength" /. binaryInfo; 
+	numberFormat = "NumberFormat" /. binaryInfo; 
+	numberbutesize = NonStandartNumberByteSize[numberFormat]; 
+
+	(* Return *) 
+	Function[{bytes}, FromNonStandartNumberFormat[bytes[[240 + 1 ;; -1]], numberFormat]]
 ]; 
 
-SEGYBinTracks[data_SEGYData] := 
-Flatten[MapThread[
-	Join[
-		Join[ToNonStandartCharacterCode[#1, "EDCDIC"], ConstantArray[0, 240]][[1 ;; 240]], 
-		ToNonStandartDigitFormat[#2, data[["BinaryHeader", "DigitFormat"]]]
-	]&, 
+(* /SYGYTracks *)
+
+(* SEGYImport *)
+
+SEGYImport[file: (_File | _String)] := 
+Module[
 	{
-		data[["Tracks", "Headers"]], 
-		data[["Tracks", "Data"]]
-	} 
-]]; 
+		textHeader, 
+		binaryHeader, 
+		tracks, 
+		trackcount, 
+		tracklength, 
+		numberformat, 
+		numbersize, 
+		trackbytecount
+	}, 
+
+	textHeader = FromSEGYTextHeader[Table[BinaryRead[file], {3200}]]; 
+	binaryHeader = FromSEGYBinaryHeader[Table[BinaryRead[file], {400}]]; 
+	
+	tracklength = "TrackLength" /. binaryHeader[[-1]]; 
+	numberformat = "NumberFormat" /. binaryHeader[[-1]]; 
+	numbersize = NonStandartNumberByteSize[numberformat]; 
+	trackbytecount = 240 + numbersize * tracklength; 
+	
+	trackcount = (FileByteCount[file] - 3600) / trackbytecount; 
+
+	tracks = Table[
+		FromSEGYTrack[binaryHeader][Table[BinaryRead[file], {trackbytecount}]], 
+		{trackcount}
+	]; 
+
+	Close[file]; 
+	
+	(* return *)
+	SEGYData[{textHeader, binaryHeader, tracks}]
+]; 
+
+(* /SEGYImport *)
 
 End[]; (*`Private`*)
 

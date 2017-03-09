@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     11930,        316]
-NotebookOptionsPosition[     10379,        258]
-NotebookOutlinePosition[     10965,        281]
-CellTagsIndexPosition[     10878,        276]
+NotebookDataLength[      2358,         78]
+NotebookOptionsPosition[      1970,         60]
+NotebookOutlinePosition[      2318,         75]
+CellTagsIndexPosition[      2275,         72]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -24,240 +24,42 @@ Cell[BoxData[
    3.6977816314271708`*^9, 3.697781634386796*^9}, 3.6977816812750845`*^9, {
    3.697790750727644*^9, 3.697790751688815*^9}}],
 
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"file", "=", 
-  "\"\<E:\\\\Test Items\\\\Wolfram \
-Language\\\\Mathematica\\\\Projects\\\\NonStandartImportExport\\\\\
-NonStandartImportExportExample\\\\segy_test_input.segy\>\""}]], "Input",
- CellChangeTimes->{{3.697876020429595*^9, 3.6978760211484213`*^9}}],
-
-Cell[BoxData["\<\"E:\\\\Test Items\\\\Wolfram \
-Language\\\\Mathematica\\\\Projects\\\\NonStandartImportExport\\\\\
-NonStandartImportExportExample\\\\segy_test_input.segy\"\>"], "Output",
- CellChangeTimes->{3.6978760229108524`*^9, 3.697876090037567*^9, 
-  3.6978761904984236`*^9, 3.697876706377281*^9, 3.697879350023058*^9}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"NonStandartImport", "[", 
-  RowBox[{"file", ",", " ", "\"\<SGY\>\""}], "]"}]], "Input",
- CellChangeTimes->{{3.6978758488677473`*^9, 3.697875907437337*^9}, {
-  3.6978760000915976`*^9, 3.697876026954571*^9}}],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-   RowBox[{"\<\"TextHeader\"\>", 
-    "\[Rule]", "\<\"C 1                                                       \
-                      C 2                                                     \
-                        C 3                                                   \
-                          C 4                                                 \
-                            C 5 DATE           26\.9701\.972017     USER \
-NAME:                                    C 6 SURVEY NAME:   \
-URANSKY_MIMGO2016@ntc\.97pdgm02                                 C 7 FILE \
-TYPE:     Time Migrated Volume  ( CUBE_URAN_DEPT_TOM_OK1_DT4           C 8    \
-                                                                         C 9  \
-                                                                           C10\
- Z RANGE:   FIRST    0         LAST 1996                                     \
-C11 Location in binary header (start byte)                                    \
-  C12 Sample Rate                   17   Number of Samples             21     \
-    C13 Input Data Format             25                                      \
-      C14 Units                         55                                    \
-        C15 Location in trace header (start byte)                             \
-          C16 Inline                        185  Xline                        \
- 181        C17 X Shot                        73   Y Shot                     \
-   77         C18 X Receiver                    81   Y Receiver               \
-     85         C19 ID Code                       29                          \
-                  C20 Coord. Multiplier             71                        \
-                    C21                                                       \
-                      C22                                                     \
-                        C23                                                   \
-                          C24                                                 \
-                            C25                                               \
-                              C26                                             \
-                                C27                                           \
-                                  C28                                         \
-                                    C29                                       \
-                                      C30                                     \
-                                        C31                                   \
-                                          C32                                 \
-                                            C33                               \
-                                              C34                             \
-                                                C35                           \
-                                                  C36                         \
-                                                    C37                       \
-                                                      C38                     \
-                                                        C39                   \
-                                                          C40 END EBCDIC      \
-                                                            \"\>"}], ",", 
-   RowBox[{"\<\"BinaryHeader\"\>", "\[Rule]", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"\<\"DigitFormat\"\>", "\[Rule]", "1"}], ",", 
-      RowBox[{"\<\"TrackLength\"\>", "\[Rule]", "500"}], ",", 
-      RowBox[{"\<\"StepSize\"\>", "\[Rule]", "4000"}]}], "}"}]}], ",", 
-   RowBox[{"SEGYTracks", "[", "1", "]"}]}], "}"}]], "Output",
- CellChangeTimes->{
-  3.6978759364098415`*^9, {3.6978760013922873`*^9, 3.69787604828364*^9}, {
-   3.6978760912012053`*^9, 3.6978761039301043`*^9}, 3.6978761920064416`*^9, 
-   3.697876709450593*^9}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"data", "=", 
-  RowBox[{"Range", "[", 
-   RowBox[{"24", " ", "2"}], "]"}]}]], "Input",
- CellChangeTimes->{{3.6978767972353053`*^9, 3.6978768343060637`*^9}}],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-  "1", ",", "2", ",", "3", ",", "4", ",", "5", ",", "6", ",", "7", ",", "8", 
-   ",", "9", ",", "10", ",", "11", ",", "12", ",", "13", ",", "14", ",", "15",
-    ",", "16", ",", "17", ",", "18", ",", "19", ",", "20", ",", "21", ",", 
-   "22", ",", "23", ",", "24", ",", "25", ",", "26", ",", "27", ",", "28", 
-   ",", "29", ",", "30", ",", "31", ",", "32", ",", "33", ",", "34", ",", 
-   "35", ",", "36", ",", "37", ",", "38", ",", "39", ",", "40", ",", "41", 
-   ",", "42", ",", "43", ",", "44", ",", "45", ",", "46", ",", "47", ",", 
-   "48"}], "}"}]], "Output",
- CellChangeTimes->{3.6978768346453238`*^9}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"?", "Internal`*Bag*"}]], "Input",
- CellChangeTimes->{{3.697878429880168*^9, 3.6978784389439726`*^9}}],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- DynamicModuleBox[{Typeset`open$$ = True}, 
-  PaneSelectorBox[{False->
-   RowBox[{
-    OpenerBox[Dynamic[Typeset`open$$],
-     ImageSize->Small], 
-    StyleBox["Internal`", "InfoHeading"]}], True->GridBox[{
-     {
-      RowBox[{
-       OpenerBox[Dynamic[Typeset`open$$],
-        ImageSize->Small], 
-       StyleBox["Internal`", "InfoHeading"]}]},
-     {GridBox[{
-        {
-         ButtonBox["Bag",
-          BaseStyle->"InformationLink",
-          ButtonData:>{"Info163697892839-3839070", {"Bag", "Internal`"}},
-          ButtonNote->"Internal`"], 
-         ButtonBox["BagLength",
-          BaseStyle->"InformationLink",
-          ButtonData:>{"Info163697892839-3839070", {"BagLength", "Internal`"}},
-          ButtonNote->"Internal`"], 
-         ButtonBox["BagPart",
-          BaseStyle->"InformationLink",
-          ButtonData:>{"Info163697892839-3839070", {"BagPart", "Internal`"}},
-          ButtonNote->"Internal`"], 
-         ButtonBox["StuffBag",
-          BaseStyle->"InformationLink",
-          ButtonData:>{"Info163697892839-3839070", {"StuffBag", "Internal`"}},
-          ButtonNote->"Internal`"]}
-       },
-       DefaultBaseStyle->"InfoGrid",
-       GridBoxItemSize->{"Columns" -> {{
-            Scaled[0.2375]}}}]}
-    },
-    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}}]}, 
-   Dynamic[Typeset`open$$],
-   ImageSize->Automatic]]], "Print", "InfoCell",
- CellChangeTimes->{3.697878439307084*^9}],
-
-Cell["Internal`StuffBag", "Print", "PrintUsage",
- CellTags->"Info163697892839-3839070"],
-
-Cell[BoxData[
- InterpretationBox[GridBox[{
-    {
-     RowBox[{
-      RowBox[{"Attributes", "[", "Internal`StuffBag", "]"}], "=", 
-      RowBox[{"{", "Protected", "}"}]}]}
-   },
-   BaselinePosition->{Baseline, {1, 1}},
-   GridBoxAlignment->{
-    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
-     "RowsIndexed" -> {}}],
-  Definition[Internal`StuffBag],
-  Editable->False]], "Print",
- CellTags->"Info163697892839-3839070"]
-}, Open  ]]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"bag", "=", 
-  RowBox[{"Internal`Bag", "[", "]"}]}]], "Input",
- CellChangeTimes->{{3.6978784536956387`*^9, 3.6978784616879044`*^9}}],
-
-Cell[BoxData[
- RowBox[{"Internal`Bag", "[", 
-  RowBox[{
-   StyleBox["\<\"<\"\>",
-    ShowStringCharacters->False], "\[InvisibleSpace]", "0", 
-   "\[InvisibleSpace]", 
-   StyleBox["\<\">\"\>",
-    ShowStringCharacters->False]}], "]"}]], "Output",
- CellChangeTimes->{3.697878462119372*^9}]
-}, Open  ]],
-
-Cell[BoxData[
- RowBox[{"Internal`StuffBag", "[", 
-  RowBox[{"bag", ",", " ", "1"}], "]"}]], "Input",
- CellChangeTimes->{{3.6978784651026545`*^9, 3.697878476239709*^9}}],
-
-Cell[CellGroupData[{
-
-Cell[BoxData["bag"], "Input",
- CellChangeTimes->{{3.697878478807101*^9, 3.697878480415927*^9}}],
-
-Cell[BoxData[
- RowBox[{"Internal`Bag", "[", 
-  RowBox[{
-   StyleBox["\<\"<\"\>",
-    ShowStringCharacters->False], "\[InvisibleSpace]", "1", 
-   "\[InvisibleSpace]", 
-   StyleBox["\<\">\"\>",
-    ShowStringCharacters->False]}], "]"}]], "Output",
- CellChangeTimes->{3.6978784808085604`*^9}]
-}, Open  ]],
-
-Cell[BoxData["While"], "Input",
- CellChangeTimes->{{3.697878582976283*^9, 3.6978785852399554`*^9}}],
-
-Cell[BoxData["FileInformation"], "Input",
- CellChangeTimes->{{3.6978793148081226`*^9, 3.697879317232716*^9}}],
-
-Cell[CellGroupData[{
-
 Cell[BoxData[
  RowBox[{
-  RowBox[{"(", 
-   RowBox[{
-    RowBox[{"FileByteCount", "[", "file", "]"}], "-", "3600"}], ")"}], "/", 
-  RowBox[{"(", ")"}]}]], "Input",
- CellChangeTimes->{{3.697879352631404*^9, 3.697879398164358*^9}}],
+  RowBox[{"file", "=", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+      "\"\<NonStandartImportExportExample\>\"", ",", 
+      "\"\<segy_test_input.segy\>\""}], "}"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.697876020429595*^9, 3.6978760211484213`*^9}, {
+  3.698051970450944*^9, 3.6980520320432577`*^9}, {3.6980521292184615`*^9, 
+  3.6980521414020276`*^9}}],
 
-Cell[BoxData["224000"], "Output",
- CellChangeTimes->{{3.697879356659402*^9, 3.697879383709821*^9}}]
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"AbsoluteTiming", "[", 
+  RowBox[{
+   RowBox[{"data", "=", 
+    RowBox[{"NonStandartImport", "[", 
+     RowBox[{"file", ",", " ", "\"\<SGY\>\""}], "]"}]}], ";"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6978758488677473`*^9, 3.697875907437337*^9}, {
+  3.6978760000915976`*^9, 3.697876026954571*^9}, {3.698053105707462*^9, 
+  3.698053106657841*^9}, {3.6980536647309403`*^9, 3.6980536770725822`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0.23311802918080826`", ",", "Null"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.6980536777395687`*^9, {3.698053825414934*^9, 3.698053855676239*^9}, 
+   3.6980539003912916`*^9}]
 }, Open  ]]
 },
 WindowSize->{775, 872},
-WindowMargins->{{Automatic, 32}, {Automatic, 35}},
+WindowMargins->{{Automatic, 287}, {10, Automatic}},
 FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -265,58 +67,18 @@ StyleDefinitions->"Default.nb"
 
 (* Internal cache information *)
 (*CellTagsOutline
-CellTagsIndex->{
- "Info163697892839-3839070"->{
-  Cell[8157, 179, 87, 1, 41, "Print",
-   CellTags->"Info163697892839-3839070"],
-  Cell[8247, 182, 446, 13, 22, "Print",
-   CellTags->"Info163697892839-3839070"]}
- }
+CellTagsIndex->{}
 *)
 (*CellTagsIndex
-CellTagsIndex->{
- {"Info163697892839-3839070", 10692, 268}
- }
+CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
 Cell[558, 20, 262, 4, 30, "Input"],
+Cell[823, 26, 464, 11, 50, "Input"],
 Cell[CellGroupData[{
-Cell[845, 28, 282, 5, 88, "Input"],
-Cell[1130, 35, 324, 4, 69, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[1491, 44, 230, 4, 30, "Input"],
-Cell[1724, 50, 3934, 56, 848, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[5695, 111, 179, 4, 30, "Input"],
-Cell[5877, 117, 647, 11, 50, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[6561, 133, 125, 2, 30, "Input"],
-Cell[CellGroupData[{
-Cell[6711, 139, 1443, 38, 55, "Print"],
-Cell[8157, 179, 87, 1, 41, "Print",
- CellTags->"Info163697892839-3839070"],
-Cell[8247, 182, 446, 13, 22, "Print",
- CellTags->"Info163697892839-3839070"]
-}, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[8742, 201, 155, 3, 30, "Input"],
-Cell[8900, 206, 287, 8, 30, "Output"]
-}, Open  ]],
-Cell[9202, 217, 168, 3, 30, "Input"],
-Cell[CellGroupData[{
-Cell[9395, 224, 95, 1, 30, "Input"],
-Cell[9493, 227, 289, 8, 30, "Output"]
-}, Open  ]],
-Cell[9797, 238, 99, 1, 30, "Input"],
-Cell[9899, 241, 109, 1, 30, "Input"],
-Cell[CellGroupData[{
-Cell[10033, 246, 228, 6, 30, "Input"],
-Cell[10264, 254, 99, 1, 30, "Output"]
+Cell[1312, 41, 423, 9, 30, "Input"],
+Cell[1738, 52, 216, 5, 30, "Output"]
 }, Open  ]]
 }
 ]

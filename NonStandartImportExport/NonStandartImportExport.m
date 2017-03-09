@@ -35,7 +35,7 @@ If[
 		Message[NonStandartImport::nofile, file]; False
 	]
 ] := 
-SEGYImport[file, opts]; 
+SEGYImport[file, opts];
 
 NonStandartExport[file: (_File | _String), data_SEGYData, "SEGY" | "SGY", opts: OptionsPattern[SEGYExport]] /; 
 If[
