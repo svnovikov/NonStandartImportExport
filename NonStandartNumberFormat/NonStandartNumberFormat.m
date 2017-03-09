@@ -10,21 +10,52 @@
 
 BeginPackage["NonStandartNumberFormat`"]; 
 
-FromNonStandartNumberFormat::usage = 
-"FromNonStandartNumberFormat[bytes, \"format\"] return number"; 
-
-ToNonStandartNumberFormat::usage = 
-"ToNonStandartNumberFormat[number, \"format\"] return bytes"; 
-
 NonStandartNumberByteSize::usage = 
 "NonStandartNumberByteSize[format]\
-return byte size of the digit for this format"; 
+return byte size of the number for this format"; 
+
+FromNonStandartNumberFormat::usage = 
+"FromNonStandartNumberFormat[bytes, \"format\"] return list of numbers"; 
+
+ToNonStandartNumberFormat::usage = 
+"ToNonStandartNumberFormat[number, \"format\"] return list of bytes"; 
 
 Begin["`Private`"]; 
 
-NonStandartDigitByteSize[1 | "IMB 32 Float"] := 4; 
+NonStandartNumberByteSize[1 | "IMB 32 Float"] := 4; 
+
+FromNonStandartNumberFormat[bytes: {__Integer}, 1 | "IBM 32 Float"] := 
+FromIBM32Float[bytes]; 
+
+ToNonStandartNumberFormat[numbers: {__Real}, 1 | "IBM 32 Float"] := 
+Flatten[ToIBM32Float[numbers]]; 
 
 (* IMB 32 Float *) 
+
+FromIBM32Float = 
+Compile[{{bytes, _Integer, 1}}, 
+	Table[
+
+		(* sign of the number *)	
+		(-1)^(UnitStep[bytes[[i4th]] - 127.5]) * 
+
+		(* 16th exp *)
+		16.0^(BitAnd[127, bytes[[i4th]]] - 64) * 
+
+		(* fraction part *)
+		(
+			bytes[[i4th + 1]] * 256.0^2 + 
+			bytes[[i4th + 2]] * 256.0 + 
+			bytes[[i4th + 3]]
+		) / (256.0^3), 
+
+		{i4th, 1, Length[bytes], 4}
+	], 
+	
+	CompilationTarget -> "C", 
+	RuntimeAttributes -> {Listable}, 
+	Parallelization -> True
+]; 
 
 ToIBM32Float = 
 Compile[{{number, _Real}}, 
@@ -42,7 +73,11 @@ Compile[{{number, _Real}},
         ]; 
         fractbits = IntegerDigits[Floor[16.0^exp number 256.0^3], 256]; 
         Join[{firstbits}, fractbits]
-    ]
+    ], 
+
+	CompilationTarget -> "C", 
+	RuntimeAttributes -> {Listable}, 
+	Parallelization -> True
 ]; 
 
 (* /IBM 32 Float *) 
