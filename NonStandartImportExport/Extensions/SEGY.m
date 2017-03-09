@@ -62,15 +62,15 @@ Part[
 SEGYTextHeader[data: {__Integer}] := 
 "TextHeader" -> FromNonStandartCharacterCode[data[[1 ;; 3200]], "EDCDIC"]; 
 
-SEGYBinaryHeader[data: {__Integer}] := 
-With[{binaryHeaderData = data[[3200 + 1 ;; 3200 + 400]]}, 
-	"BinaryHeader" -> 
-	{
-		"DigitFormat" -> FromDigits[binaryHeaderData[[25 ;; 26]], 256], 
-		"TrackLength" -> FromDigits[binaryHeaderData[[21 ;; 22]], 256], 
-		"StepSize" -> FromDigits[binaryHeaderData[[17 ;; 18]], 256] 
-	}
-]; 
+SEGYBinaryHeader[data: {__Integer}] /; 
+Length[data] == 400 := 
+"BinaryHeader" -> 
+{
+	"DigitFormat" -> FromDigits[data[[25 ;; 26]], 256], 
+	"TrackLength" -> FromDigits[data[[21 ;; 22]], 256], 
+	"StepSize" -> FromDigits[data[[17 ;; 18]], 256], 
+	"DigitSize" -> NonStandartDigitLength[FromDigits[data[[25 ;; 26]], 256]]
+}; 
 
 SEGYTracks[data: {__Integer}] := 
 With[
