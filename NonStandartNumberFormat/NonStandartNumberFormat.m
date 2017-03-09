@@ -34,6 +34,8 @@ Flatten[ToIBM32Float[numbers]];
 
 FromIBM32Float = 
 Compile[{{bytes, _Integer, 1}}, 
+	
+	(* return *) 
 	Table[
 
 		(* sign of the number *)	
@@ -50,32 +52,29 @@ Compile[{{bytes, _Integer, 1}},
 		) / (256.0^3), 
 
 		{i4th, 1, Length[bytes], 4}
-	], 
-	
-	CompilationTarget -> "C", 
-	RuntimeAttributes -> {Listable}, 
-	Parallelization -> True
+	]
 ]; 
 
 ToIBM32Float = 
 Compile[{{number, _Real}}, 
-    Module[{sign, exp, firstbits, fractbits}, 
+    Module[{rsign, exp, firstbyte, fractbytes}, 
 
-        (* sign of the nimber *)
-        sign = UnitStep[number]; 
+        (* bit for the represintation of the sign of the number *)
+        rsign = UnitStep[-number]; 
 
         (* 16-th exponent *)
         exp = Ceiling[Log[16, Abs[number]]]; 
 
-        firstbits = If[sign == 0, 
-            BitOr[exp + 64, 128], 
-            exp + 64
-        ]; 
-        fractbits = IntegerDigits[Floor[16.0^exp number 256.0^3], 256]; 
-        Join[{firstbits}, fractbits]
+		(* first byte *)
+        firstbyte = exp + 64 + rsign * 128; 
+        
+        (* bytes og the fraction part *)
+        fractbytes = IntegerDigits[Floor[256.0^3 number / (16.0^exp)], 256, 3]; 
+
+        (* return *)
+        Join[{firstbyte}, fractbytes]
     ], 
 
-	CompilationTarget -> "C", 
 	RuntimeAttributes -> {Listable}, 
 	Parallelization -> True
 ]; 
