@@ -10,19 +10,31 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      2358,         78]
-NotebookOptionsPosition[      1970,         60]
-NotebookOutlinePosition[      2318,         75]
-CellTagsIndexPosition[      2275,         72]
+NotebookDataLength[      3927,        122]
+NotebookOptionsPosition[      3395,         99]
+NotebookOutlinePosition[      3742,        114]
+CellTagsIndexPosition[      3699,        111]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"$HistoryLength", " ", "=", " ", "0"}]], "Input",
+ CellChangeTimes->{{3.6981211610189753`*^9, 3.698121163485895*^9}}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.698121163893341*^9, 3.6981212079756603`*^9, 
+  3.6981213799357147`*^9}]
+}, Open  ]],
+
 Cell[BoxData[
  RowBox[{"<<", "NonStandartImportExport`"}]], "Input",
  CellChangeTimes->{{3.6977814774725013`*^9, 3.697781486402912*^9}, {
    3.6977816314271708`*^9, 3.697781634386796*^9}, 3.6977816812750845`*^9, {
-   3.697790750727644*^9, 3.697790751688815*^9}}],
+   3.697790750727644*^9, 3.697790751688815*^9}, {3.698118408534396*^9, 
+   3.6981184099808016`*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -52,14 +64,41 @@ Cell[BoxData[
 
 Cell[BoxData[
  RowBox[{"{", 
-  RowBox[{"0.23311802918080826`", ",", "Null"}], "}"}]], "Output",
+  RowBox[{"0.04595293079204771`", ",", "Null"}], "}"}]], "Output",
  CellChangeTimes->{
   3.6980536777395687`*^9, {3.698053825414934*^9, 3.698053855676239*^9}, 
-   3.6980539003912916`*^9}]
-}, Open  ]]
+   3.6980539003912916`*^9, 3.6981173586865263`*^9, 3.6981174107391777`*^9, 
+   3.6981183631254063`*^9, 3.69811841300452*^9, 3.6981208245279636`*^9, 
+   3.6981209356004176`*^9, {3.6981211249043646`*^9, 3.698121172535325*^9}, {
+   3.6981212112751646`*^9, 3.6981212239631457`*^9}, 3.6981213838660383`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"ListLinePlot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"data", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "[", 
+        RowBox[{"[", "4", "]"}], "]"}], "[", 
+       RowBox[{"[", 
+        RowBox[{"-", "1"}], "]"}], "]"}], "[", 
+      RowBox[{"[", "i", "]"}], "]"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "100000"}], ",", "100000"}], "}"}]}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", "100", ",", "1"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6981208374769745`*^9, 3.698120838183287*^9}, {
+  3.698120944461562*^9, 3.6981209997818813`*^9}, {3.6981213996194057`*^9, 
+  3.6981214461755447`*^9}}]
 },
 WindowSize->{775, 872},
-WindowMargins->{{Automatic, 287}, {10, Automatic}},
+WindowMargins->{{Automatic, 82}, {51, Automatic}},
 FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -74,12 +113,17 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 262, 4, 30, "Input"],
-Cell[823, 26, 464, 11, 50, "Input"],
 Cell[CellGroupData[{
-Cell[1312, 41, 423, 9, 30, "Input"],
-Cell[1738, 52, 216, 5, 30, "Output"]
-}, Open  ]]
+Cell[580, 22, 140, 2, 30, "Input"],
+Cell[723, 26, 121, 2, 30, "Output"]
+}, Open  ]],
+Cell[859, 31, 314, 5, 30, "Input"],
+Cell[1176, 38, 464, 11, 50, "Input"],
+Cell[CellGroupData[{
+Cell[1665, 53, 423, 9, 30, "Input"],
+Cell[2091, 64, 491, 8, 30, "Output"]
+}, Open  ]],
+Cell[2597, 75, 794, 22, 50, "Input"]
 }
 ]
 *)

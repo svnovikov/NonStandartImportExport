@@ -28,7 +28,7 @@ return \"TextHeader\" -> \"C 1 .. (3200 symbols)\"";
 
 FromSEGYTextHeader[bytes: {__Integer}] /; 
 Length[bytes] == 3200 := 
-"TextHeader" -> FromNonStandartCharacterCode[bytes, "EDCDIC"]; 
+FromNonStandartCharacterCode[bytes, "EDCDIC"]; 
 
 ToSEGYTextHeader::usage = 
 "ToSEGYTextHeader[text] \
@@ -47,11 +47,10 @@ return \"BinaryHeader\" -> {<file bin info>}";
 
 FromSEGYBinaryHeader[bytes: {__Integer}] /; 
 Length[bytes] == 400 := 
-"BinaryHeader" -> 
 {
 	"TimeInterval" -> FromDigits[bytes[[17 ;; 18]], 256] / 10^6, 
 	"TrackLength" -> FromDigits[bytes[[21 ;; 22]], 256], 
-	"NumberFormat" -> FromDigits[bytes[[25 ;; 26]], 256]
+	"NumberFormat" -> FromDigits[bytes[[25 ;; 26]], 256] 
 }; 
 
 ToSEGYBinaryHeader::usage = 
@@ -76,6 +75,24 @@ Module[{binaryHeader = ConstantArray[0, 400]},
 
 (* BinaryHeader *)
 
+(* SEGYHeaders *) 
+
+FromSEGYHeader::usage = 
+"FromSEGYHeader[][bytes]"; 
+
+FromSEGYHeader[] := 
+FromSEGYHeader[] = 
+Function[{bytes}, bytes]; 
+
+ToSEGYHeader::usage = 
+"ToSEGYHeader[][bytes]"; 
+
+ToSEGYHeader[] := 
+ToSEGYHeader[] = 
+Function[{bytes}, bytes]; 
+
+(* /SEGYHeaders *)
+
 (* SYGYTracks *)
 
 FromSEGYTrack::usage = 
@@ -84,62 +101,111 @@ return list of numbers";
 
 FromSEGYTrack["BinaryHeader" -> binaryInfo_List] := 
 FromSEGYTrack["BinaryHeader" -> binaryInfo] = 
-Module[
-	{
-		timeInterval, 
-		trackLength, 
-		numberFormat, 
-		numberbutesize
-	}, 
+Function[{bytes}, FromNonStandartNumberFormat[bytes, "NumberFormat" /. binaryInfo]]; 
 
-	timeInterval = "TimeInterval" /. binaryInfo; 
-	trackLength = "TrackLength" /. binaryInfo; 
-	numberFormat = "NumberFormat" /. binaryInfo; 
-	numberbutesize = NonStandartNumberByteSize[numberFormat]; 
+ToSEGYTrack::usage = 
+"ToSEGYTracks[bynaryInfo][numbers] \
+return list of numbers"; 
 
-	(* Return *) 
-	Function[{bytes}, FromNonStandartNumberFormat[bytes[[240 + 1 ;; -1]], numberFormat]]
-]; 
+ToSEGYTrack["BinaryHeader" -> binaryInfo_List] := 
+ToSEGYTrack["BinaryHeader" -> binaryInfo] = 
+Function[{numbers}, ToNonStandartNumberFormat[numbers, "NumberFormat" /. binaryInfo]]; 
 
 (* /SYGYTracks *)
 
 (* SEGYImport *)
 
-SEGYImport[file: (_File | _String)] := 
+(*
+	Loading -> Memory  - loading data from the file in RAM
+	Loading -> Damp    - loading data from the file, convert and save to damp file .mx
+	Loading -> Delayed - loading data only when called 
+*)
+Options[SEGYImport] = {"Loading" -> "Memory"}; 
+
+SEGYImport::erropt = 
+"Error option value `1`"; 
+
+SEGYImport[file: (_File | _String), OptionsPattern[]] := 
 Module[
 	{
-		textHeader, 
-		binaryHeader, 
-		tracks, 
-		trackcount, 
-		tracklength, 
-		numberformat, 
-		numbersize, 
-		trackbytecount
+		Loading = OptionValue["Loading"], 
+		stream = OpenRead[file, BinaryFormat -> True], 
+		
+		filebytecount = FileByteCount[file], 
+		tracksbytecount = FileByteCount[file] - 3600, 
+		tracklength, numbersize, trackscount, numberformat, 
+		trackbytecount, 
+		
+		
+		TextHeader, BinaryHeader, Headers, Tracks
 	}, 
 
-	textHeader = FromSEGYTextHeader[Table[BinaryRead[file], {3200}]]; 
-	binaryHeader = FromSEGYBinaryHeader[Table[BinaryRead[file], {400}]]; 
-	
-	tracklength = "TrackLength" /. binaryHeader[[-1]]; 
-	numberformat = "NumberFormat" /. binaryHeader[[-1]]; 
-	numbersize = NonStandartNumberByteSize[numberformat]; 
-	trackbytecount = 240 + numbersize * tracklength; 
-	
-	trackcount = (FileByteCount[file] - 3600) / trackbytecount; 
+	SetStreamPosition[stream, 0]; 
+	TextHeader = 
+	"TextHeader" -> FromSEGYTextHeader[BinaryReadList[stream, "Byte", 3200]]; 
 
-	tracks = Table[
-		FromSEGYTrack[binaryHeader][Table[BinaryRead[file], {trackbytecount}]], 
-		{trackcount}
+	SetStreamPosition[stream, 3200]; 
+	BinaryHeader = 
+	"BinaryHeader" -> FromSEGYBinaryHeader[BinaryReadList[stream, "Byte", 400]]; 
+
+	tracklength = "TrackLength" /. BinaryHeader[[-1]]; 
+	numberformat = "NumberFormat" /. BinaryHeader[[-1]]; 
+	numbersize = NonStandartNumberByteSize[numberformat]; 
+	trackbytecount = 240 + tracklength * numbersize; 
+	
+	trackscount = tracksbytecount / trackbytecount; 
+
+	Headers = "Headers" -> Switch[Loading, 
+		"Memory", 
+			Table[
+				SetStreamPosition[stream, pos]; 
+				FromSEGYHeader[][BinaryReadList[stream, "Byte", 240]], 
+
+				{pos, 3600, filebytecount - trackbytecount, trackbytecount}
+			], 
+		
+		"Damp", 
+			2, 
+		
+		"Delayed", 
+			3, 
+		
+		_, 
+			Message[SEGYImport::erropt, Loading]; Abort[]
 	]; 
 
-	Close[file]; 
-	
-	(* return *)
-	SEGYData[{textHeader, binaryHeader, tracks}]
+	Tracks = "Tracks" -> Switch[Loading, 
+		"Memory", 
+			Table[
+				SetStreamPosition[stream, pos + 240]; 
+				FromSEGYTrack[BinaryHeader][BinaryReadList[stream, "Byte", trackbytecount - 240]], 
+
+				{pos, 3600, filebytecount - trackbytecount, trackbytecount}
+			], 
+		
+		"Damp", 
+			2, 
+		
+		"Delayed", 
+			3, 
+
+		_, 
+			Message[SEGYImport::erropt, Loading]; Abort[]
+	]; 
+
+	Close[stream]; 
+
+	(* return *) 
+	SEGYData[{TextHeader, BinaryHeader, Headers, Tracks}]
 ]; 
 
-(* /SEGYImport *)
+(* /SEGYImport *) 
+
+(* SEGYExport *)
+
+
+
+(* /SEGYExport *)
 
 End[]; (*`Private`*)
 
