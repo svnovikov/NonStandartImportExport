@@ -168,7 +168,22 @@ Module[
 			2, 
 		
 		"Delayed", 
-			3, 
+			Table[
+				With[
+					{pos = pos}, 
+					
+					SEGYUnloaded[
+						{
+							"File" -> file, 
+							"Strart" -> pos, 
+							"Bytes" -> 240, 
+							"Functions" -> FromSEGYHeader[]
+						}
+					]
+				], 
+
+				{pos, 3600, filebytecount - trackbytecount, trackbytecount}
+			], 
 		
 		_, 
 			Message[SEGYImport::erropt, Loading]; Abort[]
@@ -187,7 +202,22 @@ Module[
 			2, 
 		
 		"Delayed", 
-			3, 
+			Table[
+				With[
+					{pos = pos, bytecount = trackbytecount}, 
+					
+					SEGYUnloaded[
+						{
+							"File" -> file, 
+							"Strart" -> pos + 240, 
+							"Bytes" -> bytecount - 240, 
+							"Function" -> FromSEGYTrack[BinaryHeader]
+						}
+					]
+				], 
+
+				{pos, 3600, filebytecount - trackbytecount, trackbytecount}
+			], 
 
 		_, 
 			Message[SEGYImport::erropt, Loading]; Abort[]
@@ -200,6 +230,29 @@ Module[
 ]; 
 
 (* /SEGYImport *) 
+
+(* SEGYUnloaded *) 
+
+SEGYUnloaded /: 
+SEGYLoad[
+	SEGYUnloaded[
+		{
+			"File" -> file: (_File | _String), 
+			"Start" -> start_Integer, 
+			"Bytes" -> bytes_Integer, 
+			"Function" -> function_
+		}
+	]
+] := 
+Function[
+	Reap[
+		SetStreamPosition[#1, #2]; 
+		function[BinaryReadList[#1, "Byte", #3]]; 
+		Close[#1]
+	][[-1, -1, -1]];	
+][OpenRead[file, BinaryFormat -> True], start, bytes]; 
+
+(* /SEGYUnloaded *)
 
 (* SEGYExport *)
 
