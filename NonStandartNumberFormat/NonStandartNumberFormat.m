@@ -4,7 +4,7 @@
 (* :Context: NonStandartNumberFormat` *)
 (* :Version: 0.0.3 *)
 (* :MathematicaVersion: 10.0+ *)
-(* :Keywords: IBM 32 Float *)
+(* :Keywords: Not IEEE; IBM 32 Float *)
 (* :Email: KirillBelovTest@gmail.com *)
 (* :Creator: Kirill Belov *)
 

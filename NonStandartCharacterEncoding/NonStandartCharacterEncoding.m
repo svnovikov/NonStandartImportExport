@@ -1,5 +1,13 @@
 (* ::Package:: *)
 
+(* :Title: NonStandartCharacterEncoding *)
+(* :Context: NonStandartCharacterEncoding` *)
+(* :Version: 0.0.2 *)
+(* :MathematicaVersion: 10.0+ *)
+(* :Keywords: Not IEEE; EDCDIC *)
+(* :Email: KirillBelovTest@gmail.com *)
+(* :Creator: Kirill Belov *)
+
 BeginPackage["NonStandartCharacterEncoding`"];
 
 NonStandartCharacterEncodings::usage = 
