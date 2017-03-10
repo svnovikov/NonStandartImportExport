@@ -15,7 +15,7 @@ Support import and export non standart files
 ### Packages
 
 - **[NonStandartCharacterEncoding`](./NonStandartCharacterEncoding/NonStandartCharacterEncoding.m)**
-- **[NonStandartDigitFormat`](./NonStandartDigitFormat/NonStandartDigitFormat.m)**
+- **[NonStandartNumberFormat`](./NonStandartNumberFormat/NonStandartNumberFormat.m)**
 - **[NonStandartImportExport`](./NonStandartDigitFormat/NonStandartImportExport.m)**
   - **[\`Extensions\`SEGY\`](./NonStandartImportExport/Extensions/SEGY.m)**
 
@@ -38,6 +38,6 @@ Support import and export non standart files
 ### Пакеты
 
 - **[NonStandartCharacterEncoding`](./NonStandartCharacterEncoding/NonStandartCharacterEncoding.m)**
-- **[NonStandartDigitFormat`](./NonStandartDigitFormat/NonStandartDigitFormat.m)**
+- **[NonStandartNumberFormat`](./NonStandartNumberFormat/NonStandartNumberFormat.m)**
 - **[NonStandartImportExport`](./NonStandartDigitFormat/NonStandartImportExport.m)**
   - **[\`Extensions\`SEGY\`](./NonStandartImportExport/Extensions/SEGY.m)**
