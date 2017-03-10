@@ -1,7 +1,9 @@
 # NonStandartNumberFormatLength
 
 ---
-**NonStandartNumberFormatLength[**_format_**]** - возвращает количество байт для представления числа в указанном формате
+
+**NonStandartNumberFormatLength[**_format_**]** - возвращает количество байт для представления числа в указанном формате 
+
 ---
 
 ## Детали
