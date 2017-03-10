@@ -2,7 +2,7 @@
 
 ---
 
-**NonStandartImport[_file_, _extension_]** - ипотрирует файл с указанным форматом  
+**NonStandartImport[**_file_, _extension_**]** - ипотрирует файл с указанным форматом  
 
 ---
 
