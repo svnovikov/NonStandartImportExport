@@ -2,6 +2,7 @@
 
 BeginPackage["NonStandartImportExport`Extensions`SEGY`", 
 	{
+		"NonStandartImportExport`", 
 		"NonStandartCharacterEncoding`", 
 		"NonStandartNumberFormat`"
 	}
@@ -11,6 +12,9 @@ SEGYData::usage =
 "SEGYData[\"TextHeader\" -> \"C 1 ..\", \
 \"BinaryHeader\" -> {..}, \
 \"Tracks\" -> {\"Headers\" -> {..}, \"Data\" -> {..}}]"; 
+
+SEGYUnloaded::usage = 
+""; 
 
 SEGYImport::usage = 
 "SEGYImport[file, \"SEGY\"]"; 
@@ -175,9 +179,9 @@ Module[
 					SEGYUnloaded[
 						{
 							"File" -> file, 
-							"Strart" -> pos, 
+							"Start" -> pos, 
 							"Bytes" -> 240, 
-							"Functions" -> FromSEGYHeader[]
+							"Function" -> FromSEGYHeader[]
 						}
 					]
 				], 
@@ -209,7 +213,7 @@ Module[
 					SEGYUnloaded[
 						{
 							"File" -> file, 
-							"Strart" -> pos + 240, 
+							"Start" -> pos + 240, 
 							"Bytes" -> bytecount - 240, 
 							"Function" -> FromSEGYTrack[BinaryHeader]
 						}
@@ -234,7 +238,7 @@ Module[
 (* SEGYUnloaded *) 
 
 SEGYUnloaded /: 
-SEGYLoad[
+NonStandartImportExport`NonStandartLoad[
 	SEGYUnloaded[
 		{
 			"File" -> file: (_File | _String), 
@@ -247,9 +251,9 @@ SEGYLoad[
 Function[
 	Reap[
 		SetStreamPosition[#1, #2]; 
-		function[BinaryReadList[#1, "Byte", #3]]; 
-		Close[#1]
-	][[-1, -1, -1]];	
+		Sow[function[BinaryReadList[#1, "Byte", #3]]]; 
+		Close[#1]; 
+	][[-1, -1, -1]] 
 ][OpenRead[file, BinaryFormat -> True], start, bytes]; 
 
 (* /SEGYUnloaded *)

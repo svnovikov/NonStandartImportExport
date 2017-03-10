@@ -6,6 +6,8 @@ BeginPackage["NonStandartImportExport`",
 	}
 ]; 
 
+NonStandartLoad::usage = "NonStandartLoad[Unload[]]"; 
+
 NonStandartImport::usage = 
 "NonStandartImport[file, extension]"; 
 
