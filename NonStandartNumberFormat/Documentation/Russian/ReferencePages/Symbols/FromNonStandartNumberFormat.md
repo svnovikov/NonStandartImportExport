@@ -18,7 +18,7 @@
 Если приложение установлено, то необходимо загрузить его, выполнив:
 
 ```mathematica
-Get["NonStandartNumberFormat`"]
+Get["NonStandartImportExport`"]
 ```
 
 После чего станет доступна для использования функция **FromNonStandartNumberFormat**.
