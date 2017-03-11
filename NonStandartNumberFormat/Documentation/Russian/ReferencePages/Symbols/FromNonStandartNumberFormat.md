@@ -2,7 +2,7 @@
 
 ---
 
-**FromNonStandartNumberFormat[**_bytes_, _format_**]** - коныертирует набор байт в список чисел с плавующей точкой
+**FromNonStandartNumberFormat[**_bytes_, _format_**]** - конвертирует набор байт в список чисел с плавующей точкой
 
 ---
 
