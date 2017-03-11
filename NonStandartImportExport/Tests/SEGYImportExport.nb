@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     65088,       1424]
-NotebookOptionsPosition[     21813,        551]
-NotebookOutlinePosition[     64932,       1417]
-CellTagsIndexPosition[     64889,       1414]
+NotebookDataLength[     65120,       1424]
+NotebookOptionsPosition[     21846,        551]
+NotebookOutlinePosition[     64965,       1417]
+CellTagsIndexPosition[     64922,       1414]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -229,10 +229,10 @@ Function[Short[Slot[1], Rational[2, 3]]]]\\)\"\>",
             GraphicsColor->RGBColor[0.458824, 0.458824, 0.458824],
             FontColor->RGBColor[0.458824, 0.458824, 0.458824]], 
            
-           StyleBox["\<\"\\!\\(\\*TagBox[TemplateBox[List[\\\"0.`\\\", \\\"\\\
-\\\\\"s\\\\\\\"\\\", \\\"s\\\", \\\"\\\\\\\"Seconds\\\\\\\"\\\"], \
-\\\"Quantity\\\", Rule[SyntaxForm, Mod]], Function[Short[Slot[1], Rational[2, \
-3]]]]\\)\"\>",
+           StyleBox["\<\"\\!\\(\\*TagBox[TemplateBox[List[\\\"0.\
+10899999999999999`\\\", \\\"\\\\\\\"s\\\\\\\"\\\", \\\"s\\\", \
+\\\"\\\\\\\"Seconds\\\\\\\"\\\"], \\\"Quantity\\\", Rule[SyntaxForm, Mod]], \
+Function[Short[Slot[1], Rational[2, 3]]]]\\)\"\>",
             StripOnInput->False,
             LineColor->RGBColor[0.14902, 0.14902, 0.14902],
             FrontFaceColor->RGBColor[0.14902, 0.14902, 0.14902],
@@ -254,9 +254,9 @@ Function[Short[Slot[1], Rational[2, 3]]]]\\)\"\>",
              "MUnitStrings", "CPUTimeUsed-Detail"]]], 
            RGBColor[0.458824, 0.458824, 0.458824]], 
           Style[
-          "\!\(\*TagBox[TemplateBox[List[\"0.`\", \"\\\"s\\\"\", \"s\", \
-\"\\\"Seconds\\\"\"], \"Quantity\", Rule[SyntaxForm, Mod]], \
-Function[Short[Slot[1], Rational[2, 3]]]]\)", 
+          "\!\(\*TagBox[TemplateBox[List[\"0.10899999999999999`\", \
+\"\\\"s\\\"\", \"s\", \"\\\"Seconds\\\"\"], \"Quantity\", Rule[SyntaxForm, \
+Mod]], Function[Short[Slot[1], Rational[2, 3]]]]\)", 
            RGBColor[0.14902, 0.14902, 0.14902]]}}, 
         BaseStyle -> {FontFamily -> "Helvetica", FontWeight -> "Bold"}, 
         Spacings -> {{2 -> 0.5}, Automatic}]},
@@ -267,7 +267,7 @@ Function[Short[Slot[1], Rational[2, 3]]]]\)",
     GridBoxItemSize->{"Columns" -> {{All}}, "Rows" -> {{All}}}],
    "Grid"],
   ImageSize->Full]], "TestSuccess",
- CellID->550076865],
+ CellID->389905174],
 
 Cell[BoxData[
  PaneBox[
@@ -546,7 +546,7 @@ Cell[BoxData[
     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
    "Grid"],
   ImageSize->Full]], "BottomCell",
- CellID->386157886]
+ CellID->42702820]
 }, Open  ]]
 },
 WindowSize->{775, 872},
@@ -1100,7 +1100,7 @@ DockedCells->{
               DynamicBox[
                ToBoxes[
                 
-                MUnit`Palette`Private`resultColorBar$$[{550076865}, {
+                MUnit`Palette`Private`resultColorBar$$[{389905174}, {
                  1}, {}, {}, {}, 250, 12], StandardForm]], 
               ActionMenuBox[
                PaneSelectorBox[{False -> DynamicBox[
@@ -1421,10 +1421,10 @@ Cell[580, 22, 186, 4, 46, "VerificationTest",
  CellID->491890635],
 Cell[769, 28, 128, 2, 38, "ExpectedOutput",
  CellID->36008567],
-Cell[900, 32, 9873, 237, 23, "TestSuccess",
- CellID->550076865],
-Cell[10776, 271, 11021, 277, 41, "BottomCell",
- CellID->386157886]
+Cell[900, 32, 9907, 237, 23, "TestSuccess",
+ CellID->389905174],
+Cell[10810, 271, 11020, 277, 41, "BottomCell",
+ CellID->42702820]
 }, Open  ]]
 }
 ]

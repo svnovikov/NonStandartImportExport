@@ -48,7 +48,7 @@ data[[key]][[indexes]];
 
 FromSEGYTextHeader::usage = 
 "FromSEGYTextHeader[bytes] \
-return \"TextHeader\" -> \"C 1 .. (3200 symbols)\""; 
+return \"C 1 .. (3200 symbols)\""; 
 
 FromSEGYTextHeader[bytes: {__Integer}] /; 
 Length[bytes] == 3200 := 
@@ -67,7 +67,7 @@ Join[ToNonStandartCharacterCode[text, "EBCDIC"], ConstantArray[0, 3200]][[1 ;; 3
 
 FromSEGYBinaryHeader::usage = 
 "FromSEGYBinaryHeader[bytes] \
-return \"BinaryHeader\" -> {<file bin info>}"; 
+return {<file bin info>}"; 
 
 FromSEGYBinaryHeader[bytes: {__Integer}] /; 
 Length[bytes] == 400 := 
@@ -97,19 +97,21 @@ Module[{binaryHeader = ConstantArray[0, 400]},
 	binaryHeader
 ]; 
 
-(* BinaryHeader *)
+(* /BinaryHeader *)
 
 (* SEGYHeaders *) 
 
 FromSEGYHeader::usage = 
-"FromSEGYHeader[][bytes]"; 
+"FromSEGYHeader[][bytes] \
+return {<track bin data>}"; 
 
 FromSEGYHeader[] := 
 FromSEGYHeader[] = 
 Function[{bytes}, bytes]; 
 
 ToSEGYHeader::usage = 
-"ToSEGYHeader[][bytes]"; 
+"ToSEGYHeader[][bytes] \
+return {<240 bytes from bin data>}"; 
 
 ToSEGYHeader[] := 
 ToSEGYHeader[] = 
@@ -143,7 +145,7 @@ Function[{numbers}, ToNonStandartNumberFormat[numbers, "NumberFormat" /. binaryI
 
 (*
 	Loading -> Memory  - loading data from the file in RAM
-	Loading -> Damp    - loading data from the file, convert and save to damp file .mx
+	Loading -> Dump    - loading data from the file, convert and save to damp file .mx (coming soon)
 	Loading -> Delayed - loading data only when called 
 *)
 Options[SEGYImport] = {"Loading" -> "Memory"}; 
@@ -161,7 +163,6 @@ Module[
 		tracksbytecount = FileByteCount[file] - 3600, 
 		tracklength, numbersize, trackscount, numberformat, 
 		trackbytecount, 
-		
 		
 		TextHeader, BinaryHeader, Headers, Tracks
 	}, 
