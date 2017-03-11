@@ -22,7 +22,9 @@ ToNonStandartCharacterCode::usage =
 Begin["`Private`"]; 
 
 NonStandartCharacterEncodingExistsQ::usage = 
-"internal symbol"; 
+"NonStandartCharacterEncodingExistsQ[\"encoding\"] \
+Check that encoding is supported\
+internal symbol"; 
 
 NonStandartCharacterEncodingExistsQ[encoding_String] := 
 MemberQ[NonStandartCharacterEncodings[[All, 1]], encoding]; 
@@ -31,7 +33,7 @@ NonStandartCharacterEncodings::noenc =
 "Encoding `1` does not exist"; 
 
 NonStandartCharacterEncodings = {
-	"EDCDIC" -> 
+	"EBCDIC" -> 
 		{
 			0 -> "" (*"NUL"*), 1 -> "SOH", 2 -> "STX", 3 -> "ETX", 4 -> "PF", 
 			5 -> "HT", 6 -> "LC", 7 -> "DEL", 10 -> "SMM", 11 -> "VT", 
