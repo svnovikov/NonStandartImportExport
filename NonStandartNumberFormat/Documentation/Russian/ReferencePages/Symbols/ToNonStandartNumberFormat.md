@@ -34,7 +34,7 @@ Get["NonStandartImportExport`"]
 
 ## Смотрите Также
 
-**[NonStandartNumerByteSize](./NonStandartNumerByteSize.md)** **[FromNonStandartNumberFormat](./FromNonStandartNumberFormat.md)**
+**[NonStandartNumberByteSize](./NonStandartNumberByteSize.md)** **[FromNonStandartNumberFormat](./FromNonStandartNumberFormat.md)**
 
 ## Туториалы
 

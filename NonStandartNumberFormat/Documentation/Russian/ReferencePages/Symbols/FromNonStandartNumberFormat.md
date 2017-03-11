@@ -83,7 +83,7 @@ FromNonStandartNumberFormat[RandomInteger[{0, 255}, 16], "IBM 32 Float"]
 
 ## Смотрите Также
 
-**[NonStandartNumerByteSize](./NonStandartNumerByteSize.md)** **[ToNonStandartNumberFormat](./ToNonStandartNumberFormat.md)**
+**[NonStandartNumberByteSize](./NonStandartNumberByteSize.md)** **[ToNonStandartNumberFormat](./ToNonStandartNumberFormat.md)**
 
 ## Туториалы
 
