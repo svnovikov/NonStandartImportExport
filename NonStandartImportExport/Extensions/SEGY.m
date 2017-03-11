@@ -115,7 +115,7 @@ return {<240 bytes from bin data>}";
 
 ToSEGYHeader[] := 
 ToSEGYHeader[] = 
-Function[{bytes}, bytes]; 
+Function[{bytes}, Flatten[{bytes, ConstantArray[0, 240]}][[1 ;; 240]]]; 
 
 (* /SEGYHeaders *)
 

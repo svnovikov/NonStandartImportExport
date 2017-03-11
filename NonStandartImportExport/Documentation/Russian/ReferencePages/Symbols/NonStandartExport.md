@@ -36,7 +36,26 @@ Get["NonStandartImportExport`"]
 
 ```mathematica
 path = FileNameJoin[{$NonStandartImportExportDirectory, "NonStandartImportExportExample", "SEGYDataExample"}];
-data = Get[path] 
+data = Get[path]
+
+(*
+    SEGYData[
+        {
+            "TextHeader" -> "",
+            "BinaryHeader" -> {"TimeInterval" -> 1/1000, "NumberFormat" -> 1, "TrackLength" -> 4},
+            "Headers" -> {{0}, {0}},
+            "Tracks" -> {{1., 2., 3., 4.}, {-1., 2., -3., 4.}}
+        }
+    ]
+*)
+
+```
+
+Эти данные можно записать в SEG-Y файл следующим образом:  
+
+```mathematica
+
+NonStandartExport[data, "SEGYOutput.segy"]
 
 ```
 
