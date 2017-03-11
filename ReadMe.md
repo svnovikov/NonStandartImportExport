@@ -35,6 +35,55 @@ Support import and export non standart files
 
 ### Документация
 
+#### Нестандартные Кодировки
+
+##### Руководства
+
+- [Руководство - Нестандартные Кодировки]()
+
+##### Туториалы
+
+- [Примеры использования]()
+
+##### Символы
+
+- **[NonStandartCharacterEncodings]()**
+- **[FromNonStandartCharacterCode]()**
+- **[ToNonStandartCharacterCode]()**
+
+#### Нестандартные Чиловые Форматы
+
+##### Руководства
+
+- [Руководство - Нестандартные Числовые Форматы]()
+
+##### Туториалы
+
+- [Примеры использования]()
+
+##### Символы
+
+- **[NonStandartNumberByteSize]()**
+- **[FromNonStandartNumberFormat]()**
+- **[ToNonStandartNumberFormat]()**
+
+#### Нестандартный Импорт и Экспорт
+
+##### Руководства
+
+- [Руководство - Нестандартный Импорт и Экспорт]()
+
+##### Туториалы
+
+- [Установка]()
+- [Примеры использования]()
+
+##### Символы
+
+- **[NonStandartImport]()**
+- **[NonStandartExport]()**
+- **[NonStandartLoad]()**
+
 ### Пакеты
 
 - **[NonStandartCharacterEncoding`](./NonStandartCharacterEncoding/NonStandartCharacterEncoding.m)**
