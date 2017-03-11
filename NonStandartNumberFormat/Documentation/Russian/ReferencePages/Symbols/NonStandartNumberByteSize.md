@@ -25,10 +25,18 @@ Get["NonStandartNumberFormat`"]
 
 ```mathematica
 NonStandartNumberByteSize["IBM 32 Float"]
+
+(* Out[..] := 4 *)
 ```
 
 ## Смотрите Также
 
+**[FromNonStandartNumber](./FromNonStandartNumber.md)** **[ToNonStandartNumber](./ToNonStandartNumber.md)**
+
 ## Туториалы
 
+[Примеры Использования](../../Tutorials/ExampleOfUse.md)
+
 ## Связанные Руководства
+
+[Руководство - Нестандартные Форматы Числел](../../Guides/Guide.md)
