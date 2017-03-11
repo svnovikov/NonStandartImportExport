@@ -39,7 +39,7 @@ path = FileNameJoin[{$NonStandartImportExportDirectory, "NonStandartImportExport
 data = Get[path]
 
 (*
-    SEGYData[
+    Out[..] := SEGYData[
         {
             "TextHeader" -> "",
             "BinaryHeader" -> {"TimeInterval" -> 1/1000, "NumberFormat" -> 1, "TrackLength" -> 4},
@@ -55,7 +55,9 @@ data = Get[path]
 
 ```mathematica
 
-NonStandartExport[data, "SEGYOutput.segy"]
+NonStandartExport["SEGYOutput.segy", data, "SEGY"]
+
+(* Out[..] := <segy out file path> *)
 
 ```
 
