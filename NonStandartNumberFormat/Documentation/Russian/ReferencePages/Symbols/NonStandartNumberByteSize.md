@@ -1,8 +1,8 @@
-# NonStandartNumberFormatLength
+# NonStandartNumberByteSize
 
 ---
 
-**NonStandartNumberFormatLength[**_format_**]** - возвращает количество байт для представления числа в указанном формате 
+**NonStandartNumberByteSize[**_format_**]** - возвращает количество байт для представления числа в указанном формате 
 
 ---
 
@@ -24,11 +24,19 @@ Get["NonStandartNumberFormat`"]
 Так можно вычислить длину числа в представлении формата числа с плавующей точкой и 32-х битной точностью IBM: 
 
 ```mathematica
-NonStandartNumberByteLength["IBM 32 Float"]
+NonStandartNumberByteSize["IBM 32 Float"]
+
+(* Out[..] := 4 *)
 ```
 
 ## Смотрите Также
 
+**[FromNonStandartNumberFormat](./FromNonStandartNumberFormat.md)** **[ToNonStandartNumberFormat](./ToNonStandartNumberFormat.md)**
+
 ## Туториалы
 
+[Примеры Использования](../../Tutorials/ExampleOfUse.md)
+
 ## Связанные Руководства
+
+[Руководство - Нестандартные Форматы Числел](../../Guides/Guide.md)
