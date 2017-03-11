@@ -31,7 +31,7 @@ NonStandartNumberByteSize["IBM 32 Float"]
 
 ## Смотрите Также
 
-**[FromNonStandartNumber](./FromNonStandartNumber.md)** **[ToNonStandartNumber](./ToNonStandartNumber.md)**
+**[FromNonStandartNumberFormat](./FromNonStandartNumberFormat.md)** **[ToNonStandartNumberFormat](./ToNonStandartNumberFormat.md)**
 
 ## Туториалы
 
