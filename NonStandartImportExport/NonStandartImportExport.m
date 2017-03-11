@@ -14,7 +14,10 @@ BeginPackage["NonStandartImportExport`",
 	}
 ]; 
 
-NonStandartLoad::usage = "NonStandartLoad[Unload[]]"; 
+Unprotect[{NonStandartImport, NonStandartExport, NonStandartLoad}]; 
+
+NonStandartLoad::usage = 
+"NonStandartLoad[Unload[]]"; 
 
 NonStandartImport::usage = 
 "NonStandartImport[file, extension]"; 
@@ -53,10 +56,15 @@ If[
 	True, 
 	Message[NonStandartExport::wrgfl, file]; False
 ] := 
-SEGYExport[file, opts]; 
+SEGYExport[file, data, opts]; 
 
 (* /SEG-Y *) 
 
 End[]; (*`Private`*) 
+
+SetAttributes[
+	{NonStandartImport, NonStandartExport, NonStandartLoad}, 
+	{ReadProtected, Protected}
+]; 
 
 EndPackage[]; (*NonStandartImportExport`*) 
