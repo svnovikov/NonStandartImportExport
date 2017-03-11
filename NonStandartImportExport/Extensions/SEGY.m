@@ -22,7 +22,7 @@ SEGYData::usage =
 \"Tracks\" -> {\"Headers\" -> {..}, \"Data\" -> {..}}]"; 
 
 SEGYUnloaded::usage = 
-""; 
+"SEGYUnloaded[]"; 
 
 SEGYImport::usage = 
 "SEGYImport[file, \"SEGY\"]"; 
@@ -31,6 +31,18 @@ SEGYExport::usage =
 "SEGYExport[file, data, \"SEGY\"]"; 
 
 Begin["`Private`"]; 
+
+(* SEGYData *)
+
+SEGYData /: 
+Part[SEGYData[data_List], key_String] := 
+key /. data; 
+
+SEGYData /: 
+Part[data_SEGYData, key_String, indexes: (_Integer | Span[__Integer])] := 
+data[[key]][[indexes]]; 
+
+(* /SEGYData *)
 
 (* TextHeader *)
 
@@ -46,7 +58,7 @@ ToSEGYTextHeader::usage =
 "ToSEGYTextHeader[text] \
 return {b1, b2, .. <3200 bytes> ..}"; 
 
-ToSEGYTextHeader[text_String | "TextHeader" -> text_String] := 
+ToSEGYTextHeader[text_String | ("TextHeader" -> text_String)] := 
 Join[ToNonStandartCharacterCode[text, "EDCDIC"], ConstantArray[0, 3200]][[1 ;; 3200]]; 
 
 (* /TextHeader *) 
@@ -69,7 +81,7 @@ ToSEGYBinaryHeader::usage =
 "ToSEGYBinaryHeader[{info}] \
 return {b1, b2, .. <400 bytes> ..}"; 
 
-ToSEGYBinaryHeader[binaryInfo_List | "BinaryHeader" -> binaryInfo_List] := 
+ToSEGYBinaryHeader[binaryInfo_List | ("BinaryHeader" -> binaryInfo_List)] := 
 Module[{binaryHeader = ConstantArray[0, 400]}, 
 
 	binaryHeader[[17 ;; 18]] = 
@@ -111,16 +123,18 @@ FromSEGYTrack::usage =
 "FromSEGYTracks[bynaryInfo][bytes] \
 return list of numbers"; 
 
-FromSEGYTrack["BinaryHeader" -> binaryInfo_List] := 
+FromSEGYTrack[binaryInfo_List | ("BinaryHeader" -> binaryInfo_List)] := 
 FromSEGYTrack["BinaryHeader" -> binaryInfo] = 
+FromSEGYTrack[binaryInfo] = 
 Function[{bytes}, FromNonStandartNumberFormat[bytes, "NumberFormat" /. binaryInfo]]; 
 
 ToSEGYTrack::usage = 
 "ToSEGYTracks[bynaryInfo][numbers] \
 return list of numbers"; 
 
-ToSEGYTrack["BinaryHeader" -> binaryInfo_List] := 
+ToSEGYTrack[("BinaryHeader" -> binaryInfo_List) | binaryInfo_List] := 
 ToSEGYTrack["BinaryHeader" -> binaryInfo] = 
+ToSEGYTrack[binaryInfo] = 
 Function[{numbers}, ToNonStandartNumberFormat[numbers, "NumberFormat" /. binaryInfo]]; 
 
 (* /SYGYTracks *)
@@ -268,7 +282,18 @@ Function[
 
 (* SEGYExport *)
 
-
+SEGYExport[file_String, data_SEGYData] := 
+(
+	BinaryWrite[file, ToSEGYTextHeader[data[["TextHeader"]]]]; 
+	BinaryWrite[file, ToSEGYBinaryHeader[data[["BinaryHeader"]]]]; 
+	Do[
+		BinaryWrite[file, ToSEGYHeader[][data[["Headers", i]]]]; 
+		BinaryWrite[file, ToSEGYTrack[data[["BinaryHeader"]]][data[["Tracks", i]]]];, 
+		{i, 1, Length[data[["Headers"]]]}
+	]; 
+	Close[file]; 
+	Return[file] 
+);
 
 (* /SEGYExport *)
 
