@@ -31,6 +31,8 @@ Get["NonStandartImportExport`"]
 
 ## Смотрите Также
 
+**[NonStandartImport](./NonStandartImport.md)** **[NonStandartLoad](./NonStandartLoad.md)** **[SEGYData](./SEGYData.md)** **[SEGYUnloaded](./SEGYUnloaded.md)** 
+
 ## Связанные Туториалы
 
 ## Связанные Руководства
