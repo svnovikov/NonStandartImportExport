@@ -11,8 +11,8 @@
 BeginPackage["NonStandartImportExport`Extensions`SEGY`", 
 	{
 		"NonStandartImportExport`", 
-		"NonStandartCharacterEncoding`", 
-		"NonStandartNumberFormat`"
+		"CustomEncoding`", 
+		"NonStandartNumberFormat`" 
 	}
 ]; 
 
@@ -52,14 +52,14 @@ return \"C 1 .. (3200 symbols)\"";
 
 FromSEGYTextHeader[bytes: {__Integer}] /; 
 Length[bytes] == 3200 := 
-FromNonStandartCharacterCode[bytes, "EBCDIC"]; 
+FromCustomCharacterCode[bytes, "EBCDIC"]; 
 
 ToSEGYTextHeader::usage = 
 "ToSEGYTextHeader[text] \
 return {b1, b2, .. <3200 bytes> ..}"; 
 
 ToSEGYTextHeader[text_String | ("TextHeader" -> text_String)] := 
-Join[ToNonStandartCharacterCode[text, "EBCDIC"], ConstantArray[0, 3200]][[1 ;; 3200]]; 
+Join[ToCustomCharacterCode[text, "EBCDIC"], ConstantArray[0, 3200]][[1 ;; 3200]]; 
 
 (* /TextHeader *) 
 
