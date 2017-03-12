@@ -10,17 +10,49 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[       946,         37]
-NotebookOptionsPosition[       703,         24]
-NotebookOutlinePosition[      1051,         39]
-CellTagsIndexPosition[      1008,         36]
+NotebookDataLength[      2077,         77]
+NotebookOptionsPosition[      1621,         56]
+NotebookOutlinePosition[      1969,         71]
+CellTagsIndexPosition[      1926,         68]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 Cell[BoxData[
- RowBox[{"<<", "NonStandartCharacterEncoding`"}]], "Input",
- CellChangeTimes->{{3.697862407341296*^9, 3.6978624186710587`*^9}}]
+ RowBox[{"<<", "CustomEncoding`"}]], "Input",
+ CellChangeTimes->{{3.697862407341296*^9, 3.6978624186710587`*^9}, {
+  3.698337774819642*^9, 3.69833777989503*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ToCustomCharacterCode", "[", 
+  RowBox[{"\"\<1\\n\\r\\t2t \>\"", ",", " ", "\"\<EBCDIC\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.698337785119129*^9, 3.698337837877426*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "241", ",", "37", ",", "13", ",", "5", ",", "242", ",", "163", ",", "64"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.698337802848797*^9, 3.6983378383412743`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FromCustomCharacterCode", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "241", ",", "37", ",", "13", ",", "5", ",", "242", ",", "163", ",", 
+     "64"}], "}"}], ",", " ", "\"\<EBCDIC\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.698337845716634*^9, 3.6983378577489176`*^9}}],
+
+Cell[BoxData["\<\"1\\n\\r\\t2t \"\>"], "Output",
+ CellChangeTimes->{3.698337858280856*^9}]
+}, Open  ]]
 },
 WindowSize->{775, 872},
 WindowMargins->{{564, Automatic}, {Automatic, 54}},
@@ -38,7 +70,15 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 141, 2, 30, "Input"]
+Cell[558, 20, 175, 3, 30, "Input"],
+Cell[CellGroupData[{
+Cell[758, 27, 204, 4, 30, "Input"],
+Cell[965, 33, 206, 5, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1208, 43, 304, 7, 30, "Input"],
+Cell[1515, 52, 90, 1, 69, "Output"]
+}, Open  ]]
 }
 ]
 *)
