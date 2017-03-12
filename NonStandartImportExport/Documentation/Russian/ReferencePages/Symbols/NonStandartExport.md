@@ -35,7 +35,7 @@ Get["NonStandartImportExport`"]
 Сконструировать такой объект можно самостоятельно.  Подробнее об устройстве SEGYData  можно прочитать в описание этого типа данных.  Здесь можно пользоваться готовым тестовым примером. Получить минимальный полноценный фрагмент данных можно выполнив следующий код:  
 
 ```mathematica
-pathInput = FileNameJoin[{$NonStandartImportExportDirectory, "NonStandartImportExportExample", "SEGYDataExample"}];
+pathIn = FileNameJoin[{$NonStandartImportExportDirectory, "NonStandartImportExportExample", "SEGYDataExample"}];
 data = Get[pathInput]
 
 (*
@@ -55,7 +55,7 @@ data = Get[pathInput]
 
 ```mathematica
 
-pathOutput = FileNameJoin[{$NonStandartImportExportDirectory, "NonStandartImportExportExample", "SEGYOutput.segy"}];
+pathOut = FileNameJoin[{$NonStandartImportExportDirectory, "NonStandartImportExportExample", "SEGYOutput.segy"}];
 NonStandartExport[pathOutput, data, "SEGY"]
 
 (* Out[..] := <segy out file path> *)
