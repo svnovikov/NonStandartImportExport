@@ -56,7 +56,7 @@ data = Get[pathInput]
 ```mathematica
 
 pathOut = FileNameJoin[{$NonStandartImportExportDirectory, "NonStandartImportExportExample", "SEGYOutput.segy"}];
-NonStandartExport[pathOutput, data, "SEGY"]
+NonStandartExport[pathOut, data, "SEGY"]
 
 (* Out[..] := <segy out file path> *)
 
