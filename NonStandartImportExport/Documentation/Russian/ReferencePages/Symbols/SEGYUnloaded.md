@@ -2,7 +2,7 @@
 
 ---
 
-SEGYUnloaded[\<unloaded data\>]
+SEGYUnloaded[_\<unloaded data\>_]
 
 ---
 
