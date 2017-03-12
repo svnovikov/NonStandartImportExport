@@ -1,3 +1,3 @@
 (* Init file *)
 
-Get["NonStandartCharacterEncoding`NonStandartCharacterEncoding`"]
+Get["CustomEncoding`CustomEncoding`"]

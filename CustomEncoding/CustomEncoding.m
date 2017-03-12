@@ -1,38 +1,34 @@
 (* ::Package:: *)
 
-(* :Title: NonStandartCharacterEncoding *)
-(* :Context: NonStandartCharacterEncoding` *)
-(* :Version: 0.0.2 *)
+(* :Title: CustomEncoding *)
+(* :Context: CustomEncoding` *)
+(* :Version: 0.0.3 *)
 (* :MathematicaVersion: 10.0+ *)
 (* :Keywords: Not IEEE; EDCDIC *)
 (* :Email: KirillBelovTest@gmail.com *)
 (* :Creator: Kirill Belov *)
 
-BeginPackage["NonStandartCharacterEncoding`"];
+BeginPackage["CustomEncoding`"]; 
 
-NonStandartCharacterEncodings::usage = 
-"\"encoding\" /. NonStandartCharacterEncodings"; 
+Unprotect[{FromCustomCharacterCode, ToCustomCharacterCode}]; 
 
-FromNonStandartCharacterCode::usage = 
+FromCustomCharacterCode::usage = 
 "FromNonStandartCharacterCode[data, encoding]"; 
 
-ToNonStandartCharacterCode::usage = 
+ToCustomCharacterCode::usage = 
 "ToNonStandartCharacterCode[string, encoding]"; 
 
 Begin["`Private`"]; 
 
-NonStandartCharacterEncodingExistsQ::usage = 
-"NonStandartCharacterEncodingExistsQ[\"encoding\"] \
-Check that encoding is supported\
-internal symbol"; 
+Unprotect[{$CustomEncodings, CustomEncodingDeclaredQ}]; 
 
-NonStandartCharacterEncodingExistsQ[encoding_String] := 
-MemberQ[NonStandartCharacterEncodings[[All, 1]], encoding]; 
+$CustomEncodings::usage = 
+"\"encoding\" /. $CustomEncodings"; 
 
-NonStandartCharacterEncodings::noenc = 
-"Encoding `1` does not exist"; 
+$CustomEncodings::noenc = 
+"Encoding `1` does not exist in this package"; 
 
-NonStandartCharacterEncodings = {
+$CustomEncodings = {
 	"EBCDIC" -> 
 		{
 			0 -> "" (*"NUL"*), 1 -> "SOH", 2 -> "STX", 3 -> "ETX", 4 -> "PF", 
@@ -67,27 +63,39 @@ NonStandartCharacterEncodings = {
 	}
 }; 
 
-FromNonStandartCharacterCode[binaryData: {__Integer}, encoding_String] /; 
-If[
-	NonStandartCharacterEncodingExistsQ[encoding], 
-	True, 
-	Message[NonStandartCharacterEncodings::noenc, encoding]; False
-] := 
-StringJoin[
-	(binaryData /. (encoding /. NonStandartCharacterEncodings)) /. 
-	_Integer :> ""
-]; 
+CustomEncodingDeclaredQ::usage = 
+"CustomEncodingDeclaredQ[\"encoding\"] \
+Check that encoding is supported\
+internal symbol"; 
 
-ToNonStandartCharacterCode[text_String, encoding_String] /; 
+CustomEncodingDeclaredQ[encoding_String] := 
+MemberQ[$CustomEncodings[[All, 1]], encoding]; 
+
+(* the function convert list of bytes to text string *)
+
+FromCustomCharacterCode[bytes: {__Integer}, encoding_String] /; 
 If[
-	NonStandartCharacterEncodingExistsQ[encoding], 
+	CustomEncodingDeclaredQ[encoding], 
 	True, 
-	Message[NonStandartCharacterEncodings::noenc, encoding]; False
+	Message[$CustomEncodings::noenc, encoding]; False
 ] := 
-(StringSplit[text, ""] /. 
-((encoding /. NonStandartCharacterEncodings)[[All, {2, 1}]])) /. 
-_String :> 0; 
+StringJoin[bytes /. (encoding /. $CustomEncodings)]; 
+
+(* this function convert string to bytes *)
+
+ToCustomCharacterCode[text_String, encoding_String] /; 
+If[
+	CustomEncodingDeclaredQ[encoding], 
+	True, 
+	Message[$CustomEncodings::noenc, encoding]; False
+] := 
+StringSplit[text, ""] /. 
+(encoding /. $CustomEncodings)[[All, {2, 1}]]
+
+SetAttributes[{$CustomEncodings, CustomEncodingDeclaredQ}, {ReadProtected, Protected}]; 
 
 End[]; (*`Private`*)
 
-EndPackage[]; (*NonStandartCharacterEncoding`*) 
+SetAttributes[{FromCustomCharacterCode, ToCustomCharacterCode}, {ReadProtected, Protected}]
+
+EndPackage[]; (*CustomEncoding`*) 

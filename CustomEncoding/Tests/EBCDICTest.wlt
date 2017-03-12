@@ -1,19 +1,19 @@
-BeginTestSection["NonStandartCharacterEncodingTest"]
+BeginTestSection["EBCDICTest"]
 
 VerificationTest[(* 1 *)
-	Get["NonStandartCharacterEncoding`"]
+	Get["CustomEncoding`"]
 	,
 	Null	
 ]
 
 VerificationTest[(* 2 *)
-	FromNonStandartCharacterCode[List[0, 1, 2, 3, 4, 5, 6, 7], "EDCDIC"]
+	FromCustomCharacterCode[List[0, 1, 2, 3, 4, 5, 6, 7], "EBCDIC"]
 	,
-	"NULSOHSTXETXPFHTLCDEL"	
+	"SOHSTXETXPF\tLCDEL"	
 ]
 
 VerificationTest[(* 3 *)
-	ToNonStandartCharacterCode["(test)", "EDCDIC"]
+	ToCustomCharacterCode["(test)", "EBCDIC"]
 	,
 	List[77, 163, 133, 162, 163, 93]	
 ]
