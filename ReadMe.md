@@ -26,10 +26,17 @@ Support import and export non standart files
 - [Руководство - Пользовательские Кодировки](./CustomEncoding/Documentation/Russian/Guides/Guide.md)
 - [Руководство - Не IEEE Форматы Чисел](./NotIEEENumberFormat/Documentation/Russian/Guides/Guide.md)
 
-Главный раздел документации посвящен функциям импорта и экспорта различных нестандартных типов файлов. 
-В этом разделе описаны функции функции для импортирования и экспортирования данных, а также представлены примеры 
+Главный раздел документации посвящен работе с различными нестандартными типами файлов. 
+В этом разделе описаны функции для импортирования и экспортирования данных, а также представлены примеры 
 их использования. Кроме того подробно рассматриваются поддерживаемые расширения файлов. 
 
 - [Руководство - Нестандартный Импорт и Экспорт](./NonStandartImportExport/Documentation/Russian/Guides/Guide.md)
 
 ### Пакеты
+
+Весь код приложения хранится в пакетах Mathematica и имеет следующую структуру: 
+
+- **[CustomEncoding\`](/.CustomEncoding/CustomEncoding.m)**
+- **[NotIEEENumberFormat\`](./NotIEEENumberFormat/NotIEEENumberFormat.m)**
+- **[NonStandartImportExport\`](./NonStandartImportExport/NonStandartImportExport.m)**
+  - [\`Extensions\`SEGY\`](./NonStandartImportExport/Extensions/SEGY.m)
