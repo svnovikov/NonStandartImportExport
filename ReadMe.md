@@ -24,7 +24,7 @@ Support import and export non standart files
 форматов представления чисел с плавующей точкой отличных от форматов IEEE. 
 
 - [Руководство - Пользовательские Кодировки](./CustomEncoding/Documentation/Russian/Guides/Guide.md)
-- [Руководство - Не IEEE Форматы Числел](./NotIEEENumberFormat/Documentation/Russian/Guides/Guide.md)
+- [Руководство - Не IEEE Форматы Чисел](./NotIEEENumberFormat/Documentation/Russian/Guides/Guide.md)
 
 Главный раздел документации посвящен функциям импорта и экспорта различных нестандартных типов файлов. 
 В этом разделе описаны функции функции для импортирования и экспортирования данных, а также представлены примеры 
