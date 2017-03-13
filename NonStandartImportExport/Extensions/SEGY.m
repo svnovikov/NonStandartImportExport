@@ -46,6 +46,10 @@ SEGYData /:
 Part[data_SEGYData, key_String, indexes: (_Integer | Span[__Integer])] := 
 data[[key]][[indexes]]; 
 
+SEGYData /: 
+Part[data_SEGYData, key_String, subkey_String] := 
+subkey /. data[[key]]; 
+
 (* /SEGYData *)
 
 (* TextHeader *)
@@ -69,36 +73,63 @@ Join[ToCustomCharacterCode[text, "EBCDIC"], ConstantArray[0, 3200]][[1 ;; 3200]]
 
 (* BinaryHeader *)
 
+SEGYBinaryHeaderTemplate::usage = 
+"SEGYBinaryHeaderTemplate[] \
+list of pairs of the following form: name - position bytes in title\ 
+internal symbol"; 
+
+SEGYBinaryHeaderTemplate[] = 
+{
+	"JobID" -> {1, 2, 3, 4}, 
+	"LineNumber" -> {5, 6, 7, 8},
+	"ReelNumber" -> {9, 10, 11, 12},
+	"NumberDataTraces" -> {13, 14},
+	"NumberAuxTraces" -> {15, 16},
+	"IntervalReelRecord" -> {17, 18},
+	"IntervalFieldRecord" -> {19, 20},
+	"NumberOfSamplesForReel" -> {21, 22},
+	"NumberOfSamplesForField" -> {23, 24},
+	"SamplesFormatCode" -> {25, 26},
+	"CDPFold" -> {27, 28},
+	"TraceSortingCode" -> {29, 30},
+	"VerticalSumCode" -> {31, 32},
+	"SweepFrequencyAtStart" -> {33, 34},
+	"SweepFrequencyAtEnd" -> {35, 36},
+	"SweepLength" -> {37, 38},
+	"SweepTypeCode" -> {39, 40},
+	"TraceNumberOfSweepChannel" -> {41, 42},
+	"SweepTraceTaperLengthAtStart" -> {43, 44},
+	"SweepTraceTaperLength" -> {45, 46},
+	"TaperType" -> {47, 48},
+	"CorrelatedDataTraces" -> {49, 50},
+	"BinaryGainRecovered" -> {51, 52},
+	"AmplitudeRecoveryMethod" -> {53, 54},
+	"MeasurementSystem" -> {55, 56},
+	"ImpulseSignal" -> {57, 58},
+	"VibratoryPolarityCode" -> {59, 60}
+}; 
+
 FromSEGYBinaryHeader::usage = 
 "FromSEGYBinaryHeader[bytes] \
 return {<file bin info>}"; 
 
 FromSEGYBinaryHeader[bytes: {__Integer}] /; 
 Length[bytes] == 400 := 
-{
-	"TimeInterval" -> FromDigits[bytes[[17 ;; 18]], 256] / 10^6, 
-	"TrackLength" -> FromDigits[bytes[[21 ;; 22]], 256], 
-	"NumberFormat" -> FromDigits[bytes[[25 ;; 26]], 256] 
-}; 
+Table[elem[[1]] -> FromDigits[bytes[[elem[[2]]]], 256], {elem, SEGYBinaryHeaderTemplate[]}]; 
 
 ToSEGYBinaryHeader::usage = 
 "ToSEGYBinaryHeader[{info}] \
 return {b1, b2, .. <400 bytes> ..}"; 
 
 ToSEGYBinaryHeader[binaryInfo_List | ("BinaryHeader" -> binaryInfo_List)] := 
-Module[{binaryHeader = ConstantArray[0, 400]}, 
+Block[{bytes = ConstantArray[0, 400]}, 
+	Table[
+		bytes[[elem[[2]]]] = 
+		IntegerDigits[elem[[1]] /. binaryInfo, 256, Length[elem[[2]]]], 
 
-	binaryHeader[[17 ;; 18]] = 
-	IntegerDigits[Round[("TimeInterval" /. binaryInfo)  * 10^6], 256, 2]; 
-
-	binaryHeader[[21 ;; 22]] = 
-	IntegerDigits["TrackLength" /. binaryInfo, 256, 2]; 
-	
-	binaryHeader[[25 ;; 26]] = 
-	IntegerDigits["NumberFormat" /. binaryInfo, 256, 2]; 
-
-	(* return *)
-	binaryHeader
+		{elem, SEGYBinaryHeaderTemplate}
+	]; 
+	bytes
 ]; 
 
 (* /BinaryHeader *)
@@ -132,7 +163,7 @@ return list of numbers";
 FromSEGYTrack[binaryInfo_List | ("BinaryHeader" -> binaryInfo_List)] := 
 FromSEGYTrack["BinaryHeader" -> binaryInfo] = 
 FromSEGYTrack[binaryInfo] = 
-Function[{bytes}, FromNotIEEENumberFormat[bytes, "NumberFormat" /. binaryInfo]]; 
+Function[{bytes}, FromNotIEEENumberFormat[bytes, "SamplesFormatCode" /. binaryInfo]]; 
 
 ToSEGYTrack::usage = 
 "ToSEGYTracks[bynaryInfo][numbers] \
@@ -141,7 +172,7 @@ return list of numbers";
 ToSEGYTrack[("BinaryHeader" -> binaryInfo_List) | binaryInfo_List] := 
 ToSEGYTrack["BinaryHeader" -> binaryInfo] = 
 ToSEGYTrack[binaryInfo] = 
-Function[{numbers}, ToNotIEEENumberFormat[numbers, "NumberFormat" /. binaryInfo]]; 
+Function[{numbers}, ToNotIEEENumberFormat[numbers, "SamplesFormatCode" /. binaryInfo]]; 
 
 (* /SYGYTracks *)
 
@@ -179,8 +210,8 @@ Module[
 	BinaryHeader = 
 	"BinaryHeader" -> FromSEGYBinaryHeader[BinaryReadList[stream, "Byte", 400]]; 
 
-	tracklength = "TrackLength" /. BinaryHeader[[-1]]; 
-	numberformat = "NumberFormat" /. BinaryHeader[[-1]]; 
+	tracklength = "NumberOfSamplesForReel" /. BinaryHeader[[-1]]; 
+	numberformat = "SamplesFormatCode" /. BinaryHeader[[-1]]; 
 	numbersize = NotIEEENumberSize[numberformat]; 
 	trackbytecount = 240 + tracklength * numbersize; 
 	
