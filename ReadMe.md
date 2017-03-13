@@ -36,7 +36,7 @@ Support import and export non standart files
 
 Весь код приложения хранится в пакетах Mathematica и имеет следующую структуру: 
 
-- **[CustomEncoding\`](/.CustomEncoding/CustomEncoding.m)**
+- **[CustomEncoding\`](./CustomEncoding/CustomEncoding.m )**
 - **[NotIEEENumberFormat\`](./NotIEEENumberFormat/NotIEEENumberFormat.m)**
 - **[NonStandartImportExport\`](./NonStandartImportExport/NonStandartImportExport.m)**
   - [\`Extensions\`SEGY\`](./NonStandartImportExport/Extensions/SEGY.m)
