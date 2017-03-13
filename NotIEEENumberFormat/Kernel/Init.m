@@ -2,4 +2,4 @@
 
 (* Init file *)
 
-Get["NonStandartNumberFormat`NonStandartNumberFormat`"]
+Get["NotIEEENumberFormat`NotIEEENumberFormat`"]

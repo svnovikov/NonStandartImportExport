@@ -12,7 +12,7 @@ BeginPackage["NonStandartImportExport`Extensions`SEGY`",
 	{
 		"NonStandartImportExport`", 
 		"CustomEncoding`", 
-		"NonStandartNumberFormat`" 
+		"NotIEEENumberFormat`" 
 	}
 ]; 
 
@@ -128,7 +128,7 @@ return list of numbers";
 FromSEGYTrack[binaryInfo_List | ("BinaryHeader" -> binaryInfo_List)] := 
 FromSEGYTrack["BinaryHeader" -> binaryInfo] = 
 FromSEGYTrack[binaryInfo] = 
-Function[{bytes}, FromNonStandartNumberFormat[bytes, "NumberFormat" /. binaryInfo]]; 
+Function[{bytes}, FromNotIEEENumberFormat[bytes, "NumberFormat" /. binaryInfo]]; 
 
 ToSEGYTrack::usage = 
 "ToSEGYTracks[bynaryInfo][numbers] \
@@ -137,7 +137,7 @@ return list of numbers";
 ToSEGYTrack[("BinaryHeader" -> binaryInfo_List) | binaryInfo_List] := 
 ToSEGYTrack["BinaryHeader" -> binaryInfo] = 
 ToSEGYTrack[binaryInfo] = 
-Function[{numbers}, ToNonStandartNumberFormat[numbers, "NumberFormat" /. binaryInfo]]; 
+Function[{numbers}, ToNotIEEENumberFormat[numbers, "NumberFormat" /. binaryInfo]]; 
 
 (* /SYGYTracks *)
 
@@ -177,7 +177,7 @@ Module[
 
 	tracklength = "TrackLength" /. BinaryHeader[[-1]]; 
 	numberformat = "NumberFormat" /. BinaryHeader[[-1]]; 
-	numbersize = NonStandartNumberByteSize[numberformat]; 
+	numbersize = NotIEEENumberSize[numberformat]; 
 	trackbytecount = 240 + tracklength * numbersize; 
 	
 	trackscount = tracksbytecount / trackbytecount; 

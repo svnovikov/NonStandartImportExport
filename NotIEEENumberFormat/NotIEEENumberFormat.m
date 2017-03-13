@@ -1,33 +1,33 @@
 (* ::Package:: *)
 
-(* :Title: NonStandartNumberFormat *)
-(* :Context: NonStandartNumberFormat` *)
-(* :Version: 0.0.3 *)
+(* :Title: NotIEEENumberFormat *)
+(* :Context: NotIEEENumberFormat` *)
+(* :Version: 0.0.4 *)
 (* :MathematicaVersion: 10.0+ *)
 (* :Keywords: Not IEEE; IBM 32 Float *)
 (* :Email: KirillBelovTest@gmail.com *)
-(* :Creator: Kirill Belov *)
+(* :Creator: Kirill Belov *) 
 
-BeginPackage["NonStandartNumberFormat`"]; 
+BeginPackage["NotIEEENumberFormat`"]; 
 
-NonStandartNumberByteSize::usage = 
-"NonStandartNumberByteSize[format]\
+NotIEEENumberSize::usage = 
+"NotIEEENumberSize[format]\
 return byte size of the number for this format"; 
 
-FromNonStandartNumberFormat::usage = 
-"FromNonStandartNumberFormat[bytes, \"format\"] return list of numbers"; 
+FromNotIEEENumberFormat::usage = 
+"FromNotIEEENumberFormat[bytes, \"format\"] return list of numbers"; 
 
-ToNonStandartNumberFormat::usage = 
-"ToNonStandartNumberFormat[number, \"format\"] return list of bytes"; 
+ToNotIEEENumberFormat::usage = 
+"ToNotIEEENumberFormat[number, \"format\"] return list of bytes"; 
 
 Begin["`Private`"]; 
 
-NonStandartNumberByteSize[1 | "IMB 32 Float"] := 4; 
+NotIEEENumberSize[1 | "IMB 32 Float"] := 4; 
 
-FromNonStandartNumberFormat[bytes: {__Integer}, 1 | "IBM 32 Float"] := 
+FromNotIEEENumberFormat[bytes: {__Integer}, 1 | "IBM 32 Float"] := 
 FromIBM32Float[bytes]; 
 
-ToNonStandartNumberFormat[numbers: {__Real}, 1 | "IBM 32 Float"] := 
+ToNotIEEENumberFormat[numbers: {__Real}, 1 | "IBM 32 Float"] := 
 Flatten[ToIBM32Float[numbers]]; 
 
 (* IMB 32 Float *) 
