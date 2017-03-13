@@ -28,15 +28,20 @@ Begin["`Private`"];
 
 NotIEEENumberSize[1 | "IMB 32 Float"] := 4; 
 
-FromNotIEEENumberFormat[bytes: {__Integer}, 1 | "IBM 32 Float"] := 
-FromIBM32Float[bytes]; 
+Options[FromNotIEEENumberFormat] = {"CompilationTarget" -> "MVM"}; 
 
-ToNotIEEENumberFormat[numbers: {__Real}, 1 | "IBM 32 Float"] := 
-Flatten[ToIBM32Float[numbers]]; 
+FromNotIEEENumberFormat[bytes: {__Integer}, 1 | "IBM 32 Float", OptionsPattern[]] := 
+FromIBM32Float[OptionValue["CompilationTarget"]][bytes]; 
+
+Options[ToNotIEEENumberFormat] = {"CompilationTarget" -> "MVM"}; 
+
+ToNotIEEENumberFormat[numbers: {__Real}, 1 | "IBM 32 Float", OptionsPattern[]] := 
+Flatten[ToIBM32Float[OptionValue["CompilationTarget"]][numbers]]; 
 
 (* IMB 32 Float *) 
 
-FromIBM32Float = 
+FromIBM32Float[target: ("MVM" | "C")] := 
+FromIBM32Float[target] = 
 Compile[{{bytes, _Integer, 1}}, 
 	
 	(* return *) 
@@ -59,7 +64,8 @@ Compile[{{bytes, _Integer, 1}},
 	]
 ]; 
 
-ToIBM32Float = 
+ToIBM32Float[target: ("MVM" | "C")] := 
+ToIBM32Float[target] = 
 Compile[{{number, _Real}}, 
     Module[{rsign, exp, firstbyte, fractbytes}, 
 	
