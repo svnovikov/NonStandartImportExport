@@ -30,6 +30,6 @@ Support import and export non standart files
 В этом разделе описаны функции функции для импортирования и экспортирования данных, а также представлены примеры 
 их использования. Кроме того подробно рассматриваются поддерживаемые расширения файлов. 
 
-- [Руководство - Нестандартный Импорт и Экспорт](./NonStandartImportExaport/Documentation/Russian/Guides/Guide.md)
+- [Руководство - Нестандартный Импорт и Экспорт](./NonStandartImportExport/Documentation/Russian/Guides/Guide.md)
 
 ### Пакеты
