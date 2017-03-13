@@ -46,7 +46,7 @@ tracks = data[["Tracks"]]
 Отобразить полученные данные на графике можно так: 
 
 ```mathematica
-ArrayPlot[Transpose[data1[["Tracks"]]], 
+ArrayPlot[Transpose[tracks], 
 AspectRatio -> 0.5, ImageSize -> Large, PlotLegends -> Automatic, FrameTicks -> Automatic, 
 PlotLabel -> "Модель Marmousi \n Разрез скоростей продольных волн"] 
 ```
