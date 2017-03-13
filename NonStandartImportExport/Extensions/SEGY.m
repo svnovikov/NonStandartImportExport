@@ -20,14 +20,6 @@ BeginPackage["NonStandartImportExport`Extensions`SEGY`",
 Unprotect["`*"]; 
 Clear["`*"]; 
 
-SEGYData::usage = 
-"SEGYData[\"TextHeader\" -> \"C 1 ..\", \
-\"BinaryHeader\" -> {..}, \
-\"Tracks\" -> {\"Headers\" -> {..}, \"Data\" -> {..}}]"; 
-
-SEGYUnloaded::usage = 
-"SEGYUnloaded[]"; 
-
 SEGYImport::usage = 
 "SEGYImport[file, \"SEGY\"]"; 
 
@@ -35,20 +27,6 @@ SEGYExport::usage =
 "SEGYExport[file, data, \"SEGY\"]"; 
 
 Begin["`Private`"]; 
-
-(* SEGYData *)
-
-SEGYData /: 
-Part[SEGYData[data_List], key_String] := 
-key /. data; 
-
-SEGYData /: 
-Part[data_SEGYData, key_String, indexes: (_Integer | Span[__Integer])] := 
-data[[key]][[indexes]]; 
-
-SEGYData /: 
-Part[data_SEGYData, key_String, subkey_String] := 
-subkey /. (data[[key]]); 
 
 (* /SEGYData *)
 
