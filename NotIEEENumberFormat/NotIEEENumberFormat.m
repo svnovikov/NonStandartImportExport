@@ -10,6 +10,10 @@
 
 BeginPackage["NotIEEENumberFormat`"]; 
 
+(* preparation *)
+Unprotect["`*"]; 
+Clear["`*"]; 
+
 NotIEEENumberSize::usage = 
 "NotIEEENumberSize[format]\
 return byte size of the number for this format"; 
@@ -86,5 +90,9 @@ Compile[{{number, _Real}},
 (* /IBM 32 Float *) 
 
 End[]; (*`Private`*)
+
+(* protection from change *) 
+SetAttributes[Evaluate[Names["`*"]], ReadProtected]; 
+Protect["`*"]; 
 
 EndPackage[]; (*`NonStandartNumberFormat`*) 

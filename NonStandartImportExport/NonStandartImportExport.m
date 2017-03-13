@@ -14,7 +14,12 @@ BeginPackage["NonStandartImportExport`",
 	}
 ]; 
 
-Unprotect[{NonStandartImport, NonStandartExport, NonStandartLoad}]; 
+(* preparation *)
+Unprotect["`*"]; 
+Clear["`*"]; 
+
+$NonStandartImportExportDirectory::usage = 
+"$NonStandartImportExportDirectory - NonStandartImportExamport project directory"; 
 
 NonStandartLoad::usage = 
 "NonStandartLoad[Unload[]]"; 
@@ -35,6 +40,10 @@ NonStandartImport::wrgfl =
 
 NonStandartExport::wrgfl = 
 "The wrong file `1`"; 
+
+(* definition for the project directory *)
+$NonStandartImportExportDirectory = 
+FileNameJoin[FileNameSplit[$InputFileName][[1 ;; -3]]]; 
 
 (* SEG-Y *) 
 
@@ -62,9 +71,8 @@ SEGYExport[file, data, opts];
 
 End[]; (*`Private`*) 
 
-SetAttributes[
-	{NonStandartImport, NonStandartExport, NonStandartLoad}, 
-	{ReadProtected, Protected}
-]; 
+(* protection from change *) 
+SetAttributes[Evaluate[Names["`*"]], ReadProtected]; 
+Protect["`*"]; 
 
-EndPackage[]; (*NonStandartImportExport`*) 
+EndPackage[]; (*NonStandartImportExport`*)  

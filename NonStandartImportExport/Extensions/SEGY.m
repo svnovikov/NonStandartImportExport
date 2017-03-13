@@ -16,6 +16,10 @@ BeginPackage["NonStandartImportExport`Extensions`SEGY`",
 	}
 ]; 
 
+(* preparation *)
+Unprotect["`*"]; 
+Clear["`*"]; 
+
 SEGYData::usage = 
 "SEGYData[\"TextHeader\" -> \"C 1 ..\", \
 \"BinaryHeader\" -> {..}, \
@@ -299,5 +303,9 @@ SEGYExport[file_String, data_SEGYData] :=
 (* /SEGYExport *)
 
 End[]; (*`Private`*)
+
+(* protection from change *) 
+SetAttributes[Evaluate[Names["`*"]], ReadProtected]; 
+Protect["`*"]; 
 
 EndPackage[]; (*`SEGY`*) 

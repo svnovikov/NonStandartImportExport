@@ -10,7 +10,9 @@
 
 BeginPackage["CustomEncoding`"]; 
 
-Unprotect[{FromCustomCharacterCode, ToCustomCharacterCode}]; 
+(* preparation *)
+Unprotect["`*"]; 
+Clear["`*"]; 
 
 FromCustomCharacterCode::usage = 
 "FromNonStandartCharacterCode[data, encoding]"; 
@@ -96,6 +98,8 @@ SetAttributes[{$CustomEncodings, CustomEncodingDeclaredQ}, {ReadProtected, Prote
 
 End[]; (*`Private`*)
 
-SetAttributes[{FromCustomCharacterCode, ToCustomCharacterCode}, {ReadProtected, Protected}]
+(* protection from change *) 
+SetAttributes[Evaluate[Names["`*"]], ReadProtected]; 
+Protect["`*"]; 
 
 EndPackage[]; (*CustomEncoding`*) 
