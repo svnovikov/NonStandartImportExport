@@ -1,13 +1,13 @@
 BeginTestSection["IBM32FloatTest"]
 
 VerificationTest[(* 1 *)
-	Get["NonStandartNumberFormat`"]
+	Get["NotIEEENumberFormat`"]
 	,
 	Null	
 ]
 
 VerificationTest[(* 2 *)
-	List[NonStandartNumberByteSize[1], NonStandartNumberByteSize["IMB 32 Float"]]
+	List[NotIEEENumberSize[1], NotIEEENumberSize["IMB 32 Float"]]
 	,
 	List[4, 4]	
 	,
@@ -15,7 +15,7 @@ VerificationTest[(* 2 *)
 ]
 
 VerificationTest[(* 3 *)
-	FromNonStandartNumberFormat[List[64, 255, 255, 255], 1]
+	FromNotIEEENumberFormat[List[64, 255, 255, 255], 1]
 	,
 	List[Times[Plus[Power[256.`, 3], -1.`], Power[Power[256.`, 3], -1]]]	
 	,
@@ -23,7 +23,7 @@ VerificationTest[(* 3 *)
 ]
 
 VerificationTest[(* 4 *)
-	ToNonStandartNumberFormat[List[Times[Plus[Power[256.`, 3], -1], Power[Power[256.`, 3], -1]]], 1]
+	ToNotIEEENumberFormat[List[Times[Plus[Power[256.`, 3], -1], Power[Power[256.`, 3], -1]]], 1]
 	,
 	List[64, 255, 255, 255]	
 	,
@@ -31,7 +31,7 @@ VerificationTest[(* 4 *)
 ]
 
 VerificationTest[(* 5 *)
-	CompoundExpression[Set[bytesIn, List[0, 255, 255, 255, 1, 255, 255, 255, 63, 255, 255, 255, 64, 255, 255, 255, 65, 255, 255, 255, 126, 255, 255, 255, 127, 255, 255, 255, 128, 255, 255, 255, 129, 255, 255, 255, 191, 255, 255, 255, 192, 255, 255, 255, 193, 255, 255, 255, 254, 255, 255, 255, 255, 255, 255, 255]], Set[numsIn, List[Times[Times[Plus[Power[256.`, 3], -1], Power[Power[256.`, 3], -1]], Power[16.`, -64]], Times[Times[Plus[Power[256.`, 3], -1], Power[Power[256.`, 3], -1]], Power[16.`, -63]], Times[Times[Plus[Power[256.`, 3], -1], Power[Power[256.`, 3], -1]], Power[16.`, -1]], Times[Plus[Power[256.`, 3], -1], Power[Power[256.`, 3], -1]], Times[Times[Plus[Power[256.`, 3], -1], Power[Power[256.`, 3], -1]], 16.`], Times[Times[Plus[Power[256.`, 3], -1], Power[Power[256.`, 3], -1]], Power[16.`, 62]], Times[Times[Plus[Power[256.`, 3], -1], Power[Power[256.`, 3], -1]], Power[16.`, 63]], Times[Times[-1, Times[Plus[Power[256.`, 3], -1], Power[Power[256.`, 3], -1]]], Power[16.`, -64]], Times[Times[-1, Times[Plus[Power[256.`, 3], -1], Power[Power[256.`, 3], -1]]], Power[16.`, -63]], Times[Times[-1, Times[Plus[Power[256.`, 3], -1], Power[Power[256.`, 3], -1]]], Power[16.`, -1]], Times[-1, Times[Plus[Power[256.`, 3], -1], Power[Power[256.`, 3], -1]]], Times[Times[-1, Times[Plus[Power[256.`, 3], -1], Power[Power[256.`, 3], -1]]], 16.`], Times[Times[-1, Times[Plus[Power[256.`, 3], -1], Power[Power[256.`, 3], -1]]], Power[16.`, 62]], Times[Times[-1, Times[Plus[Power[256.`, 3], -1], Power[Power[256.`, 3], -1]]], Power[16.`, 63]]]], List[FromNonStandartNumberFormat[bytesIn, 1], ToNonStandartNumberFormat[numsIn, 1]]]
+	CompoundExpression[Set[bytesIn, List[0, 255, 255, 255, 1, 255, 255, 254, 63, 255, 255, 255, 64, 255, 255, 255, 65, 255, 255, 254, 127, 255, 255, 255, 128, 255, 255, 255]], Set[numsIn, List[Times[Times[Plus[Power[256.`, 3], -1], Power[Power[256.`, 3], -1]], Power[16.`, -64]], Times[Times[Plus[Power[256.`, 3], -2], Power[Power[256.`, 3], -1]], Power[16.`, -63]], Times[Times[Plus[Power[256.`, 3], -1], Power[Power[256.`, 3], -1]], Power[16.`, -1]], Times[Plus[Power[256.`, 3], -1], Power[Power[256.`, 3], -1]], Times[Times[Plus[Power[256.`, 3], -2], Power[Power[256.`, 3], -1]], 16.`], Times[Times[Plus[Power[256.`, 3], -1], Power[Power[256.`, 3], -1]], Power[16.`, 63]], Times[Times[-1, Times[Plus[Power[256.`, 3], -1], Power[Power[256.`, 3], -1]]], Power[16.`, -64]]]], List[FromNotIEEENumberFormat[bytesIn, 1], ToNotIEEENumberFormat[numsIn, 1]]]
 	,
 	List[numsIn, bytesIn]	
 	,

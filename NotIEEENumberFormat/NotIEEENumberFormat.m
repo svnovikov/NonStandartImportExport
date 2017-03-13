@@ -63,10 +63,11 @@ ToIBM32Float =
 Compile[{{number, _Real}}, 
     Module[{rsign, exp, firstbyte, fractbytes}, 
 	
-		If[number > (15.0) * 16.0^62, Return[{127, 255, 255, 255}]]; 
-		If[number < - (15.0) * 16.0^62, Return[{255, 255, 255, 255}]]; 
-		If[Abs[number] < (16.0^-62)/15, Return[{0, 255, 255, 255}]]; 
-	
+		If[number >= 7.2370051459731155`*^75, Return[{127, 255, 255, 255}]]; 
+		If[number <= - 7.2370051459731155`*^75, Return[{255, 255, 255, 255}]]; 
+		If[0.0 <= number <= 8.636168040338686`*^-78, Return[{0, 255, 255, 255}]]; 
+		If[0.0 > number >= - 8.636168040338686`*^-78, Return[{128, 255, 255, 255}]]; 
+
 		(* bit for the represintation of the sign of the number *)
         rsign = UnitStep[-number]; 
 
@@ -75,7 +76,7 @@ Compile[{{number, _Real}},
 		
 		(* first byte *)
 		firstbyte = exp + 64 + rsign * 128; 
-        
+
         (* bytes og the fraction part *)
 		fractbytes = IntegerDigits[Floor[256.0^3 number / (16.0^exp)], 256, 3]; 
 
