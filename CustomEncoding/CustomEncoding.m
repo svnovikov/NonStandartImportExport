@@ -83,20 +83,20 @@ If[
 ] := 
 StringJoin[bytes /. (encoding /. $CustomEncodings)]; 
 
-(* this function convert string to bytes *)
+(* this function convert string to bytes *) 
 
 ToCustomCharacterCode[text_String, encoding_String] /; 
 If[
 	CustomEncodingDeclaredQ[encoding], 
 	True, 
-	Message[$CustomEncodings::noenc, encoding]; False
+	Message[$CustomEncodings::noenc, encoding]; False 
 ] := 
 StringSplit[text, ""] /. 
-(encoding /. $CustomEncodings)[[All, {2, 1}]]
+(encoding /. $CustomEncodings)[[All, {2, 1}]] 
 
 SetAttributes[{$CustomEncodings, CustomEncodingDeclaredQ}, {ReadProtected, Protected}]; 
 
-End[]; (*`Private`*)
+End[]; (*`Private`*) 
 
 (* protection from change *) 
 SetAttributes[Evaluate[Names["`*"]], ReadProtected]; 
