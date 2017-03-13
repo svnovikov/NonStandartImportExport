@@ -48,7 +48,7 @@ data[[key]][[indexes]];
 
 SEGYData /: 
 Part[data_SEGYData, key_String, subkey_String] := 
-subkey /. data[[key]]; 
+subkey /. (data[[key]]); 
 
 (* /SEGYData *)
 
