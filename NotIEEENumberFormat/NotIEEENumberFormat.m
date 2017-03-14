@@ -28,20 +28,15 @@ Begin["`Private`"];
 
 NotIEEENumberSize[1 | "IMB 32 Float"] := 4; 
 
-Options[FromNotIEEENumberFormat] = {"CompilationTarget" -> "MVM"}; 
+FromNotIEEENumberFormat[bytes: {__Integer}, 1 | "IBM 32 Float"] := 
+FromIBM32Float[bytes]; 
 
-FromNotIEEENumberFormat[bytes: {__Integer}, 1 | "IBM 32 Float", OptionsPattern[]] := 
-FromIBM32Float[OptionValue["CompilationTarget"]][bytes]; 
-
-Options[ToNotIEEENumberFormat] = {"CompilationTarget" -> "MVM"}; 
-
-ToNotIEEENumberFormat[numbers: {__Real}, 1 | "IBM 32 Float", OptionsPattern[]] := 
-Flatten[ToIBM32Float[OptionValue["CompilationTarget"]][numbers]]; 
+ToNotIEEENumberFormat[numbers: {__Real}, 1 | "IBM 32 Float"] := 
+Flatten[ToIBM32Float[numbers]]; 
 
 (* IMB 32 Float *) 
 
-FromIBM32Float[target: ("MVM" | "C")] := 
-FromIBM32Float[target] = 
+FromIBM32Float = 
 Compile[{{bytes, _Integer, 1}}, 
 	
 	(* return *) 
@@ -64,15 +59,13 @@ Compile[{{bytes, _Integer, 1}},
 	]
 ]; 
 
-ToIBM32Float[target: ("MVM" | "C")] := 
-ToIBM32Float[target] = 
+ToIBM32Float = 
 Compile[{{number, _Real}}, 
     Module[{rsign, exp, firstbyte, fractbytes}, 
-	
+
 		If[number >= 7.2370051459731155`*^75, Return[{127, 255, 255, 255}]]; 
 		If[number <= - 7.2370051459731155`*^75, Return[{255, 255, 255, 255}]]; 
-		If[0.0 <= number <= 8.636168040338686`*^-78, Return[{0, 255, 255, 255}]]; 
-		If[0.0 > number >= - 8.636168040338686`*^-78, Return[{128, 255, 255, 255}]]; 
+		If[- 8.636168040338686`*^-78 <= number <= 8.636168040338686`*^-78, Return[{0, 0, 0, 0}]]; 
 
 		(* bit for the represintation of the sign of the number *)
         rsign = UnitStep[-number]; 

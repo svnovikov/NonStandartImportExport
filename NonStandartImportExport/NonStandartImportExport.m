@@ -67,6 +67,9 @@ If[
 ] := 
 SEGYExport[file, data, opts]; 
 
+NonStandartLoad[unloaded_FileFormats`SEGY`SEGYUnloaded, opts: OptionsPattern[SEGYLoad]] := 
+SEGYLoad[unloaded, opts]; 
+
 (* /SEG-Y *) 
 
 End[]; (*`Private`*) 
