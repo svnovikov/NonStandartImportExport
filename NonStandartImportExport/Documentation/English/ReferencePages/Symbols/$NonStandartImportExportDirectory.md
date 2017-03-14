@@ -2,19 +2,19 @@
 
 ---
 
-$NonStandartImportExportDirectory - переменная, которая хранит адрес директории проекта
+$NonStandartImportExportDirectory
 
 ---
 
-## Смотрите Также
+## See Also
 
-**[NonStandartImport](./NonStandartImport.md)** 
+**[NonStandartImport](./NonStandartImport.md)**
 **[NonStandartExport](./NonStandartImport.md)**
 
-## Связанные Туториалы
+## Related Tutorials
 
-[Нестандартный Импорт и Экспорт - Примеры Использования](../../Tutorials/ExampleOfUse.md)
+[Non Standard Import and Export - Example Of Use](../../Tutorials/ExampleOfUse.md)
 
-## Связанные Руководства
+## Related Guides
 
-[Нестандартный Импорт и Экспорт - Руководство](../../Guides/Guide.md)
+[Non Standard Import and Export - Guide](../../Guides/Guide.md)
