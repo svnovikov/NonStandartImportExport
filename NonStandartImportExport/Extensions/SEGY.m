@@ -12,7 +12,8 @@ BeginPackage["NonStandartImportExport`Extensions`SEGY`",
 	{
 		"NonStandartImportExport`", 
 		"CustomEncoding`", 
-		"NotIEEENumberFormat`" 
+		"NotIEEENumberFormat`", 
+		"FileFormats`Extensions`SEGY`"
 	}
 ]; 
 
@@ -144,7 +145,14 @@ FromSEGYTrack[
 ] := 
 FromSEGYTrack["BinaryHeader" -> binaryInfo, opts] = 
 FromSEGYTrack[binaryInfo, opts] = 
-Function[{bytes}, FromNotIEEENumberFormat[bytes, "SamplesFormatCode" /. binaryInfo, opts]]; 
+FromSEGYTrack["SamplesFormatCode" /. binaryInfo, opts]; 
+
+FromSEGYTrack[
+	numberFormat: (_Integer | _String), 
+	opts: OptionsPattern[FromNotIEEENumberFormat]
+] := 
+FromSEGYTrack[numberFormat, opts] = 
+Function[{bytes}, FromNotIEEENumberFormat[bytes, numberFormat, opts]]; 
 
 ToSEGYTrack::usage = 
 "ToSEGYTracks[bynaryInfo][numbers] \
@@ -175,7 +183,8 @@ Function[ToNotIEEENumberFormat[#, numberFormat, opts]];
 	TrackConverting -> {CompilationTarget -> "MVM"} - using MVM as compilation target  
 	TrackConverting -> {CompilationTarget -> "C"} - using C as compilation target 
 *)
-Options[SEGYImport] = {"Loading" -> "Memory", "TrackConverting" -> {"CompilationTarget" -> "C"}}; 
+Options[SEGYImport] = 
+{"Loading" -> "Memory", "TrackConverting" -> {"CompilationTarget" -> "C"}}; 
 
 SEGYImport::erropt = 
 "Error option value `1`"; 
@@ -184,14 +193,14 @@ SEGYImport[file: (_File | _String), OptionsPattern[]] :=
 Module[
 	{
 		Loading = OptionValue["Loading"], 
-		TrackConvert = OptionValue["TrackConverting"], 
+		convertOpts = OptionValue["TrackConverting"], 
 		stream = OpenRead[file, BinaryFormat -> True], 
 		
 		filebytecount = FileByteCount[file], 
 		tracksbytecount = FileByteCount[file] - 3600, 
 		tracklength, numbersize, trackscount, numberformat, 
 		trackbytecount, 
-		
+
 		TextHeader, BinaryHeader, Headers, Tracks
 	}, 
 
@@ -219,27 +228,19 @@ Module[
 				{pos, 3600, filebytecount - trackbytecount, trackbytecount}
 			], 
 		
-		"Damp", 
-			2, 
+		"Dump", 
+			$Failed, 
 		
-		"Delayed", 
-			Table[
-				With[
-					{pos = pos}, 
-					
-					SEGYUnloaded[
-						{
-							"File" -> file, 
-							"Start" -> pos, 
-							"Bytes" -> 240, 
-							"Function" -> FromSEGYHeader[]
-						}
-					]
-				], 
+		"Delayed",
+			{
+				"DataFile" -> file, 
+				"LoadFunction" -> FromSEGYHeader[], 
+				"Positions" -> Table[ 
+					{pos, 240}, 
+					{pos, 3600, filebytecount - trackbytecount, trackbytecount}
+				]
+			}, 
 
-				{pos, 3600, filebytecount - trackbytecount, trackbytecount}
-			], 
-		
 		_, 
 			Message[SEGYImport::erropt, Loading]; Abort[]
 	]; 
@@ -248,31 +249,23 @@ Module[
 		"Memory", 
 			Table[
 				SetStreamPosition[stream, pos + 240]; 
-				FromSEGYTrack[BinaryHeader, TrackConvert][BinaryReadList[stream, "Byte", trackbytecount - 240]], 
+				FromSEGYTrack[BinaryHeader, convertOpts][BinaryReadList[stream, "Byte", trackbytecount - 240]], 
 
 				{pos, 3600, filebytecount - trackbytecount, trackbytecount}
 			], 
 		
-		"Damp", 
-			2, 
+		"Dump", 
+			$Failed, 
 		
 		"Delayed", 
-			Table[
-				With[
-					{pos = pos, bytecount = trackbytecount}, 
-					
-					SEGYUnloaded[
-						{
-							"File" -> file, 
-							"Start" -> pos + 240, 
-							"Bytes" -> bytecount - 240, 
-							"Function" -> FromSEGYTrack[BinaryHeader, TrackConvert]
-						}
-					]
-				], 
-
-				{pos, 3600, filebytecount - trackbytecount, trackbytecount}
-			], 
+			SEGYUnloaded[{
+				"DataFile" -> file, 
+				"LoadFunction" -> FromSEGYTrack[BinaryHeader, convertOpts], 
+				"Positions" -> Table[
+					{pos + 240, bytecount - 240}, 
+					{pos, 3600, filebytecount - trackbytecount, trackbytecount}
+				] 
+			}], 
 
 		_, 
 			Message[SEGYImport::erropt, Loading]; Abort[]
@@ -286,32 +279,16 @@ Module[
 
 (* /SEGYImport *) 
 
-(* SEGYUnloaded *) 
+(* SEGYLoad *) 
 
-SEGYUnloaded /: 
-NonStandartImportExport`NonStandartLoad[
-	SEGYUnloaded[
-		{
-			"File" -> file: (_File | _String), 
-			"Start" -> start_Integer, 
-			"Bytes" -> bytes_Integer, 
-			"Function" -> function_
-		}
-	]
-] := 
-Function[
-	Reap[
-		SetStreamPosition[#1, #2]; 
-		Sow[function[BinaryReadList[#1, "Byte", #3]]]; 
-		Close[#1]; 
-	][[-1, -1, -1]] 
-][OpenRead[file, BinaryFormat -> True], start, bytes]; 
+SEGYLoad[] := Null; 
 
-(* /SEGYUnloaded *)
+(* /SEGYLoad *)
 
 (* SEGYExport *)
 
-Options[SEGYExport] = {"TrackConverting" -> {"CompilationTarget" -> "MVM"}}; 
+Options[SEGYExport] = 
+{"TrackConverting" -> {"CompilationTarget" -> "MVM"}}; 
 
 SEGYExport[file_String, data_SEGYData, OptionsPattern[]] := 
 (
@@ -328,7 +305,7 @@ SEGYExport[file_String, data_SEGYData, OptionsPattern[]] :=
 
 (* /SEGYExport *)
 
-End[]; (*`Private`*)
+End[]; (*`Private`*) 
 
 (* protection from change *) 
 SetAttributes[Evaluate[Names["`*"]], ReadProtected]; 

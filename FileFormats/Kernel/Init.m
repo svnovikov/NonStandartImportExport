@@ -1,3 +1,3 @@
 (* Init file *)
 
-Get["FileFormats`FileFormats`"]
+Get["FileFormats`SEGY`"]
