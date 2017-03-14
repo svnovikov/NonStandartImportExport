@@ -1,0 +1,3042 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    154641,       3034]
+NotebookOptionsPosition[    151300,       2920]
+NotebookOutlinePosition[    151648,       2935]
+CellTagsIndexPosition[    151605,       2932]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\:041f\:0440\:0438\:043c\:0435\:0440 \:0440\:0430\:0431\:043e\:0442\
+\:044b \:0441 SEGY", "Chapter",
+ CellChangeTimes->{{3.698489801844121*^9, 3.6984898092296057`*^9}},
+ FontFamily->"Arial"],
+
+Cell["\:0417\:0430\:0433\:0440\:0443\:0437\:043a\:0430 \:043a\:043e\:043d\
+\:0442\:0435\:043a\:0441\:0442\:0430", "Text",
+ CellChangeTimes->{{3.6984898135724673`*^9, 3.698489817186813*^9}}],
+
+Cell[BoxData[
+ RowBox[{"<<", "NonStandartImportExport`"}]], "Code",
+ CellChangeTimes->{{3.698489820340168*^9, 3.6984898275544076`*^9}}],
+
+Cell["\:0414\:0438\:0440\:0435\:043a\:0442\:043e\:0440\:0438\:044f \:0443\
+\:0441\:0442\:0430\:043d\:043e\:0432\:043a\:0438 \:043f\:0430\:043a\:0435\
+\:0442\:0430: ", "Text",
+ CellChangeTimes->{{3.6984898394261723`*^9, 3.698489852847478*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["$NonStandartImportExportDirectory"], "Code",
+ CellChangeTimes->{{3.698489856567132*^9, 3.698489863753623*^9}}],
+
+Cell[BoxData["\<\"E:\\\\Test Items\\\\Wolfram \
+Language\\\\Mathematica\\\\Projects\\\\NonStandartImportExport\"\>"], "Output",
+ CellChangeTimes->{
+  3.698489864116049*^9, {3.6984901112843623`*^9, 3.698490147090094*^9}, 
+   3.6984904636860356`*^9, 3.6984905316447477`*^9, 3.6984906408383703`*^9, 
+   3.698491349817563*^9}]
+}, Open  ]],
+
+Cell["\:0424\:0430\:0439\:043b \:0441 \:043f\:0440\:0438\:043c\:0435\:0440\
+\:043e\:043c - \:043c\:043e\:0434\:0435\:043b\:044c \
+\[OpenCurlyDoubleQuote]Marmousi\[CloseCurlyDoubleQuote] \:0432 \:0440\:0435\
+\:0441\:0443\:0440\:0441\:043d\:043e\:0439 \:0434\:0438\:0440\:0435\:043a\
+\:0442\:043e\:0440\:0438\:0438: ", "Text",
+ CellChangeTimes->{{3.6984898743045964`*^9, 3.698489917621174*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"fileIn", " ", "=", " ", 
+  RowBox[{"FileNameJoin", "[", 
+   RowBox[{"{", 
+    RowBox[{
+    "$NonStandartImportExportDirectory", ",", " ", "\"\<Resources\>\"", ",", 
+     " ", "\"\<MarmousiModel.segy\>\""}], "}"}], "]"}]}]], "Code",
+ CellChangeTimes->{{3.6984899252028494`*^9, 3.698489959763341*^9}, {
+  3.698490009121915*^9, 3.698490009347382*^9}}],
+
+Cell[BoxData["\<\"E:\\\\Test Items\\\\Wolfram \
+Language\\\\Mathematica\\\\Projects\\\\NonStandartImportExport\\\\Resources\\\
+\\MarmousiModel.segy\"\>"], "Output",
+ CellChangeTimes->{
+  3.698489961127494*^9, 3.698490010013856*^9, {3.698490111292753*^9, 
+   3.698490148311552*^9}, 3.698490463693553*^9, 3.6984905346668634`*^9, 
+   3.698490642137253*^9, 3.69849134982707*^9}]
+}, Open  ]],
+
+Cell["\:0418\:043c\:043f\:043e\:0440\:0442 \:044d\:0442\:043e\:0433\:043e \
+\:0444\:0430\:0439\:043b\:0430: ", "Text",
+ CellChangeTimes->{{3.698489965586524*^9, 3.69848997620242*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"dataIn", " ", "=", " ", 
+  RowBox[{"NonStandartImport", "[", 
+   RowBox[{"fileIn", ",", " ", "\"\<SEGY\>\""}], "]"}]}]], "Code",
+ CellChangeTimes->{{3.698489979313924*^9, 3.6984900050680523`*^9}, {
+  3.6984901365641985`*^9, 3.698490136754266*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   FrameBox[GridBox[{
+      {
+       ItemBox[
+        TagBox[
+         RowBox[{"SEGYData", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"\<\"TextHeader\"\>", "\[Rule]", 
+             
+             RowBox[{"\<\"                                                    \
+                                                                              \
+                \"\>", 
+              "\[Ellipsis]", "\<\"                                            \
+                                                                              \
+                        \"\>"}]}], ",", 
+            TemplateBox[{"2"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+               FrameStyle -> None, RoundingRadius -> 7]& )], ",", 
+            RowBox[{"\<\"Tracks\"\>", "\[Rule]", 
+             TemplateBox[{"1"},
+              "OutputSizeLimit`Skeleton",
+              DisplayFunction->(FrameBox[
+                
+                RowBox[{
+                 "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                Background -> GrayLevel[0.75], 
+                BaseStyle -> {
+                 "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                  ShowStringCharacters -> False}, BaselinePosition -> 
+                Baseline, ContentPadding -> False, 
+                FrameMargins -> {{1, 1}, {1, 2}}, FrameStyle -> None, 
+                RoundingRadius -> 7]& )]}]}], "}"}], "]"}],
+         Short[#, 5]& ],
+        BaseStyle->{Deployed -> False},
+        StripOnInput->False]},
+      {GridBox[{
+         {
+          TagBox[
+           TooltipBox[
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource[
+                "FEStrings", "sizeBriefExplanation"], StandardForm],
+               ImageSizeCache->{65., {3., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarCategory",
+             StripOnInput->False],
+            StyleBox[
+             DynamicBox[
+              ToBoxes[
+               FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"], 
+               StandardForm]], DynamicUpdating -> True, StripOnInput -> 
+             False]],
+           Annotation[#, 
+            Style[
+             Dynamic[
+              FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"]], 
+             DynamicUpdating -> True], "Tooltip"]& ], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm],
+               ImageSizeCache->{52., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 4, 32437797997615064440, 5/2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm],
+               ImageSizeCache->{62., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 4, 32437797997615064440, 5 2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm],
+               ImageSizeCache->{44., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 4, 32437797997615064440, Infinity],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm],
+               ImageSizeCache->{78., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           ButtonFunction:>FrontEndExecute[{
+              FrontEnd`SetOptions[
+              FrontEnd`$FrontEnd, 
+               FrontEnd`PreferencesSettings -> {"Page" -> "Evaluation"}], 
+              FrontEnd`FrontEndToken["PreferencesDialog"]}],
+           Evaluator->None,
+           Method->"Preemptive"]}
+        },
+        AutoDelete->False,
+        FrameStyle->GrayLevel[0.85],
+        GridBoxDividers->{"Columns" -> {False, {True}}},
+        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+        GridBoxSpacings->{"Columns" -> {{2}}}]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxDividers->{
+      "Columns" -> {{False}}, "ColumnsIndexed" -> {}, "Rows" -> {{False}}, 
+       "RowsIndexed" -> {}},
+     GridBoxItemSize->{
+      "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], 
+         Offset[1.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Background->RGBColor[0.9657, 0.9753, 0.9802],
+    FrameMargins->{{12, 12}, {0, 15}},
+    FrameStyle->GrayLevel[0.85],
+    RoundingRadius->5,
+    StripOnInput->False],
+   Deploy,
+   DefaultBaseStyle->"Deploy"],
+  Out[4]]], "Output",
+ CellChangeTimes->{{3.698489997335539*^9, 3.6984900133533707`*^9}, {
+   3.698490111302247*^9, 3.6984901499170675`*^9}, 3.698490463934224*^9, 
+   3.6984905364019427`*^9, 3.698490643899061*^9, 3.6984913500767465`*^9}]
+}, Open  ]],
+
+Cell["\:0420\:0430\:0431\:043e\:0442\:0430 \:0441 \:043f\:043e\:043b\:0443\
+\:0447\:0435\:043d\:043d\:044b\:043c\:0438 \:0434\:0430\:043d\:043d\:044b\
+\:043c\:0438: ", "Text",
+ CellChangeTimes->{{3.6984900197222967`*^9, 3.6984900244423428`*^9}}],
+
+Cell["\:041f\:043e\:043b\:0443\:0447\:0435\:043d\:0438\:0435 \:0442\:0435\
+\:043a\:0441\:0442\:043e\:0432\:043e\:0433\:043e \:0437\:0430\:0433\:043e\
+\:043b\:043e\:0432\:043a\:0430: ", "Text",
+ CellChangeTimes->{{3.6984900284824095`*^9, 3.6984900391632657`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"dataIn", "[", "\"\<TextHeader\>\"", "]"}], " "}]], "Code",
+ CellChangeTimes->{{3.698490042953318*^9, 3.6984900716107244`*^9}}],
+
+Cell[BoxData["\<\"                                                            \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                    \"\>"], "Output",
+ CellChangeTimes->{{3.6984900514761877`*^9, 3.6984900741641884`*^9}, 
+   3.6984901113157563`*^9, 3.698490152505705*^9, 3.6984904639472303`*^9, 
+   3.698490538236059*^9, 3.698490646244404*^9, 3.698491350091767*^9}]
+}, Open  ]],
+
+Cell["\:041f\:043e\:043b\:0443\:0447\:0435\:043d\:0438\:0435 \:0431\:0438\
+\:043d\:0430\:0440\:043d\:043e\:0433\:043e \:0437\:0430\:0433\:043e\:043b\
+\:043e\:0432\:043a\:0430", "Text",
+ CellChangeTimes->{{3.6984900818344097`*^9, 3.698490088105838*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"dataIn", "[", "\"\<BinaryHeader\>\"", "]"}]], "Code",
+ CellChangeTimes->{{3.6984900907060385`*^9, 3.698490099554015*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\<\"JobID\"\>", "\[Rule]", "0"}], ",", 
+   RowBox[{"\<\"LineNumber\"\>", "\[Rule]", "0"}], ",", 
+   RowBox[{"\<\"ReelNumber\"\>", "\[Rule]", "0"}], ",", 
+   RowBox[{"\<\"NumberDataTraces\"\>", "\[Rule]", "298"}], ",", 
+   RowBox[{"\<\"NumberAuxTraces\"\>", "\[Rule]", "0"}], ",", 
+   RowBox[{"\<\"IntervalReelRecord\"\>", "\[Rule]", "5000"}], ",", 
+   RowBox[{"\<\"IntervalFieldRecord\"\>", "\[Rule]", "0"}], ",", 
+   RowBox[{"\<\"NumberOfSamplesForReel\"\>", "\[Rule]", "300"}], ",", 
+   RowBox[{"\<\"NumberOfSamplesForField\"\>", "\[Rule]", "0"}], ",", 
+   RowBox[{"\<\"SamplesFormatCode\"\>", "\[Rule]", "1"}], ",", 
+   RowBox[{"\<\"CDPFold\"\>", "\[Rule]", "0"}], ",", 
+   RowBox[{"\<\"TraceSortingCode\"\>", "\[Rule]", "0"}], ",", 
+   RowBox[{"\<\"VerticalSumCode\"\>", "\[Rule]", "0"}], ",", 
+   RowBox[{"\<\"SweepFrequencyAtStart\"\>", "\[Rule]", "0"}], ",", 
+   RowBox[{"\<\"SweepFrequencyAtEnd\"\>", "\[Rule]", "0"}], ",", 
+   RowBox[{"\<\"SweepLength\"\>", "\[Rule]", "0"}], ",", 
+   RowBox[{"\<\"SweepTypeCode\"\>", "\[Rule]", "0"}], ",", 
+   RowBox[{"\<\"TraceNumberOfSweepChannel\"\>", "\[Rule]", "0"}], ",", 
+   RowBox[{"\<\"SweepTraceTaperLengthAtStart\"\>", "\[Rule]", "0"}], ",", 
+   RowBox[{"\<\"SweepTraceTaperLength\"\>", "\[Rule]", "0"}], ",", 
+   RowBox[{"\<\"TaperType\"\>", "\[Rule]", "0"}], ",", 
+   RowBox[{"\<\"CorrelatedDataTraces\"\>", "\[Rule]", "0"}], ",", 
+   RowBox[{"\<\"BinaryGainRecovered\"\>", "\[Rule]", "0"}], ",", 
+   RowBox[{"\<\"AmplitudeRecoveryMethod\"\>", "\[Rule]", "0"}], ",", 
+   RowBox[{"\<\"MeasurementSystem\"\>", "\[Rule]", "2"}], ",", 
+   RowBox[{"\<\"ImpulseSignal\"\>", "\[Rule]", "0"}], ",", 
+   RowBox[{"\<\"VibratoryPolarityCode\"\>", "\[Rule]", "0"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.698490100104538*^9, 3.6984901113274956`*^9}, 
+   3.698490154389269*^9, 3.69849046395887*^9, 3.6984905406427965`*^9, 
+   3.6984906485492134`*^9, 3.698491350104546*^9}]
+}, Open  ]],
+
+Cell["\:041f\:043e\:043b\:0443\:0447\:0435\:043d\:0438\:0435 \:0434\:043b\
+\:0438\:043d\:044b \:0442\:0440\:0430\:0441\:0441 \:0438\:0437 \:0437\:0430\
+\:0433\:043e\:043b\:043e\:0432\:043a\:0430: ", "Text",
+ CellChangeTimes->{{3.698490165539257*^9, 3.6984901954623833`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"dataIn", "[", 
+  RowBox[{"\"\<BinaryHeader\>\"", ",", " ", "\"\<NumberDataTraces\>\""}], 
+  "]"}]], "Code",
+ CellChangeTimes->{{3.6984901822883043`*^9, 3.6984902056995845`*^9}, {
+  3.698490289244566*^9, 3.6984902969799843`*^9}}],
+
+Cell[BoxData["298"], "Output",
+ CellChangeTimes->{
+  3.6984902070876384`*^9, {3.6984902912758074`*^9, 3.698490297374011*^9}, 
+   3.698490463969366*^9, 3.6984905426129117`*^9, 3.6984906503272595`*^9, 
+   3.6984913501175585`*^9}]
+}, Open  ]],
+
+Cell["\:041d\:0435\:0441\:043a\:043e\:043b\:044c\:043a\:043e \:0441\:043e\
+\:0441\:0442\:0430\:0432\:043b\:044f\:044e\:0449\:0438\:0445 \:043f\:043e \
+\:043a\:043b\:044e\:0447\:0430\:043c", "Text",
+ CellChangeTimes->{{3.6984906715523677`*^9, 3.698490686714533*^9}, {
+  3.698490718458883*^9, 3.698490720333794*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"dataIn", "[", 
+  RowBox[{"{", 
+   RowBox[{"\"\<BinaryHeader\>\"", ",", " ", "\"\<Tracks\>\""}], "}"}], 
+  "]"}]], "Code",
+ CellChangeTimes->{{3.6984906944013424`*^9, 3.69849070184264*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   FrameBox[GridBox[{
+      {
+       ItemBox[
+        TagBox[
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"\<\"JobID\"\>", "\[Rule]", "0"}], ",", 
+             RowBox[{"\<\"LineNumber\"\>", "\[Rule]", "0"}], ",", 
+             RowBox[{"\<\"ReelNumber\"\>", "\[Rule]", "0"}], ",", 
+             RowBox[{"\<\"NumberDataTraces\"\>", "\[Rule]", "298"}], ",", 
+             RowBox[{"\<\"NumberAuxTraces\"\>", "\[Rule]", "0"}], ",", 
+             RowBox[{"\<\"IntervalReelRecord\"\>", "\[Rule]", "5000"}], ",", 
+             RowBox[{"\<\"IntervalFieldRecord\"\>", "\[Rule]", "0"}], ",", 
+             TemplateBox[{"13"},
+              "OutputSizeLimit`Skeleton",
+              DisplayFunction->(FrameBox[
+                
+                RowBox[{
+                 "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                Background -> GrayLevel[0.75], 
+                BaseStyle -> {
+                 "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                  ShowStringCharacters -> False}, BaselinePosition -> 
+                Baseline, ContentPadding -> False, 
+                FrameMargins -> {{1, 1}, {1, 2}}, FrameStyle -> None, 
+                RoundingRadius -> 7]& )], ",", 
+             RowBox[{"\<\"TaperType\"\>", "\[Rule]", "0"}], ",", 
+             RowBox[{"\<\"CorrelatedDataTraces\"\>", "\[Rule]", "0"}], ",", 
+             RowBox[{"\<\"BinaryGainRecovered\"\>", "\[Rule]", "0"}], ",", 
+             RowBox[{"\<\"AmplitudeRecoveryMethod\"\>", "\[Rule]", "0"}], ",", 
+             RowBox[{"\<\"MeasurementSystem\"\>", "\[Rule]", "2"}], ",", 
+             RowBox[{"\<\"ImpulseSignal\"\>", "\[Rule]", "0"}], ",", 
+             RowBox[{"\<\"VibratoryPolarityCode\"\>", "\[Rule]", "0"}]}], 
+            "}"}], ",", 
+           RowBox[{"{", 
+            TemplateBox[{"1"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+               FrameStyle -> None, RoundingRadius -> 7]& )], "}"}]}], "}"}],
+         Short[#, 5]& ],
+        BaseStyle->{Deployed -> False},
+        StripOnInput->False]},
+      {GridBox[{
+         {
+          TagBox[
+           TooltipBox[
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource[
+                "FEStrings", "sizeBriefExplanation"], StandardForm],
+               ImageSizeCache->{65., {3., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarCategory",
+             StripOnInput->False],
+            StyleBox[
+             DynamicBox[
+              ToBoxes[
+               FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"], 
+               StandardForm]], DynamicUpdating -> True, StripOnInput -> 
+             False]],
+           Annotation[#, 
+            Style[
+             Dynamic[
+              FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"]], 
+             DynamicUpdating -> True], "Tooltip"]& ], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm],
+               ImageSizeCache->{52., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 8, 32437797997615064440, 5/2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm],
+               ImageSizeCache->{62., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 8, 32437797997615064440, 5 2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm],
+               ImageSizeCache->{44., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 8, 32437797997615064440, Infinity],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm],
+               ImageSizeCache->{78., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           ButtonFunction:>FrontEndExecute[{
+              FrontEnd`SetOptions[
+              FrontEnd`$FrontEnd, 
+               FrontEnd`PreferencesSettings -> {"Page" -> "Evaluation"}], 
+              FrontEnd`FrontEndToken["PreferencesDialog"]}],
+           Evaluator->None,
+           Method->"Preemptive"]}
+        },
+        AutoDelete->False,
+        FrameStyle->GrayLevel[0.85],
+        GridBoxDividers->{"Columns" -> {False, {True}}},
+        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+        GridBoxSpacings->{"Columns" -> {{2}}}]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxDividers->{
+      "Columns" -> {{False}}, "ColumnsIndexed" -> {}, "Rows" -> {{False}}, 
+       "RowsIndexed" -> {}},
+     GridBoxItemSize->{
+      "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], 
+         Offset[1.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Background->RGBColor[0.9657, 0.9753, 0.9802],
+    FrameMargins->{{12, 12}, {0, 15}},
+    FrameStyle->GrayLevel[0.85],
+    RoundingRadius->5,
+    StripOnInput->False],
+   Deploy,
+   DefaultBaseStyle->"Deploy"],
+  Out[8]]], "Output",
+ CellChangeTimes->{{3.6984907033315496`*^9, 3.698490722210681*^9}, 
+   3.6984913502656794`*^9}]
+}, Open  ]],
+
+Cell["\<\
+\:041d\:0435\:0441\:043a\:043e\:043b\:044c\:043a\:043e \:043a\:043b\:044e\
+\:0447\:0435\:0439 \:0438\:0437 \:0437\:0430\:0433\:043e\:043b\:043e\:0432\
+\:043a\:0430 - \:0434\:043b\:0438\:043d\:0430 \:0442\:0440\:0430\:0441\:0441 \
+\:0438 \:0444\:043e\:0440\:043c\:0430\:0442 \:0447\:0438\:0441\:0435\:043b \
+\:0432 \:0442\:0440\:0430\:0441\:0441\:0430\:0445\
+\>", "Text",
+ CellChangeTimes->{{3.6984904023613434`*^9, 3.698490443174968*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"dataIn", "[", 
+  RowBox[{"\"\<BinaryHeader\>\"", ",", " ", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<NumberDataTraces\>\"", ",", " ", "\"\<SamplesFormatCode\>\""}], 
+    "}"}]}], "]"}]], "Code",
+ CellChangeTimes->{{3.69849042149022*^9, 3.698490452397138*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"298", ",", "1"}], "}"}]], "Output",
+ CellChangeTimes->{3.698490464021673*^9, 3.698490545708823*^9, 
+  3.698490651646535*^9, 3.698490725146388*^9, 3.6984913502791796`*^9}]
+}, Open  ]],
+
+Cell["\:041f\:043e\:043b\:0443\:0447\:0435\:043d\:0438\:0435 \:0442\:0440\
+\:0430\:0441\:0441", "Text",
+ CellChangeTimes->{{3.698490225808523*^9, 3.6984902327759886`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"dataIn", "[", "\"\<Tracks\>\"", "]"}]], "Code",
+ CellChangeTimes->{{3.6984901822883043`*^9, 3.6984902056995845`*^9}, {
+  3.698490238363544*^9, 3.6984902441927533`*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   FrameBox[GridBox[{
+      {
+       ItemBox[
+        TagBox[
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+            "1500.`", ",", "1499.999755859375`", ",", "1499.999755859375`", 
+             ",", "1509.65380859375`", ",", "1632.770263671875`", ",", 
+             "1662.49951171875`", ",", "1664.99951171875`", ",", 
+             "1667.49951171875`", ",", "1686.320556640625`", ",", 
+             TemplateBox[{"283"},
+              "OutputSizeLimit`Skeleton",
+              DisplayFunction->(FrameBox[
+                
+                RowBox[{
+                 "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                Background -> GrayLevel[0.75], 
+                BaseStyle -> {
+                 "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                  ShowStringCharacters -> False}, BaselinePosition -> 
+                Baseline, ContentPadding -> False, 
+                FrameMargins -> {{1, 1}, {1, 2}}, FrameStyle -> None, 
+                RoundingRadius -> 7]& )], ",", "3733.75732421875`", ",", 
+             "3699.999755859375`", ",", "3699.999755859375`", ",", 
+             "3699.999755859375`", ",", "3699.999755859375`", ",", 
+             "3674.789306640625`", ",", "3610.9013671875`", ",", 
+             "3599.772705078125`"}], "}"}], ",", 
+           TemplateBox[{"296"},
+            "OutputSizeLimit`Skeleton",
+            DisplayFunction->(FrameBox[
+              RowBox[{"\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}],
+               Background -> GrayLevel[0.75], 
+              BaseStyle -> {
+               "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                ShowStringCharacters -> False}, BaselinePosition -> Baseline, 
+              ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+              FrameStyle -> None, RoundingRadius -> 7]& )], ",", 
+           RowBox[{"{", 
+            TemplateBox[{"1"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+               FrameStyle -> None, RoundingRadius -> 7]& )], "}"}]}], "}"}],
+         Short[#, 5]& ],
+        BaseStyle->{Deployed -> False},
+        StripOnInput->False]},
+      {GridBox[{
+         {
+          TagBox[
+           TooltipBox[
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource[
+                "FEStrings", "sizeBriefExplanation"], StandardForm],
+               ImageSizeCache->{65., {3., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarCategory",
+             StripOnInput->False],
+            StyleBox[
+             DynamicBox[
+              ToBoxes[
+               FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"], 
+               StandardForm]], DynamicUpdating -> True, StripOnInput -> 
+             False]],
+           Annotation[#, 
+            Style[
+             Dynamic[
+              FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"]], 
+             DynamicUpdating -> True], "Tooltip"]& ], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm],
+               ImageSizeCache->{52., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 10, 32437797997615064440, 5/2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm],
+               ImageSizeCache->{62., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 10, 32437797997615064440, 5 2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm],
+               ImageSizeCache->{44., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 10, 32437797997615064440, Infinity],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm],
+               ImageSizeCache->{78., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           ButtonFunction:>FrontEndExecute[{
+              FrontEnd`SetOptions[
+              FrontEnd`$FrontEnd, 
+               FrontEnd`PreferencesSettings -> {"Page" -> "Evaluation"}], 
+              FrontEnd`FrontEndToken["PreferencesDialog"]}],
+           Evaluator->None,
+           Method->"Preemptive"]}
+        },
+        AutoDelete->False,
+        FrameStyle->GrayLevel[0.85],
+        GridBoxDividers->{"Columns" -> {False, {True}}},
+        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+        GridBoxSpacings->{"Columns" -> {{2}}}]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxDividers->{
+      "Columns" -> {{False}}, "ColumnsIndexed" -> {}, "Rows" -> {{False}}, 
+       "RowsIndexed" -> {}},
+     GridBoxItemSize->{
+      "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], 
+         Offset[1.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Background->RGBColor[0.9657, 0.9753, 0.9802],
+    FrameMargins->{{12, 12}, {0, 15}},
+    FrameStyle->GrayLevel[0.85],
+    RoundingRadius->5,
+    StripOnInput->False],
+   Deploy,
+   DefaultBaseStyle->"Deploy"],
+  Out[10]]], "Output",
+ CellChangeTimes->{3.6984902447881007`*^9, 3.698490464170288*^9, 
+  3.6984907286392674`*^9, 3.698491350425274*^9}]
+}, Open  ]],
+
+Cell["\:041f\:0435\:0440\:0432\:0430\:044f \:0442\:0440\:0430\:0441\:0441\
+\:0430", "Text",
+ CellChangeTimes->{{3.698490225808523*^9, 3.6984902723466597`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"dataIn", "[", 
+  RowBox[{"\"\<Tracks\>\"", ",", " ", "1"}], "]"}]], "Code",
+ CellChangeTimes->{{3.6984901822883043`*^9, 3.6984902056995845`*^9}, {
+  3.698490238363544*^9, 3.6984902670565987`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1500.`", ",", "1499.999755859375`", ",", "1499.999755859375`", ",", 
+   "1509.65380859375`", ",", "1632.770263671875`", ",", "1662.49951171875`", 
+   ",", "1664.99951171875`", ",", "1667.49951171875`", ",", 
+   "1686.320556640625`", ",", "1766.121826171875`", ",", "1774.99951171875`", 
+   ",", "1777.49951171875`", ",", "1779.99951171875`", ",", 
+   "1784.122314453125`", ",", "1707.04052734375`", ",", "1669.091796875`", 
+   ",", "1689.99951171875`", ",", "1692.49951171875`", ",", 
+   "1694.99951171875`", ",", "1697.49951171875`", ",", "1699.99951171875`", 
+   ",", "1701.984375`", ",", "1729.7392578125`", ",", "1758.02587890625`", 
+   ",", "1759.99951171875`", ",", "1762.49951171875`", ",", 
+   "1764.99951171875`", ",", "1761.229736328125`", ",", "1653.41064453125`", 
+   ",", "1632.49951171875`", ",", "1634.99951171875`", ",", 
+   "1637.49951171875`", ",", "1646.604248046875`", ",", "1679.97607421875`", 
+   ",", "1684.99951171875`", ",", "1687.49951171875`", ",", 
+   "1689.99951171875`", ",", "1692.49951171875`", ",", "1694.99951171875`", 
+   ",", "1731.161865234375`", ",", "1749.99951171875`", ",", 
+   "1752.49951171875`", ",", "1754.99951171875`", ",", "1749.181640625`", ",",
+    "1651.130859375`", ",", "1657.8408203125`", ",", "1714.99951171875`", ",",
+    "1717.49951171875`", ",", "1719.99951171875`", ",", "1742.19921875`", ",",
+    "1796.19677734375`", ",", "1807.682861328125`", ",", "1809.99951171875`", 
+   ",", "1812.49951171875`", ",", "1814.99951171875`", ",", 
+   "1817.49951171875`", ",", "1809.4677734375`", ",", "1758.906982421875`", 
+   ",", "1709.549072265625`", ",", "1679.869384765625`", ",", 
+   "1732.96142578125`", ",", "1798.906494140625`", ",", "1764.42529296875`", 
+   ",", "1726.677978515625`", ",", "1729.99951171875`", ",", 
+   "1719.482177734375`", ",", "1694.99951171875`", ",", "1697.441162109375`", 
+   ",", "1704.3388671875`", ",", "1727.699951171875`", ",", 
+   "1800.862548828125`", ",", "1879.0439453125`", ",", "1879.99951171875`", 
+   ",", "1883.0244140625`", ",", "1859.79345703125`", ",", 
+   "1836.98291015625`", ",", "1839.99951171875`", ",", "1842.49951171875`", 
+   ",", "1844.99951171875`", ",", "1894.559326171875`", ",", 
+   "1919.99951171875`", ",", "1922.49951171875`", ",", "1924.99951171875`", 
+   ",", "1921.70751953125`", ",", "1821.834228515625`", ",", 
+   "1802.8134765625`", ",", "1789.9267578125`", ",", "1783.9150390625`", ",", 
+   "1871.28369140625`", ",", "1892.49951171875`", ",", "1894.99951171875`", 
+   ",", "1893.07568359375`", ",", "1841.53173828125`", ",", 
+   "1832.49951171875`", ",", "1834.99951171875`", ",", "1789.793701171875`", 
+   ",", "1769.99951171875`", ",", "1772.49951171875`", ",", 
+   "1774.99951171875`", ",", "1777.49951171875`", ",", "1779.99951171875`", 
+   ",", "1781.9365234375`", ",", "1812.03515625`", ",", "1853.102783203125`", 
+   ",", "1859.99951171875`", ",", "1862.49951171875`", ",", 
+   "1864.99951171875`", ",", "1867.49951171875`", ",", "1889.559814453125`", 
+   ",", "1984.837646484375`", ",", "1994.99951171875`", ",", 
+   "1991.044921875`", ",", "1910.226806640625`", ",", "1857.9453125`", ",", 
+   "1824.99951171875`", ",", "1831.2041015625`", ",", "1879.8818359375`", ",",
+    "1887.298583984375`", ",", "2145.63037109375`", ",", "2452.414306640625`",
+    ",", "2449.999267578125`", ",", "2453.749267578125`", ",", 
+   "2457.499267578125`", ",", "2461.249267578125`", ",", "2469.972900390625`",
+    ",", "2496.864013671875`", ",", "2502.499267578125`", ",", 
+   "2506.249267578125`", ",", "2509.999267578125`", ",", "2513.749267578125`",
+    ",", "2517.499267578125`", ",", "2521.249267578125`", ",", 
+   "2524.999267578125`", ",", "2516.18505859375`", ",", "2487.959228515625`", 
+   ",", "2486.135498046875`", ",", "2489.999267578125`", ",", 
+   "2493.749267578125`", ",", "2497.499267578125`", ",", "2505.909912109375`",
+    ",", "2595.798095703125`", ",", "2619.696533203125`", ",", 
+   "2577.010498046875`", ",", "2532.81201171875`", ",", "2506.638427734375`", 
+   ",", "2503.749267578125`", ",", "2507.499267578125`", ",", 
+   "2517.02490234375`", ",", "2597.21044921875`", ",", "2637.09765625`", ",", 
+   "2642.499267578125`", ",", "2646.249267578125`", ",", "2649.999267578125`",
+    ",", "2653.749267578125`", ",", "2657.499267578125`", ",", 
+   "2661.249267578125`", ",", "2664.999267578125`", ",", "2668.749267578125`",
+    ",", "2672.499267578125`", ",", "2676.249267578125`", ",", 
+   "2679.999267578125`", ",", "2664.22802734375`", ",", "2627.499267578125`", 
+   ",", "2631.249267578125`", ",", "2634.999267578125`", ",", 
+   "2638.749267578125`", ",", "2642.499267578125`", ",", "3529.531982421875`",
+    ",", "4069.992919921875`", ",", "4130.7578125`", ",", "4242.4921875`", 
+   ",", "4258.7421875`", ",", "4244.65625`", ",", "4121.5625`", ",", 
+   "4166.21484375`", ",", "4237.4609375`", ",", "3984.445068359375`", ",", 
+   "2883.794189453125`", ",", "2812.498291015625`", ",", "2812.43701171875`", 
+   ",", "2741.49365234375`", ",", "2731.248291015625`", ",", 
+   "2737.498291015625`", ",", "2975.488037109375`", ",", "3053.728271484375`",
+    ",", "2852.634033203125`", ",", "2842.498291015625`", ",", 
+   "2846.87060546875`", ",", "2829.989501953125`", ",", "2831.248291015625`", 
+   ",", "2837.498291015625`", ",", "2845.613037109375`", ",", 
+   "2874.97216796875`", ",", "2886.24853515625`", ",", "2892.49853515625`", 
+   ",", "2898.74853515625`", ",", "2904.99853515625`", ",", 
+   "2911.24853515625`", ",", "2917.49853515625`", ",", "2924.9931640625`", 
+   ",", "2946.65185546875`", ",", "2956.24853515625`", ",", 
+   "2962.49853515625`", ",", "2968.74853515625`", ",", "2974.99853515625`", 
+   ",", "2941.9560546875`", ",", "2867.49853515625`", ",", 
+   "2890.074462890625`", ",", "3078.976806640625`", ",", "3015.4873046875`", 
+   ",", "3012.49853515625`", ",", "2971.1845703125`", ",", 
+   "2954.99853515625`", ",", "2960.526123046875`", ",", "3002.1875`", ",", 
+   "3044.484619140625`", ",", "3082.565673828125`", ",", "3243.4658203125`", 
+   ",", "3262.49853515625`", ",", "3268.74853515625`", ",", 
+   "3386.637451171875`", ",", "3951.8271484375`", ",", "4000.`", ",", 
+   "4000.`", ",", "4000.`", ",", "3432.06298828125`", ",", "2500.`", ",", 
+   "2500.`", ",", "2500.`", ",", "2547.372314453125`", ",", 
+   "2649.999755859375`", ",", "2505.697265625`", ",", "2439.999755859375`", 
+   ",", "2459.197509765625`", ",", "2500.`", ",", "2500.`", ",", 
+   "2857.142822265625`", ",", "5274.58984375`", ",", "5499.99609375`", ",", 
+   "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+   "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+   "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+   "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+   "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+   "5499.99609375`", ",", "5342.46875`", ",", "3600.`", ",", 
+   "3299.999755859375`", ",", "3299.999755859375`", ",", "3297.001220703125`",
+    ",", "3231.615234375`", ",", "3201.362060546875`", ",", "3200.`", ",", 
+   "3200.`", ",", "3200.`", ",", "3200.`", ",", "3200.`", ",", "3200.`", ",", 
+   "3200.`", ",", "3201.236328125`", ",", "3140.63916015625`", ",", 
+   "3059.32470703125`", ",", "3049.999755859375`", ",", "3049.999755859375`", 
+   ",", "3049.999755859375`", ",", "3049.049560546875`", ",", 
+   "3118.5263671875`", ",", "3516.183349609375`", ",", "3550.`", ",", 
+   "3550.`", ",", "3550.`", ",", "3550.`", ",", "3550.`", ",", 
+   "3535.0068359375`", ",", "3342.4736328125`", ",", "3254.056396484375`", 
+   ",", "3250.`", ",", "3250.`", ",", "3250.`", ",", "3403.2001953125`", ",", 
+   "3827.489501953125`", ",", "3892.650146484375`", ",", "3733.75732421875`", 
+   ",", "3699.999755859375`", ",", "3699.999755859375`", ",", 
+   "3699.999755859375`", ",", "3699.999755859375`", ",", "3674.789306640625`",
+    ",", "3610.9013671875`", ",", "3599.772705078125`"}], "}"}]], "Output",
+ CellChangeTimes->{{3.698490267556305*^9, 3.698490274259943*^9}, 
+   3.698490464183785*^9, 3.698490730677166*^9, 3.6984913504387827`*^9}]
+}, Open  ]],
+
+Cell["\:0422\:0440\:0430\:0441\:0441\:044b \:043f\:0435\:0440\:0432\:0430\
+\:044f \:0438 \:043f\:044f\:0442\:0430\:044f", "Text",
+ CellChangeTimes->{{3.698490736487562*^9, 3.6984907490127335`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"dataIn", "[", 
+  RowBox[{"\"\<Tracks\>\"", ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", " ", "5"}], "}"}]}], "]"}]], "Code",
+ CellChangeTimes->{{3.6984901822883043`*^9, 3.6984902056995845`*^9}, {
+  3.698490238363544*^9, 3.6984902670565987`*^9}, {3.698490754251669*^9, 
+  3.6984907578337593`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "1500.`", ",", "1499.999755859375`", ",", "1499.999755859375`", ",", 
+     "1509.65380859375`", ",", "1632.770263671875`", ",", "1662.49951171875`",
+      ",", "1664.99951171875`", ",", "1667.49951171875`", ",", 
+     "1686.320556640625`", ",", "1766.121826171875`", ",", 
+     "1774.99951171875`", ",", "1777.49951171875`", ",", "1779.99951171875`", 
+     ",", "1784.122314453125`", ",", "1707.04052734375`", ",", 
+     "1669.091796875`", ",", "1689.99951171875`", ",", "1692.49951171875`", 
+     ",", "1694.99951171875`", ",", "1697.49951171875`", ",", 
+     "1699.99951171875`", ",", "1701.984375`", ",", "1729.7392578125`", ",", 
+     "1758.02587890625`", ",", "1759.99951171875`", ",", "1762.49951171875`", 
+     ",", "1764.99951171875`", ",", "1761.229736328125`", ",", 
+     "1653.41064453125`", ",", "1632.49951171875`", ",", "1634.99951171875`", 
+     ",", "1637.49951171875`", ",", "1646.604248046875`", ",", 
+     "1679.97607421875`", ",", "1684.99951171875`", ",", "1687.49951171875`", 
+     ",", "1689.99951171875`", ",", "1692.49951171875`", ",", 
+     "1694.99951171875`", ",", "1731.161865234375`", ",", "1749.99951171875`",
+      ",", "1752.49951171875`", ",", "1754.99951171875`", ",", 
+     "1749.181640625`", ",", "1651.130859375`", ",", "1657.8408203125`", ",", 
+     "1714.99951171875`", ",", "1717.49951171875`", ",", "1719.99951171875`", 
+     ",", "1742.19921875`", ",", "1796.19677734375`", ",", 
+     "1807.682861328125`", ",", "1809.99951171875`", ",", "1812.49951171875`",
+      ",", "1814.99951171875`", ",", "1817.49951171875`", ",", 
+     "1809.4677734375`", ",", "1758.906982421875`", ",", "1709.549072265625`",
+      ",", "1679.869384765625`", ",", "1732.96142578125`", ",", 
+     "1798.906494140625`", ",", "1764.42529296875`", ",", 
+     "1726.677978515625`", ",", "1729.99951171875`", ",", 
+     "1719.482177734375`", ",", "1694.99951171875`", ",", 
+     "1697.441162109375`", ",", "1704.3388671875`", ",", "1727.699951171875`",
+      ",", "1800.862548828125`", ",", "1879.0439453125`", ",", 
+     "1879.99951171875`", ",", "1883.0244140625`", ",", "1859.79345703125`", 
+     ",", "1836.98291015625`", ",", "1839.99951171875`", ",", 
+     "1842.49951171875`", ",", "1844.99951171875`", ",", "1894.559326171875`",
+      ",", "1919.99951171875`", ",", "1922.49951171875`", ",", 
+     "1924.99951171875`", ",", "1921.70751953125`", ",", "1821.834228515625`",
+      ",", "1802.8134765625`", ",", "1789.9267578125`", ",", 
+     "1783.9150390625`", ",", "1871.28369140625`", ",", "1892.49951171875`", 
+     ",", "1894.99951171875`", ",", "1893.07568359375`", ",", 
+     "1841.53173828125`", ",", "1832.49951171875`", ",", "1834.99951171875`", 
+     ",", "1789.793701171875`", ",", "1769.99951171875`", ",", 
+     "1772.49951171875`", ",", "1774.99951171875`", ",", "1777.49951171875`", 
+     ",", "1779.99951171875`", ",", "1781.9365234375`", ",", "1812.03515625`",
+      ",", "1853.102783203125`", ",", "1859.99951171875`", ",", 
+     "1862.49951171875`", ",", "1864.99951171875`", ",", "1867.49951171875`", 
+     ",", "1889.559814453125`", ",", "1984.837646484375`", ",", 
+     "1994.99951171875`", ",", "1991.044921875`", ",", "1910.226806640625`", 
+     ",", "1857.9453125`", ",", "1824.99951171875`", ",", "1831.2041015625`", 
+     ",", "1879.8818359375`", ",", "1887.298583984375`", ",", 
+     "2145.63037109375`", ",", "2452.414306640625`", ",", 
+     "2449.999267578125`", ",", "2453.749267578125`", ",", 
+     "2457.499267578125`", ",", "2461.249267578125`", ",", 
+     "2469.972900390625`", ",", "2496.864013671875`", ",", 
+     "2502.499267578125`", ",", "2506.249267578125`", ",", 
+     "2509.999267578125`", ",", "2513.749267578125`", ",", 
+     "2517.499267578125`", ",", "2521.249267578125`", ",", 
+     "2524.999267578125`", ",", "2516.18505859375`", ",", 
+     "2487.959228515625`", ",", "2486.135498046875`", ",", 
+     "2489.999267578125`", ",", "2493.749267578125`", ",", 
+     "2497.499267578125`", ",", "2505.909912109375`", ",", 
+     "2595.798095703125`", ",", "2619.696533203125`", ",", 
+     "2577.010498046875`", ",", "2532.81201171875`", ",", 
+     "2506.638427734375`", ",", "2503.749267578125`", ",", 
+     "2507.499267578125`", ",", "2517.02490234375`", ",", "2597.21044921875`",
+      ",", "2637.09765625`", ",", "2642.499267578125`", ",", 
+     "2646.249267578125`", ",", "2649.999267578125`", ",", 
+     "2653.749267578125`", ",", "2657.499267578125`", ",", 
+     "2661.249267578125`", ",", "2664.999267578125`", ",", 
+     "2668.749267578125`", ",", "2672.499267578125`", ",", 
+     "2676.249267578125`", ",", "2679.999267578125`", ",", 
+     "2664.22802734375`", ",", "2627.499267578125`", ",", 
+     "2631.249267578125`", ",", "2634.999267578125`", ",", 
+     "2638.749267578125`", ",", "2642.499267578125`", ",", 
+     "3529.531982421875`", ",", "4069.992919921875`", ",", "4130.7578125`", 
+     ",", "4242.4921875`", ",", "4258.7421875`", ",", "4244.65625`", ",", 
+     "4121.5625`", ",", "4166.21484375`", ",", "4237.4609375`", ",", 
+     "3984.445068359375`", ",", "2883.794189453125`", ",", 
+     "2812.498291015625`", ",", "2812.43701171875`", ",", "2741.49365234375`",
+      ",", "2731.248291015625`", ",", "2737.498291015625`", ",", 
+     "2975.488037109375`", ",", "3053.728271484375`", ",", 
+     "2852.634033203125`", ",", "2842.498291015625`", ",", 
+     "2846.87060546875`", ",", "2829.989501953125`", ",", 
+     "2831.248291015625`", ",", "2837.498291015625`", ",", 
+     "2845.613037109375`", ",", "2874.97216796875`", ",", "2886.24853515625`",
+      ",", "2892.49853515625`", ",", "2898.74853515625`", ",", 
+     "2904.99853515625`", ",", "2911.24853515625`", ",", "2917.49853515625`", 
+     ",", "2924.9931640625`", ",", "2946.65185546875`", ",", 
+     "2956.24853515625`", ",", "2962.49853515625`", ",", "2968.74853515625`", 
+     ",", "2974.99853515625`", ",", "2941.9560546875`", ",", 
+     "2867.49853515625`", ",", "2890.074462890625`", ",", 
+     "3078.976806640625`", ",", "3015.4873046875`", ",", "3012.49853515625`", 
+     ",", "2971.1845703125`", ",", "2954.99853515625`", ",", 
+     "2960.526123046875`", ",", "3002.1875`", ",", "3044.484619140625`", ",", 
+     "3082.565673828125`", ",", "3243.4658203125`", ",", "3262.49853515625`", 
+     ",", "3268.74853515625`", ",", "3386.637451171875`", ",", 
+     "3951.8271484375`", ",", "4000.`", ",", "4000.`", ",", "4000.`", ",", 
+     "3432.06298828125`", ",", "2500.`", ",", "2500.`", ",", "2500.`", ",", 
+     "2547.372314453125`", ",", "2649.999755859375`", ",", "2505.697265625`", 
+     ",", "2439.999755859375`", ",", "2459.197509765625`", ",", "2500.`", ",",
+      "2500.`", ",", "2857.142822265625`", ",", "5274.58984375`", ",", 
+     "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+     "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+     "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+     "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+     "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+     "5499.99609375`", ",", "5499.99609375`", ",", "5342.46875`", ",", 
+     "3600.`", ",", "3299.999755859375`", ",", "3299.999755859375`", ",", 
+     "3297.001220703125`", ",", "3231.615234375`", ",", "3201.362060546875`", 
+     ",", "3200.`", ",", "3200.`", ",", "3200.`", ",", "3200.`", ",", 
+     "3200.`", ",", "3200.`", ",", "3200.`", ",", "3201.236328125`", ",", 
+     "3140.63916015625`", ",", "3059.32470703125`", ",", "3049.999755859375`",
+      ",", "3049.999755859375`", ",", "3049.999755859375`", ",", 
+     "3049.049560546875`", ",", "3118.5263671875`", ",", "3516.183349609375`",
+      ",", "3550.`", ",", "3550.`", ",", "3550.`", ",", "3550.`", ",", 
+     "3550.`", ",", "3535.0068359375`", ",", "3342.4736328125`", ",", 
+     "3254.056396484375`", ",", "3250.`", ",", "3250.`", ",", "3250.`", ",", 
+     "3403.2001953125`", ",", "3827.489501953125`", ",", "3892.650146484375`",
+      ",", "3733.75732421875`", ",", "3699.999755859375`", ",", 
+     "3699.999755859375`", ",", "3699.999755859375`", ",", 
+     "3699.999755859375`", ",", "3674.789306640625`", ",", "3610.9013671875`",
+      ",", "3599.772705078125`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "1500.`", ",", "1499.999755859375`", ",", "1499.999755859375`", ",", 
+     "1509.65380859375`", ",", "1632.770263671875`", ",", 
+     "1668.702392578125`", ",", "1725.2861328125`", ",", "1768.3271484375`", 
+     ",", "1769.99951171875`", ",", "1772.49951171875`", ",", 
+     "1774.99951171875`", ",", "1777.49951171875`", ",", "1763.033935546875`",
+      ",", "1688.635986328125`", ",", "1684.99951171875`", ",", 
+     "1687.49951171875`", ",", "1689.99951171875`", ",", "1692.49951171875`", 
+     ",", "1694.99951171875`", ",", "1697.49951171875`", ",", 
+     "1708.49853515625`", ",", "1750.302978515625`", ",", "1754.99951171875`",
+      ",", "1757.49951171875`", ",", "1759.99951171875`", ",", 
+     "1715.93359375`", ",", "1624.99951171875`", ",", "1627.49951171875`", 
+     ",", "1629.99951171875`", ",", "1632.49951171875`", ",", 
+     "1634.99951171875`", ",", "1664.45263671875`", ",", "1679.99951171875`", 
+     ",", "1682.49951171875`", ",", "1684.99951171875`", ",", 
+     "1687.49951171875`", ",", "1691.813720703125`", ",", "1715.23193359375`",
+      ",", "1744.99951171875`", ",", "1747.49951171875`", ",", 
+     "1749.99951171875`", ",", "1707.93798828125`", ",", "1622.9931640625`", 
+     ",", "1632.453369140625`", ",", "1696.43896484375`", ",", 
+     "1712.49951171875`", ",", "1714.99951171875`", ",", "1718.585693359375`",
+      ",", "1744.809814453125`", ",", "1798.540283203125`", ",", 
+     "1804.99951171875`", ",", "1807.49951171875`", ",", "1809.99951171875`", 
+     ",", "1812.49951171875`", ",", "1814.99951171875`", ",", 
+     "1761.364990234375`", ",", "1727.779541015625`", ",", 
+     "1676.304931640625`", ",", "1699.73486328125`", ",", 
+     "1776.400634765625`", ",", "1786.842529296875`", ",", "1727.4296875`", 
+     ",", "1724.99951171875`", ",", "1727.49951171875`", ",", 
+     "1723.288818359375`", ",", "1694.673095703125`", ",", 
+     "1709.900146484375`", ",", "1736.58349609375`", ",", 
+     "1848.950927734375`", ",", "1872.77685546875`", ",", "1874.99951171875`",
+      ",", "1877.49951171875`", ",", "1871.6005859375`", ",", 
+     "1835.600341796875`", ",", "1834.99951171875`", ",", "1837.49951171875`",
+      ",", "1839.99951171875`", ",", "1864.765625`", ",", "1914.99951171875`",
+      ",", "1917.49951171875`", ",", "1919.99951171875`", ",", 
+     "1879.4560546875`", ",", "1794.99951171875`", ",", "1795.616455078125`", 
+     ",", "1774.97705078125`", ",", "1779.321533203125`", ",", 
+     "1841.295654296875`", ",", "1888.41015625`", ",", "1889.99951171875`", 
+     ",", "1888.11083984375`", ",", "1852.0810546875`", ",", 
+     "1826.93505859375`", ",", "1827.4384765625`", ",", "1800.273681640625`", 
+     ",", "1764.99951171875`", ",", "1767.49951171875`", ",", 
+     "1769.99951171875`", ",", "1772.49951171875`", ",", "1774.99951171875`", 
+     ",", "1777.49951171875`", ",", "1791.50244140625`", ",", 
+     "1848.063232421875`", ",", "1854.99951171875`", ",", "1857.49951171875`",
+      ",", "1859.99951171875`", ",", "1862.49951171875`", ",", 
+     "1864.99951171875`", ",", "1890.9111328125`", ",", "1974.09619140625`", 
+     ",", "1992.49951171875`", ",", "1994.99951171875`", ",", 
+     "1908.448486328125`", ",", "1869.99951171875`", ",", "1856.2041015625`", 
+     ",", "1824.99951171875`", ",", "1831.2041015625`", ",", 
+     "1879.8818359375`", ",", "2051.922119140625`", ",", "2442.499267578125`",
+      ",", "2446.249267578125`", ",", "2449.999267578125`", ",", 
+     "2453.749267578125`", ",", "2457.499267578125`", ",", 
+     "2463.114013671875`", ",", "2489.97314453125`", ",", 
+     "2498.749267578125`", ",", "2502.499267578125`", ",", 
+     "2506.249267578125`", ",", "2509.999267578125`", ",", 
+     "2513.749267578125`", ",", "2517.499267578125`", ",", 
+     "2521.249267578125`", ",", "2516.62060546875`", ",", 
+     "2481.857666015625`", ",", "2482.499267578125`", ",", 
+     "2486.249267578125`", ",", "2489.999267578125`", ",", 
+     "2493.749267578125`", ",", "2497.499267578125`", ",", 
+     "2575.119384765625`", ",", "2614.999267578125`", ",", 
+     "2589.333251953125`", ",", "2532.499267578125`", ",", "2509.1015625`", 
+     ",", "2499.999267578125`", ",", "2503.749267578125`", ",", 
+     "2507.499267578125`", ",", "2518.62109375`", ",", "2614.667724609375`", 
+     ",", "2638.749267578125`", ",", "2642.499267578125`", ",", 
+     "2646.249267578125`", ",", "2649.999267578125`", ",", 
+     "2653.749267578125`", ",", "2657.499267578125`", ",", 
+     "2661.249267578125`", ",", "2664.999267578125`", ",", 
+     "2668.749267578125`", ",", "2672.499267578125`", ",", 
+     "2676.249267578125`", ",", "2679.999267578125`", ",", 
+     "2664.22802734375`", ",", "2627.499267578125`", ",", 
+     "2631.249267578125`", ",", "2634.999267578125`", ",", 
+     "2626.369384765625`", ",", "3242.88671875`", ",", "4070.150146484375`", 
+     ",", "4092.988525390625`", ",", "4217.36328125`", ",", "4242.4921875`", 
+     ",", "4247.37109375`", ",", "4124.65234375`", ",", "4110.2109375`", ",", 
+     "4176.98828125`", ",", "4142.59765625`", ",", "3006.687255859375`", ",", 
+     "2806.248291015625`", ",", "2812.498291015625`", ",", 
+     "2750.649169921875`", ",", "2724.998291015625`", ",", 
+     "2731.248291015625`", ",", "2737.498291015625`", ",", 
+     "2959.148193359375`", ",", "2873.68798828125`", ",", 
+     "2836.248291015625`", ",", "2842.498291015625`", ",", 
+     "2846.87060546875`", ",", "2829.989501953125`", ",", 
+     "2831.248291015625`", ",", "2837.498291015625`", ",", 
+     "2864.008544921875`", ",", "2879.99853515625`", ",", "2886.24853515625`",
+      ",", "2892.49853515625`", ",", "2898.74853515625`", ",", 
+     "2904.99853515625`", ",", "2911.24853515625`", ",", "2917.49853515625`", 
+     ",", "2924.9931640625`", ",", "2946.65185546875`", ",", 
+     "2956.24853515625`", ",", "2962.49853515625`", ",", "2968.74853515625`", 
+     ",", "2974.99853515625`", ",", "2941.9560546875`", ",", 
+     "2867.49853515625`", ",", "2890.074462890625`", ",", 
+     "3078.976806640625`", ",", "3015.4873046875`", ",", "3012.49853515625`", 
+     ",", "2971.1845703125`", ",", "2954.99853515625`", ",", 
+     "2960.526123046875`", ",", "3002.1875`", ",", "3044.484619140625`", ",", 
+     "3082.565673828125`", ",", "3243.4658203125`", ",", "3262.49853515625`", 
+     ",", "3268.74853515625`", ",", "3386.637451171875`", ",", 
+     "3951.8271484375`", ",", "4000.`", ",", "4000.`", ",", "4000.`", ",", 
+     "3432.06298828125`", ",", "2500.`", ",", "2500.`", ",", "2500.`", ",", 
+     "2547.372314453125`", ",", "2649.999755859375`", ",", "2505.697265625`", 
+     ",", "2439.999755859375`", ",", "2438.7578125`", ",", 
+     "2468.80810546875`", ",", "2500.649658203125`", ",", "2500.`", ",", 
+     "3174.025634765625`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+     "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+     "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+     "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+     "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+     "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+     "3788.185302734375`", ",", "3200.`", ",", "3200.`", ",", "3200.`", ",", 
+     "3200.`", ",", "3200.`", ",", "3200.`", ",", "3200.`", ",", 
+     "3197.937744140625`", ",", "3152.782958984375`", ",", 
+     "3057.226806640625`", ",", "3049.999755859375`", ",", 
+     "3049.999755859375`", ",", "3049.999755859375`", ",", "3044.9111328125`",
+      ",", "3294.576416015625`", ",", "3560.819091796875`", ",", "3550.`", 
+     ",", "3550.`", ",", "3550.`", ",", "3550.`", ",", "3550.`", ",", 
+     "3553.3173828125`", ",", "3390.689208984375`", ",", "3243.897705078125`",
+      ",", "3250.`", ",", "3250.`", ",", "3250.`", ",", "3258.676025390625`", 
+     ",", "3447.365966796875`", ",", "3867.22119140625`", ",", 
+     "3877.990966796875`", ",", "3749.183837890625`", ",", 
+     "3699.999755859375`", ",", "3699.999755859375`", ",", 
+     "3699.999755859375`", ",", "3698.628173828125`", ",", 
+     "3668.619384765625`", ",", "3604.845947265625`", ",", "3600.`", ",", 
+     "3600.`", ",", "3590.809814453125`", ",", "3481.4423828125`", ",", 
+     "3346.141357421875`", ",", "3350.080322265625`"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.698490760662054*^9, 3.6984913504582963`*^9}]
+}, Open  ]],
+
+Cell["\:0422\:0440\:0430\:0441\:0441\:044b \:0441 \:043f\:0435\:0440\:0432\
+\:043e\:0439 \:043f\:043e \:0441\:043e\:0442\:0443\:044e", "Text",
+ CellChangeTimes->{{3.698490736487562*^9, 3.6984908230185256`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"dataIn", "[", 
+  RowBox[{"\"\<Tracks\>\"", ",", " ", 
+   RowBox[{"1", " ", ";;", " ", "100"}]}], "]"}]], "Code",
+ CellChangeTimes->{{3.6984901822883043`*^9, 3.6984902056995845`*^9}, {
+  3.698490238363544*^9, 3.6984902670565987`*^9}, {3.698490754251669*^9, 
+  3.6984907578337593`*^9}, {3.698490788431818*^9, 3.6984908262640057`*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   FrameBox[GridBox[{
+      {
+       ItemBox[
+        TagBox[
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+            "1500.`", ",", "1499.999755859375`", ",", "1499.999755859375`", 
+             ",", "1509.65380859375`", ",", "1632.770263671875`", ",", 
+             "1662.49951171875`", ",", "1664.99951171875`", ",", 
+             "1667.49951171875`", ",", "1686.320556640625`", ",", 
+             TemplateBox[{"283"},
+              "OutputSizeLimit`Skeleton",
+              DisplayFunction->(FrameBox[
+                
+                RowBox[{
+                 "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                Background -> GrayLevel[0.75], 
+                BaseStyle -> {
+                 "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                  ShowStringCharacters -> False}, BaselinePosition -> 
+                Baseline, ContentPadding -> False, 
+                FrameMargins -> {{1, 1}, {1, 2}}, FrameStyle -> None, 
+                RoundingRadius -> 7]& )], ",", "3733.75732421875`", ",", 
+             "3699.999755859375`", ",", "3699.999755859375`", ",", 
+             "3699.999755859375`", ",", "3699.999755859375`", ",", 
+             "3674.789306640625`", ",", "3610.9013671875`", ",", 
+             "3599.772705078125`"}], "}"}], ",", 
+           TemplateBox[{"98"},
+            "OutputSizeLimit`Skeleton",
+            DisplayFunction->(FrameBox[
+              RowBox[{"\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}],
+               Background -> GrayLevel[0.75], 
+              BaseStyle -> {
+               "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                ShowStringCharacters -> False}, BaselinePosition -> Baseline, 
+              ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+              FrameStyle -> None, RoundingRadius -> 7]& )], ",", 
+           RowBox[{"{", 
+            TemplateBox[{"1"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+               FrameStyle -> None, RoundingRadius -> 7]& )], "}"}]}], "}"}],
+         Short[#, 5]& ],
+        BaseStyle->{Deployed -> False},
+        StripOnInput->False]},
+      {GridBox[{
+         {
+          TagBox[
+           TooltipBox[
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource[
+                "FEStrings", "sizeBriefExplanation"], StandardForm],
+               ImageSizeCache->{65., {3., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarCategory",
+             StripOnInput->False],
+            StyleBox[
+             DynamicBox[
+              ToBoxes[
+               FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"], 
+               StandardForm]], DynamicUpdating -> True, StripOnInput -> 
+             False]],
+           Annotation[#, 
+            Style[
+             Dynamic[
+              FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"]], 
+             DynamicUpdating -> True], "Tooltip"]& ], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm],
+               ImageSizeCache->{52., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 13, 32437797997615064440, 5/2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm],
+               ImageSizeCache->{62., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 13, 32437797997615064440, 5 2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm],
+               ImageSizeCache->{44., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 13, 32437797997615064440, Infinity],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm],
+               ImageSizeCache->{78., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           ButtonFunction:>FrontEndExecute[{
+              FrontEnd`SetOptions[
+              FrontEnd`$FrontEnd, 
+               FrontEnd`PreferencesSettings -> {"Page" -> "Evaluation"}], 
+              FrontEnd`FrontEndToken["PreferencesDialog"]}],
+           Evaluator->None,
+           Method->"Preemptive"]}
+        },
+        AutoDelete->False,
+        FrameStyle->GrayLevel[0.85],
+        GridBoxDividers->{"Columns" -> {False, {True}}},
+        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+        GridBoxSpacings->{"Columns" -> {{2}}}]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxDividers->{
+      "Columns" -> {{False}}, "ColumnsIndexed" -> {}, "Rows" -> {{False}}, 
+       "RowsIndexed" -> {}},
+     GridBoxItemSize->{
+      "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], 
+         Offset[1.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Background->RGBColor[0.9657, 0.9753, 0.9802],
+    FrameMargins->{{12, 12}, {0, 15}},
+    FrameStyle->GrayLevel[0.85],
+    RoundingRadius->5,
+    StripOnInput->False],
+   Deploy,
+   DefaultBaseStyle->"Deploy"],
+  Out[13]]], "Output",
+ CellChangeTimes->{{3.6984907969136624`*^9, 3.6984908268371267`*^9}, 
+   3.698491350525844*^9}]
+}, Open  ]],
+
+Cell["\:0422\:0440\:0430\:0441\:0441\:044b \:0441 \:043f\:0435\:0440\:0432\
+\:043e\:0439 \:043f\:043e \:0434\:0432\:0443\:0441\:043e\:0442\:0443\:044e \
+\:0441 \:0448\:0430\:0433\:043e\:043c 2", "Text",
+ CellChangeTimes->{{3.698490736487562*^9, 3.698490871401528*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"dataIn", "[", 
+  RowBox[{"\"\<Tracks\>\"", ",", " ", 
+   RowBox[{"1", " ", ";;", " ", "200", " ", ";;", " ", "2"}]}], "]"}]], "Code",
+ CellChangeTimes->{{3.6984901822883043`*^9, 3.6984902056995845`*^9}, {
+  3.698490238363544*^9, 3.6984902670565987`*^9}, {3.698490754251669*^9, 
+  3.6984907578337593`*^9}, {3.698490788431818*^9, 3.698490875962247*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   FrameBox[GridBox[{
+      {
+       ItemBox[
+        TagBox[
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+            "1500.`", ",", "1499.999755859375`", ",", "1499.999755859375`", 
+             ",", "1509.65380859375`", ",", "1632.770263671875`", ",", 
+             "1662.49951171875`", ",", "1664.99951171875`", ",", 
+             "1667.49951171875`", ",", "1686.320556640625`", ",", 
+             TemplateBox[{"283"},
+              "OutputSizeLimit`Skeleton",
+              DisplayFunction->(FrameBox[
+                
+                RowBox[{
+                 "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                Background -> GrayLevel[0.75], 
+                BaseStyle -> {
+                 "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                  ShowStringCharacters -> False}, BaselinePosition -> 
+                Baseline, ContentPadding -> False, 
+                FrameMargins -> {{1, 1}, {1, 2}}, FrameStyle -> None, 
+                RoundingRadius -> 7]& )], ",", "3733.75732421875`", ",", 
+             "3699.999755859375`", ",", "3699.999755859375`", ",", 
+             "3699.999755859375`", ",", "3699.999755859375`", ",", 
+             "3674.789306640625`", ",", "3610.9013671875`", ",", 
+             "3599.772705078125`"}], "}"}], ",", 
+           TemplateBox[{"98"},
+            "OutputSizeLimit`Skeleton",
+            DisplayFunction->(FrameBox[
+              RowBox[{"\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}],
+               Background -> GrayLevel[0.75], 
+              BaseStyle -> {
+               "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                ShowStringCharacters -> False}, BaselinePosition -> Baseline, 
+              ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+              FrameStyle -> None, RoundingRadius -> 7]& )], ",", 
+           RowBox[{"{", 
+            TemplateBox[{"1"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+               FrameStyle -> None, RoundingRadius -> 7]& )], "}"}]}], "}"}],
+         Short[#, 5]& ],
+        BaseStyle->{Deployed -> False},
+        StripOnInput->False]},
+      {GridBox[{
+         {
+          TagBox[
+           TooltipBox[
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource[
+                "FEStrings", "sizeBriefExplanation"], StandardForm],
+               ImageSizeCache->{65., {3., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarCategory",
+             StripOnInput->False],
+            StyleBox[
+             DynamicBox[
+              ToBoxes[
+               FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"], 
+               StandardForm]], DynamicUpdating -> True, StripOnInput -> 
+             False]],
+           Annotation[#, 
+            Style[
+             Dynamic[
+              FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"]], 
+             DynamicUpdating -> True], "Tooltip"]& ], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm],
+               ImageSizeCache->{52., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 14, 32437797997615064440, 5/2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm],
+               ImageSizeCache->{62., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 14, 32437797997615064440, 5 2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm],
+               ImageSizeCache->{44., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 14, 32437797997615064440, Infinity],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm],
+               ImageSizeCache->{78., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           ButtonFunction:>FrontEndExecute[{
+              FrontEnd`SetOptions[
+              FrontEnd`$FrontEnd, 
+               FrontEnd`PreferencesSettings -> {"Page" -> "Evaluation"}], 
+              FrontEnd`FrontEndToken["PreferencesDialog"]}],
+           Evaluator->None,
+           Method->"Preemptive"]}
+        },
+        AutoDelete->False,
+        FrameStyle->GrayLevel[0.85],
+        GridBoxDividers->{"Columns" -> {False, {True}}},
+        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+        GridBoxSpacings->{"Columns" -> {{2}}}]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxDividers->{
+      "Columns" -> {{False}}, "ColumnsIndexed" -> {}, "Rows" -> {{False}}, 
+       "RowsIndexed" -> {}},
+     GridBoxItemSize->{
+      "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], 
+         Offset[1.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Background->RGBColor[0.9657, 0.9753, 0.9802],
+    FrameMargins->{{12, 12}, {0, 15}},
+    FrameStyle->GrayLevel[0.85],
+    RoundingRadius->5,
+    StripOnInput->False],
+   Deploy,
+   DefaultBaseStyle->"Deploy"],
+  Out[14]]], "Output",
+ CellChangeTimes->{{3.6984908485158772`*^9, 3.6984908763574924`*^9}, 
+   3.6984913505889006`*^9}]
+}, Open  ]],
+
+Cell["\:041e\:0442\:043b\:043e\:0436\:0435\:043d\:043d\:0430\:044f \:0437\
+\:0430\:0433\:0440\:0443\:0437\:043a\:0430 \:0434\:0430\:043d\:043d\:044b\
+\:0445", "Text",
+ CellChangeTimes->{{3.6984908960390854`*^9, 3.698490902644369*^9}}],
+
+Cell["\:0417\:0430\:0433\:0440\:0443\:0437\:043a\:0430 \:0442\:043e\:0433\
+\:043e \:0436\:0435 \:0444\:0430\:0439\:043b\:0430", "Text",
+ CellChangeTimes->{{3.6984909086081953`*^9, 3.6984909162631397`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"dataInDelayed", " ", "=", " ", 
+  RowBox[{"NonStandartImport", "[", 
+   RowBox[{"fileIn", ",", " ", "\"\<SEGY\>\"", ",", " ", 
+    RowBox[{"\"\<Loading\>\"", " ", "->", " ", "\"\<Delayed\>\""}]}], 
+   "]"}]}]], "Code",
+ CellChangeTimes->{{3.6984909208483944`*^9, 3.698490959554495*^9}}],
+
+Cell[BoxData[
+ RowBox[{"SEGYData", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"\<\"TextHeader\"\>", 
+     "\[Rule]", "\<\"                                                         \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                       \"\>"}], ",", 
+    RowBox[{"\<\"BinaryHeader\"\>", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\<\"JobID\"\>", "\[Rule]", "0"}], ",", 
+       RowBox[{"\<\"LineNumber\"\>", "\[Rule]", "0"}], ",", 
+       RowBox[{"\<\"ReelNumber\"\>", "\[Rule]", "0"}], ",", 
+       RowBox[{"\<\"NumberDataTraces\"\>", "\[Rule]", "298"}], ",", 
+       RowBox[{"\<\"NumberAuxTraces\"\>", "\[Rule]", "0"}], ",", 
+       RowBox[{"\<\"IntervalReelRecord\"\>", "\[Rule]", "5000"}], ",", 
+       RowBox[{"\<\"IntervalFieldRecord\"\>", "\[Rule]", "0"}], ",", 
+       RowBox[{"\<\"NumberOfSamplesForReel\"\>", "\[Rule]", "300"}], ",", 
+       RowBox[{"\<\"NumberOfSamplesForField\"\>", "\[Rule]", "0"}], ",", 
+       RowBox[{"\<\"SamplesFormatCode\"\>", "\[Rule]", "1"}], ",", 
+       RowBox[{"\<\"CDPFold\"\>", "\[Rule]", "0"}], ",", 
+       RowBox[{"\<\"TraceSortingCode\"\>", "\[Rule]", "0"}], ",", 
+       RowBox[{"\<\"VerticalSumCode\"\>", "\[Rule]", "0"}], ",", 
+       RowBox[{"\<\"SweepFrequencyAtStart\"\>", "\[Rule]", "0"}], ",", 
+       RowBox[{"\<\"SweepFrequencyAtEnd\"\>", "\[Rule]", "0"}], ",", 
+       RowBox[{"\<\"SweepLength\"\>", "\[Rule]", "0"}], ",", 
+       RowBox[{"\<\"SweepTypeCode\"\>", "\[Rule]", "0"}], ",", 
+       RowBox[{"\<\"TraceNumberOfSweepChannel\"\>", "\[Rule]", "0"}], ",", 
+       RowBox[{"\<\"SweepTraceTaperLengthAtStart\"\>", "\[Rule]", "0"}], ",", 
+       RowBox[{"\<\"SweepTraceTaperLength\"\>", "\[Rule]", "0"}], ",", 
+       RowBox[{"\<\"TaperType\"\>", "\[Rule]", "0"}], ",", 
+       RowBox[{"\<\"CorrelatedDataTraces\"\>", "\[Rule]", "0"}], ",", 
+       RowBox[{"\<\"BinaryGainRecovered\"\>", "\[Rule]", "0"}], ",", 
+       RowBox[{"\<\"AmplitudeRecoveryMethod\"\>", "\[Rule]", "0"}], ",", 
+       RowBox[{"\<\"MeasurementSystem\"\>", "\[Rule]", "2"}], ",", 
+       RowBox[{"\<\"ImpulseSignal\"\>", "\[Rule]", "0"}], ",", 
+       RowBox[{"\<\"VibratoryPolarityCode\"\>", "\[Rule]", "0"}]}], "}"}]}], 
+    ",", 
+    RowBox[{"\<\"Headers\"\>", "\[Rule]", 
+     RowBox[{"SEGYUnloaded", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\<\"ConvertFunction\"\>", "\[Rule]", 
+         RowBox[{"Function", "[", 
+          RowBox[{
+           RowBox[{
+           "{", "NonStandartImportExport`Extensions`SEGY`Private`bytes", 
+            "}"}], ",", 
+           "NonStandartImportExport`Extensions`SEGY`Private`bytes"}], "]"}]}],
+         ",", 
+        RowBox[{"\<\"DataFile\"\>", 
+         "\[Rule]", "\<\"E:\\\\Test Items\\\\Wolfram \
+Language\\\\Mathematica\\\\Projects\\\\NonStandartImportExport\\\\Resources\\\
+\\MarmousiModel.segy\"\>"}], ",", 
+        RowBox[{"\<\"DataSize\"\>", "\[Rule]", "240"}], ",", 
+        RowBox[{"\<\"Positions\"\>", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+          "3600", ",", "5040", ",", "6480", ",", "7920", ",", "9360", ",", 
+           "10800", ",", "12240", ",", "13680", ",", "15120", ",", "16560", 
+           ",", "18000", ",", "19440", ",", "20880", ",", "22320", ",", 
+           "23760", ",", "25200", ",", "26640", ",", "28080", ",", "29520", 
+           ",", "30960", ",", "32400", ",", "33840", ",", "35280", ",", 
+           "36720", ",", "38160", ",", "39600", ",", "41040", ",", "42480", 
+           ",", "43920", ",", "45360", ",", "46800", ",", "48240", ",", 
+           "49680", ",", "51120", ",", "52560", ",", "54000", ",", "55440", 
+           ",", "56880", ",", "58320", ",", "59760", ",", "61200", ",", 
+           "62640", ",", "64080", ",", "65520", ",", "66960", ",", "68400", 
+           ",", "69840", ",", "71280", ",", "72720", ",", "74160", ",", 
+           "75600", ",", "77040", ",", "78480", ",", "79920", ",", "81360", 
+           ",", "82800", ",", "84240", ",", "85680", ",", "87120", ",", 
+           "88560", ",", "90000", ",", "91440", ",", "92880", ",", "94320", 
+           ",", "95760", ",", "97200", ",", "98640", ",", "100080", ",", 
+           "101520", ",", "102960", ",", "104400", ",", "105840", ",", 
+           "107280", ",", "108720", ",", "110160", ",", "111600", ",", 
+           "113040", ",", "114480", ",", "115920", ",", "117360", ",", 
+           "118800", ",", "120240", ",", "121680", ",", "123120", ",", 
+           "124560", ",", "126000", ",", "127440", ",", "128880", ",", 
+           "130320", ",", "131760", ",", "133200", ",", "134640", ",", 
+           "136080", ",", "137520", ",", "138960", ",", "140400", ",", 
+           "141840", ",", "143280", ",", "144720", ",", "146160", ",", 
+           "147600", ",", "149040", ",", "150480", ",", "151920", ",", 
+           "153360", ",", "154800", ",", "156240", ",", "157680", ",", 
+           "159120", ",", "160560", ",", "162000", ",", "163440", ",", 
+           "164880", ",", "166320", ",", "167760", ",", "169200", ",", 
+           "170640", ",", "172080", ",", "173520", ",", "174960", ",", 
+           "176400", ",", "177840", ",", "179280", ",", "180720", ",", 
+           "182160", ",", "183600", ",", "185040", ",", "186480", ",", 
+           "187920", ",", "189360", ",", "190800", ",", "192240", ",", 
+           "193680", ",", "195120", ",", "196560", ",", "198000", ",", 
+           "199440", ",", "200880", ",", "202320", ",", "203760", ",", 
+           "205200", ",", "206640", ",", "208080", ",", "209520", ",", 
+           "210960", ",", "212400", ",", "213840", ",", "215280", ",", 
+           "216720", ",", "218160", ",", "219600", ",", "221040", ",", 
+           "222480", ",", "223920", ",", "225360", ",", "226800", ",", 
+           "228240", ",", "229680", ",", "231120", ",", "232560", ",", 
+           "234000", ",", "235440", ",", "236880", ",", "238320", ",", 
+           "239760", ",", "241200", ",", "242640", ",", "244080", ",", 
+           "245520", ",", "246960", ",", "248400", ",", "249840", ",", 
+           "251280", ",", "252720", ",", "254160", ",", "255600", ",", 
+           "257040", ",", "258480", ",", "259920", ",", "261360", ",", 
+           "262800", ",", "264240", ",", "265680", ",", "267120", ",", 
+           "268560", ",", "270000", ",", "271440", ",", "272880", ",", 
+           "274320", ",", "275760", ",", "277200", ",", "278640", ",", 
+           "280080", ",", "281520", ",", "282960", ",", "284400", ",", 
+           "285840", ",", "287280", ",", "288720", ",", "290160", ",", 
+           "291600", ",", "293040", ",", "294480", ",", "295920", ",", 
+           "297360", ",", "298800", ",", "300240", ",", "301680", ",", 
+           "303120", ",", "304560", ",", "306000", ",", "307440", ",", 
+           "308880", ",", "310320", ",", "311760", ",", "313200", ",", 
+           "314640", ",", "316080", ",", "317520", ",", "318960", ",", 
+           "320400", ",", "321840", ",", "323280", ",", "324720", ",", 
+           "326160", ",", "327600", ",", "329040", ",", "330480", ",", 
+           "331920", ",", "333360", ",", "334800", ",", "336240", ",", 
+           "337680", ",", "339120", ",", "340560", ",", "342000", ",", 
+           "343440", ",", "344880", ",", "346320", ",", "347760", ",", 
+           "349200", ",", "350640", ",", "352080", ",", "353520", ",", 
+           "354960", ",", "356400", ",", "357840", ",", "359280", ",", 
+           "360720", ",", "362160", ",", "363600", ",", "365040", ",", 
+           "366480", ",", "367920", ",", "369360", ",", "370800", ",", 
+           "372240", ",", "373680", ",", "375120", ",", "376560", ",", 
+           "378000", ",", "379440", ",", "380880", ",", "382320", ",", 
+           "383760", ",", "385200", ",", "386640", ",", "388080", ",", 
+           "389520", ",", "390960", ",", "392400", ",", "393840", ",", 
+           "395280", ",", "396720", ",", "398160", ",", "399600", ",", 
+           "401040", ",", "402480", ",", "403920", ",", "405360", ",", 
+           "406800", ",", "408240", ",", "409680", ",", "411120", ",", 
+           "412560", ",", "414000", ",", "415440", ",", "416880", ",", 
+           "418320", ",", "419760", ",", "421200", ",", "422640", ",", 
+           "424080", ",", "425520", ",", "426960", ",", "428400", ",", 
+           "429840", ",", "431280"}], "}"}]}]}], "}"}], "]"}]}], ",", 
+    RowBox[{"\<\"Tracks\"\>", "\[Rule]", 
+     RowBox[{"SEGYUnloaded", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\<\"ConvertFunction\"\>", "\[Rule]", 
+         RowBox[{"Function", "[", 
+          RowBox[{
+           RowBox[{
+           "{", "NonStandartImportExport`Extensions`SEGY`Private`bytes$", 
+            "}"}], ",", 
+           RowBox[{"FromNotIEEENumberFormat", "[", 
+            RowBox[{
+            "NonStandartImportExport`Extensions`SEGY`Private`bytes$", ",", 
+             "1"}], "]"}]}], "]"}]}], ",", 
+        RowBox[{"\<\"DataFile\"\>", 
+         "\[Rule]", "\<\"E:\\\\Test Items\\\\Wolfram \
+Language\\\\Mathematica\\\\Projects\\\\NonStandartImportExport\\\\Resources\\\
+\\MarmousiModel.segy\"\>"}], ",", 
+        RowBox[{"\<\"DataSize\"\>", "\[Rule]", "1200"}], ",", 
+        RowBox[{"\<\"Positions\"\>", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+          "3840", ",", "5280", ",", "6720", ",", "8160", ",", "9600", ",", 
+           "11040", ",", "12480", ",", "13920", ",", "15360", ",", "16800", 
+           ",", "18240", ",", "19680", ",", "21120", ",", "22560", ",", 
+           "24000", ",", "25440", ",", "26880", ",", "28320", ",", "29760", 
+           ",", "31200", ",", "32640", ",", "34080", ",", "35520", ",", 
+           "36960", ",", "38400", ",", "39840", ",", "41280", ",", "42720", 
+           ",", "44160", ",", "45600", ",", "47040", ",", "48480", ",", 
+           "49920", ",", "51360", ",", "52800", ",", "54240", ",", "55680", 
+           ",", "57120", ",", "58560", ",", "60000", ",", "61440", ",", 
+           "62880", ",", "64320", ",", "65760", ",", "67200", ",", "68640", 
+           ",", "70080", ",", "71520", ",", "72960", ",", "74400", ",", 
+           "75840", ",", "77280", ",", "78720", ",", "80160", ",", "81600", 
+           ",", "83040", ",", "84480", ",", "85920", ",", "87360", ",", 
+           "88800", ",", "90240", ",", "91680", ",", "93120", ",", "94560", 
+           ",", "96000", ",", "97440", ",", "98880", ",", "100320", ",", 
+           "101760", ",", "103200", ",", "104640", ",", "106080", ",", 
+           "107520", ",", "108960", ",", "110400", ",", "111840", ",", 
+           "113280", ",", "114720", ",", "116160", ",", "117600", ",", 
+           "119040", ",", "120480", ",", "121920", ",", "123360", ",", 
+           "124800", ",", "126240", ",", "127680", ",", "129120", ",", 
+           "130560", ",", "132000", ",", "133440", ",", "134880", ",", 
+           "136320", ",", "137760", ",", "139200", ",", "140640", ",", 
+           "142080", ",", "143520", ",", "144960", ",", "146400", ",", 
+           "147840", ",", "149280", ",", "150720", ",", "152160", ",", 
+           "153600", ",", "155040", ",", "156480", ",", "157920", ",", 
+           "159360", ",", "160800", ",", "162240", ",", "163680", ",", 
+           "165120", ",", "166560", ",", "168000", ",", "169440", ",", 
+           "170880", ",", "172320", ",", "173760", ",", "175200", ",", 
+           "176640", ",", "178080", ",", "179520", ",", "180960", ",", 
+           "182400", ",", "183840", ",", "185280", ",", "186720", ",", 
+           "188160", ",", "189600", ",", "191040", ",", "192480", ",", 
+           "193920", ",", "195360", ",", "196800", ",", "198240", ",", 
+           "199680", ",", "201120", ",", "202560", ",", "204000", ",", 
+           "205440", ",", "206880", ",", "208320", ",", "209760", ",", 
+           "211200", ",", "212640", ",", "214080", ",", "215520", ",", 
+           "216960", ",", "218400", ",", "219840", ",", "221280", ",", 
+           "222720", ",", "224160", ",", "225600", ",", "227040", ",", 
+           "228480", ",", "229920", ",", "231360", ",", "232800", ",", 
+           "234240", ",", "235680", ",", "237120", ",", "238560", ",", 
+           "240000", ",", "241440", ",", "242880", ",", "244320", ",", 
+           "245760", ",", "247200", ",", "248640", ",", "250080", ",", 
+           "251520", ",", "252960", ",", "254400", ",", "255840", ",", 
+           "257280", ",", "258720", ",", "260160", ",", "261600", ",", 
+           "263040", ",", "264480", ",", "265920", ",", "267360", ",", 
+           "268800", ",", "270240", ",", "271680", ",", "273120", ",", 
+           "274560", ",", "276000", ",", "277440", ",", "278880", ",", 
+           "280320", ",", "281760", ",", "283200", ",", "284640", ",", 
+           "286080", ",", "287520", ",", "288960", ",", "290400", ",", 
+           "291840", ",", "293280", ",", "294720", ",", "296160", ",", 
+           "297600", ",", "299040", ",", "300480", ",", "301920", ",", 
+           "303360", ",", "304800", ",", "306240", ",", "307680", ",", 
+           "309120", ",", "310560", ",", "312000", ",", "313440", ",", 
+           "314880", ",", "316320", ",", "317760", ",", "319200", ",", 
+           "320640", ",", "322080", ",", "323520", ",", "324960", ",", 
+           "326400", ",", "327840", ",", "329280", ",", "330720", ",", 
+           "332160", ",", "333600", ",", "335040", ",", "336480", ",", 
+           "337920", ",", "339360", ",", "340800", ",", "342240", ",", 
+           "343680", ",", "345120", ",", "346560", ",", "348000", ",", 
+           "349440", ",", "350880", ",", "352320", ",", "353760", ",", 
+           "355200", ",", "356640", ",", "358080", ",", "359520", ",", 
+           "360960", ",", "362400", ",", "363840", ",", "365280", ",", 
+           "366720", ",", "368160", ",", "369600", ",", "371040", ",", 
+           "372480", ",", "373920", ",", "375360", ",", "376800", ",", 
+           "378240", ",", "379680", ",", "381120", ",", "382560", ",", 
+           "384000", ",", "385440", ",", "386880", ",", "388320", ",", 
+           "389760", ",", "391200", ",", "392640", ",", "394080", ",", 
+           "395520", ",", "396960", ",", "398400", ",", "399840", ",", 
+           "401280", ",", "402720", ",", "404160", ",", "405600", ",", 
+           "407040", ",", "408480", ",", "409920", ",", "411360", ",", 
+           "412800", ",", "414240", ",", "415680", ",", "417120", ",", 
+           "418560", ",", "420000", ",", "421440", ",", "422880", ",", 
+           "424320", ",", "425760", ",", "427200", ",", "428640", ",", 
+           "430080", ",", "431520"}], "}"}]}]}], "}"}], "]"}]}]}], "}"}], 
+  "]"}]], "Output",
+ CellChangeTimes->{3.6984909611399517`*^9, 3.6984913506159096`*^9}]
+}, Open  ]],
+
+Cell["\:0427\:0442\:043e \:0442\:0435\:043f\:0435\:0440\:044c \:043f\:0440\
+\:0435\:0434\:0441\:0442\:0430\:0432\:043b\:044f\:044e\:0442 \:0441\:043e\
+\:0431\:043e\:0439 \:0442\:0440\:0430\:0441\:0441\:044b", "Text",
+ CellChangeTimes->{{3.698490970090002*^9, 3.6984909778952937`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"dataInDelayed", "[", "\"\<Tracks\>\"", "]"}]], "Code",
+ CellChangeTimes->{{3.6984909815057898`*^9, 3.698490986887764*^9}}],
+
+Cell[BoxData[
+ RowBox[{"SEGYUnloaded", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"\<\"ConvertFunction\"\>", "\[Rule]", 
+     RowBox[{"Function", "[", 
+      RowBox[{
+       RowBox[{
+       "{", "NonStandartImportExport`Extensions`SEGY`Private`bytes$", "}"}], 
+       ",", 
+       RowBox[{"FromNotIEEENumberFormat", "[", 
+        RowBox[{
+        "NonStandartImportExport`Extensions`SEGY`Private`bytes$", ",", "1"}], 
+        "]"}]}], "]"}]}], ",", 
+    RowBox[{"\<\"DataFile\"\>", 
+     "\[Rule]", "\<\"E:\\\\Test Items\\\\Wolfram \
+Language\\\\Mathematica\\\\Projects\\\\NonStandartImportExport\\\\Resources\\\
+\\MarmousiModel.segy\"\>"}], ",", 
+    RowBox[{"\<\"DataSize\"\>", "\[Rule]", "1200"}], ",", 
+    RowBox[{"\<\"Positions\"\>", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+      "3840", ",", "5280", ",", "6720", ",", "8160", ",", "9600", ",", 
+       "11040", ",", "12480", ",", "13920", ",", "15360", ",", "16800", ",", 
+       "18240", ",", "19680", ",", "21120", ",", "22560", ",", "24000", ",", 
+       "25440", ",", "26880", ",", "28320", ",", "29760", ",", "31200", ",", 
+       "32640", ",", "34080", ",", "35520", ",", "36960", ",", "38400", ",", 
+       "39840", ",", "41280", ",", "42720", ",", "44160", ",", "45600", ",", 
+       "47040", ",", "48480", ",", "49920", ",", "51360", ",", "52800", ",", 
+       "54240", ",", "55680", ",", "57120", ",", "58560", ",", "60000", ",", 
+       "61440", ",", "62880", ",", "64320", ",", "65760", ",", "67200", ",", 
+       "68640", ",", "70080", ",", "71520", ",", "72960", ",", "74400", ",", 
+       "75840", ",", "77280", ",", "78720", ",", "80160", ",", "81600", ",", 
+       "83040", ",", "84480", ",", "85920", ",", "87360", ",", "88800", ",", 
+       "90240", ",", "91680", ",", "93120", ",", "94560", ",", "96000", ",", 
+       "97440", ",", "98880", ",", "100320", ",", "101760", ",", "103200", 
+       ",", "104640", ",", "106080", ",", "107520", ",", "108960", ",", 
+       "110400", ",", "111840", ",", "113280", ",", "114720", ",", "116160", 
+       ",", "117600", ",", "119040", ",", "120480", ",", "121920", ",", 
+       "123360", ",", "124800", ",", "126240", ",", "127680", ",", "129120", 
+       ",", "130560", ",", "132000", ",", "133440", ",", "134880", ",", 
+       "136320", ",", "137760", ",", "139200", ",", "140640", ",", "142080", 
+       ",", "143520", ",", "144960", ",", "146400", ",", "147840", ",", 
+       "149280", ",", "150720", ",", "152160", ",", "153600", ",", "155040", 
+       ",", "156480", ",", "157920", ",", "159360", ",", "160800", ",", 
+       "162240", ",", "163680", ",", "165120", ",", "166560", ",", "168000", 
+       ",", "169440", ",", "170880", ",", "172320", ",", "173760", ",", 
+       "175200", ",", "176640", ",", "178080", ",", "179520", ",", "180960", 
+       ",", "182400", ",", "183840", ",", "185280", ",", "186720", ",", 
+       "188160", ",", "189600", ",", "191040", ",", "192480", ",", "193920", 
+       ",", "195360", ",", "196800", ",", "198240", ",", "199680", ",", 
+       "201120", ",", "202560", ",", "204000", ",", "205440", ",", "206880", 
+       ",", "208320", ",", "209760", ",", "211200", ",", "212640", ",", 
+       "214080", ",", "215520", ",", "216960", ",", "218400", ",", "219840", 
+       ",", "221280", ",", "222720", ",", "224160", ",", "225600", ",", 
+       "227040", ",", "228480", ",", "229920", ",", "231360", ",", "232800", 
+       ",", "234240", ",", "235680", ",", "237120", ",", "238560", ",", 
+       "240000", ",", "241440", ",", "242880", ",", "244320", ",", "245760", 
+       ",", "247200", ",", "248640", ",", "250080", ",", "251520", ",", 
+       "252960", ",", "254400", ",", "255840", ",", "257280", ",", "258720", 
+       ",", "260160", ",", "261600", ",", "263040", ",", "264480", ",", 
+       "265920", ",", "267360", ",", "268800", ",", "270240", ",", "271680", 
+       ",", "273120", ",", "274560", ",", "276000", ",", "277440", ",", 
+       "278880", ",", "280320", ",", "281760", ",", "283200", ",", "284640", 
+       ",", "286080", ",", "287520", ",", "288960", ",", "290400", ",", 
+       "291840", ",", "293280", ",", "294720", ",", "296160", ",", "297600", 
+       ",", "299040", ",", "300480", ",", "301920", ",", "303360", ",", 
+       "304800", ",", "306240", ",", "307680", ",", "309120", ",", "310560", 
+       ",", "312000", ",", "313440", ",", "314880", ",", "316320", ",", 
+       "317760", ",", "319200", ",", "320640", ",", "322080", ",", "323520", 
+       ",", "324960", ",", "326400", ",", "327840", ",", "329280", ",", 
+       "330720", ",", "332160", ",", "333600", ",", "335040", ",", "336480", 
+       ",", "337920", ",", "339360", ",", "340800", ",", "342240", ",", 
+       "343680", ",", "345120", ",", "346560", ",", "348000", ",", "349440", 
+       ",", "350880", ",", "352320", ",", "353760", ",", "355200", ",", 
+       "356640", ",", "358080", ",", "359520", ",", "360960", ",", "362400", 
+       ",", "363840", ",", "365280", ",", "366720", ",", "368160", ",", 
+       "369600", ",", "371040", ",", "372480", ",", "373920", ",", "375360", 
+       ",", "376800", ",", "378240", ",", "379680", ",", "381120", ",", 
+       "382560", ",", "384000", ",", "385440", ",", "386880", ",", "388320", 
+       ",", "389760", ",", "391200", ",", "392640", ",", "394080", ",", 
+       "395520", ",", "396960", ",", "398400", ",", "399840", ",", "401280", 
+       ",", "402720", ",", "404160", ",", "405600", ",", "407040", ",", 
+       "408480", ",", "409920", ",", "411360", ",", "412800", ",", "414240", 
+       ",", "415680", ",", "417120", ",", "418560", ",", "420000", ",", 
+       "421440", ",", "422880", ",", "424320", ",", "425760", ",", "427200", 
+       ",", "428640", ",", "430080", ",", "431520"}], "}"}]}]}], "}"}], 
+  "]"}]], "Output",
+ CellChangeTimes->{3.6984909876837797`*^9, 3.6984913506339197`*^9}]
+}, Open  ]],
+
+Cell["\<\
+\:042d\:0442\:043e \:043e\:0431\:044a\:0435\:043a\:0442 \:0441 \:0434\:0430\
+\:043d\:043d\:044b\:043c\:0438 \:0434\:043b\:044f \:0437\:0430\:0433\:0440\
+\:0443\:0437\:043a\:0438 \:0432 \:043b\:044e\:0431\:043e\:0439 \:043c\:043e\
+\:043c\:0435\:043d\:0442. 
+\:041f\:043e\:043b\:0443\:0447\:0438\:0442\:044c \:043e\:0431\:044a\:0435\
+\:043a \:0434\:043b\:044f \:0437\:0430\:0433\:0440\:0443\:0437\:043a\:0438 \
+\:043f\:0435\:0440\:0432\:043e\:0439 \:0442\:0440\:0430\:0441\:0441\:044b \
+\:043c\:043e\:0436\:043d\:043e \:0442\:0430\:043a: \
+\>", "Text",
+ CellChangeTimes->{{3.6984909990797153`*^9, 3.698491023135064*^9}, {
+  3.6984910953899117`*^9, 3.698491112067593*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"unloaded1", " ", "=", " ", 
+  RowBox[{
+   RowBox[{"dataInDelayed", "[", "\"\<Tracks\>\"", "]"}], "[", "1", 
+   "]"}]}]], "Code",
+ CellChangeTimes->{{3.6984909815057898`*^9, 3.698490986887764*^9}, {
+  3.698491034706725*^9, 3.698491037855627*^9}, {3.6984910848851085`*^9, 
+  3.6984910898963623`*^9}, {3.698491125897405*^9, 3.698491130770053*^9}}],
+
+Cell[BoxData[
+ RowBox[{"SEGYUnloaded", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"\<\"ConvertFunction\"\>", "\[Rule]", 
+     RowBox[{"Function", "[", 
+      RowBox[{
+       RowBox[{
+       "{", "NonStandartImportExport`Extensions`SEGY`Private`bytes$", "}"}], 
+       ",", 
+       RowBox[{"FromNotIEEENumberFormat", "[", 
+        RowBox[{
+        "NonStandartImportExport`Extensions`SEGY`Private`bytes$", ",", "1"}], 
+        "]"}]}], "]"}]}], ",", 
+    RowBox[{"\<\"DataFile\"\>", 
+     "\[Rule]", "\<\"E:\\\\Test Items\\\\Wolfram \
+Language\\\\Mathematica\\\\Projects\\\\NonStandartImportExport\\\\Resources\\\
+\\MarmousiModel.segy\"\>"}], ",", 
+    RowBox[{"\<\"DataSize\"\>", "\[Rule]", "1200"}], ",", 
+    RowBox[{"\<\"Positions\"\>", "\[Rule]", "3840"}]}], "}"}], 
+  "]"}]], "Output",
+ CellChangeTimes->{
+  3.6984910385765376`*^9, {3.6984911138630495`*^9, 3.69849113123462*^9}, 
+   3.6984913506449385`*^9}]
+}, Open  ]],
+
+Cell["\:0417\:0430\:0433\:0440\:0443\:0437\:0438\:0442\:044c \:0435\:0433\
+\:043e \:043c\:043e\:0436\:043d\:043e \:0442\:0430\:043a: ", "Text",
+ CellChangeTimes->{{3.6984911346228323`*^9, 3.698491140376379*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"NonStandartLoad", "[", "unloaded1", "]"}]], "Code",
+ CellChangeTimes->{{3.6984911450717134`*^9, 3.6984911521730633`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1500.`", ",", "1499.999755859375`", ",", "1499.999755859375`", ",", 
+   "1509.65380859375`", ",", "1632.770263671875`", ",", "1662.49951171875`", 
+   ",", "1664.99951171875`", ",", "1667.49951171875`", ",", 
+   "1686.320556640625`", ",", "1766.121826171875`", ",", "1774.99951171875`", 
+   ",", "1777.49951171875`", ",", "1779.99951171875`", ",", 
+   "1784.122314453125`", ",", "1707.04052734375`", ",", "1669.091796875`", 
+   ",", "1689.99951171875`", ",", "1692.49951171875`", ",", 
+   "1694.99951171875`", ",", "1697.49951171875`", ",", "1699.99951171875`", 
+   ",", "1701.984375`", ",", "1729.7392578125`", ",", "1758.02587890625`", 
+   ",", "1759.99951171875`", ",", "1762.49951171875`", ",", 
+   "1764.99951171875`", ",", "1761.229736328125`", ",", "1653.41064453125`", 
+   ",", "1632.49951171875`", ",", "1634.99951171875`", ",", 
+   "1637.49951171875`", ",", "1646.604248046875`", ",", "1679.97607421875`", 
+   ",", "1684.99951171875`", ",", "1687.49951171875`", ",", 
+   "1689.99951171875`", ",", "1692.49951171875`", ",", "1694.99951171875`", 
+   ",", "1731.161865234375`", ",", "1749.99951171875`", ",", 
+   "1752.49951171875`", ",", "1754.99951171875`", ",", "1749.181640625`", ",",
+    "1651.130859375`", ",", "1657.8408203125`", ",", "1714.99951171875`", ",",
+    "1717.49951171875`", ",", "1719.99951171875`", ",", "1742.19921875`", ",",
+    "1796.19677734375`", ",", "1807.682861328125`", ",", "1809.99951171875`", 
+   ",", "1812.49951171875`", ",", "1814.99951171875`", ",", 
+   "1817.49951171875`", ",", "1809.4677734375`", ",", "1758.906982421875`", 
+   ",", "1709.549072265625`", ",", "1679.869384765625`", ",", 
+   "1732.96142578125`", ",", "1798.906494140625`", ",", "1764.42529296875`", 
+   ",", "1726.677978515625`", ",", "1729.99951171875`", ",", 
+   "1719.482177734375`", ",", "1694.99951171875`", ",", "1697.441162109375`", 
+   ",", "1704.3388671875`", ",", "1727.699951171875`", ",", 
+   "1800.862548828125`", ",", "1879.0439453125`", ",", "1879.99951171875`", 
+   ",", "1883.0244140625`", ",", "1859.79345703125`", ",", 
+   "1836.98291015625`", ",", "1839.99951171875`", ",", "1842.49951171875`", 
+   ",", "1844.99951171875`", ",", "1894.559326171875`", ",", 
+   "1919.99951171875`", ",", "1922.49951171875`", ",", "1924.99951171875`", 
+   ",", "1921.70751953125`", ",", "1821.834228515625`", ",", 
+   "1802.8134765625`", ",", "1789.9267578125`", ",", "1783.9150390625`", ",", 
+   "1871.28369140625`", ",", "1892.49951171875`", ",", "1894.99951171875`", 
+   ",", "1893.07568359375`", ",", "1841.53173828125`", ",", 
+   "1832.49951171875`", ",", "1834.99951171875`", ",", "1789.793701171875`", 
+   ",", "1769.99951171875`", ",", "1772.49951171875`", ",", 
+   "1774.99951171875`", ",", "1777.49951171875`", ",", "1779.99951171875`", 
+   ",", "1781.9365234375`", ",", "1812.03515625`", ",", "1853.102783203125`", 
+   ",", "1859.99951171875`", ",", "1862.49951171875`", ",", 
+   "1864.99951171875`", ",", "1867.49951171875`", ",", "1889.559814453125`", 
+   ",", "1984.837646484375`", ",", "1994.99951171875`", ",", 
+   "1991.044921875`", ",", "1910.226806640625`", ",", "1857.9453125`", ",", 
+   "1824.99951171875`", ",", "1831.2041015625`", ",", "1879.8818359375`", ",",
+    "1887.298583984375`", ",", "2145.63037109375`", ",", "2452.414306640625`",
+    ",", "2449.999267578125`", ",", "2453.749267578125`", ",", 
+   "2457.499267578125`", ",", "2461.249267578125`", ",", "2469.972900390625`",
+    ",", "2496.864013671875`", ",", "2502.499267578125`", ",", 
+   "2506.249267578125`", ",", "2509.999267578125`", ",", "2513.749267578125`",
+    ",", "2517.499267578125`", ",", "2521.249267578125`", ",", 
+   "2524.999267578125`", ",", "2516.18505859375`", ",", "2487.959228515625`", 
+   ",", "2486.135498046875`", ",", "2489.999267578125`", ",", 
+   "2493.749267578125`", ",", "2497.499267578125`", ",", "2505.909912109375`",
+    ",", "2595.798095703125`", ",", "2619.696533203125`", ",", 
+   "2577.010498046875`", ",", "2532.81201171875`", ",", "2506.638427734375`", 
+   ",", "2503.749267578125`", ",", "2507.499267578125`", ",", 
+   "2517.02490234375`", ",", "2597.21044921875`", ",", "2637.09765625`", ",", 
+   "2642.499267578125`", ",", "2646.249267578125`", ",", "2649.999267578125`",
+    ",", "2653.749267578125`", ",", "2657.499267578125`", ",", 
+   "2661.249267578125`", ",", "2664.999267578125`", ",", "2668.749267578125`",
+    ",", "2672.499267578125`", ",", "2676.249267578125`", ",", 
+   "2679.999267578125`", ",", "2664.22802734375`", ",", "2627.499267578125`", 
+   ",", "2631.249267578125`", ",", "2634.999267578125`", ",", 
+   "2638.749267578125`", ",", "2642.499267578125`", ",", "3529.531982421875`",
+    ",", "4069.992919921875`", ",", "4130.7578125`", ",", "4242.4921875`", 
+   ",", "4258.7421875`", ",", "4244.65625`", ",", "4121.5625`", ",", 
+   "4166.21484375`", ",", "4237.4609375`", ",", "3984.445068359375`", ",", 
+   "2883.794189453125`", ",", "2812.498291015625`", ",", "2812.43701171875`", 
+   ",", "2741.49365234375`", ",", "2731.248291015625`", ",", 
+   "2737.498291015625`", ",", "2975.488037109375`", ",", "3053.728271484375`",
+    ",", "2852.634033203125`", ",", "2842.498291015625`", ",", 
+   "2846.87060546875`", ",", "2829.989501953125`", ",", "2831.248291015625`", 
+   ",", "2837.498291015625`", ",", "2845.613037109375`", ",", 
+   "2874.97216796875`", ",", "2886.24853515625`", ",", "2892.49853515625`", 
+   ",", "2898.74853515625`", ",", "2904.99853515625`", ",", 
+   "2911.24853515625`", ",", "2917.49853515625`", ",", "2924.9931640625`", 
+   ",", "2946.65185546875`", ",", "2956.24853515625`", ",", 
+   "2962.49853515625`", ",", "2968.74853515625`", ",", "2974.99853515625`", 
+   ",", "2941.9560546875`", ",", "2867.49853515625`", ",", 
+   "2890.074462890625`", ",", "3078.976806640625`", ",", "3015.4873046875`", 
+   ",", "3012.49853515625`", ",", "2971.1845703125`", ",", 
+   "2954.99853515625`", ",", "2960.526123046875`", ",", "3002.1875`", ",", 
+   "3044.484619140625`", ",", "3082.565673828125`", ",", "3243.4658203125`", 
+   ",", "3262.49853515625`", ",", "3268.74853515625`", ",", 
+   "3386.637451171875`", ",", "3951.8271484375`", ",", "4000.`", ",", 
+   "4000.`", ",", "4000.`", ",", "3432.06298828125`", ",", "2500.`", ",", 
+   "2500.`", ",", "2500.`", ",", "2547.372314453125`", ",", 
+   "2649.999755859375`", ",", "2505.697265625`", ",", "2439.999755859375`", 
+   ",", "2459.197509765625`", ",", "2500.`", ",", "2500.`", ",", 
+   "2857.142822265625`", ",", "5274.58984375`", ",", "5499.99609375`", ",", 
+   "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+   "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+   "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+   "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+   "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+   "5499.99609375`", ",", "5342.46875`", ",", "3600.`", ",", 
+   "3299.999755859375`", ",", "3299.999755859375`", ",", "3297.001220703125`",
+    ",", "3231.615234375`", ",", "3201.362060546875`", ",", "3200.`", ",", 
+   "3200.`", ",", "3200.`", ",", "3200.`", ",", "3200.`", ",", "3200.`", ",", 
+   "3200.`", ",", "3201.236328125`", ",", "3140.63916015625`", ",", 
+   "3059.32470703125`", ",", "3049.999755859375`", ",", "3049.999755859375`", 
+   ",", "3049.999755859375`", ",", "3049.049560546875`", ",", 
+   "3118.5263671875`", ",", "3516.183349609375`", ",", "3550.`", ",", 
+   "3550.`", ",", "3550.`", ",", "3550.`", ",", "3550.`", ",", 
+   "3535.0068359375`", ",", "3342.4736328125`", ",", "3254.056396484375`", 
+   ",", "3250.`", ",", "3250.`", ",", "3250.`", ",", "3403.2001953125`", ",", 
+   "3827.489501953125`", ",", "3892.650146484375`", ",", "3733.75732421875`", 
+   ",", "3699.999755859375`", ",", "3699.999755859375`", ",", 
+   "3699.999755859375`", ",", "3699.999755859375`", ",", "3674.789306640625`",
+    ",", "3610.9013671875`", ",", "3599.772705078125`"}], "}"}]], "Output",
+ CellChangeTimes->{3.6984911524552927`*^9, 3.698491350661441*^9}]
+}, Open  ]],
+
+Cell["\:041c\:043e\:0436\:043d\:043e \:043f\:043e\:043b\:0443\:0447\:0438\
+\:0442\:044c \:0434\:0430\:043d\:043d\:044b\:0435 \:0434\:043b\:044f \:043d\
+\:0435\:0441\:043a\:043e\:043b\:044c\:043a\:0438\:0445 \:0442\:0440\:0430\
+\:0441\:0441 \:0442\:0430\:043a: ", "Text",
+ CellChangeTimes->{{3.6984911697689824`*^9, 3.698491181808735*^9}, 
+   3.6984912120319443`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"unloaded1to5step2", " ", "=", " ", 
+  RowBox[{
+   RowBox[{"dataInDelayed", "[", "\"\<Tracks\>\"", "]"}], "[", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", " ", "3", ",", " ", "5"}], "}"}], "]"}]}]], "Code",
+ CellChangeTimes->{{3.6984911843931894`*^9, 3.6984912043777*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"SEGYUnloaded", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\<\"ConvertFunction\"\>", "\[Rule]", 
+       RowBox[{"Function", "[", 
+        RowBox[{
+         RowBox[{
+         "{", "NonStandartImportExport`Extensions`SEGY`Private`bytes$", "}"}],
+          ",", 
+         RowBox[{"FromNotIEEENumberFormat", "[", 
+          RowBox[{
+          "NonStandartImportExport`Extensions`SEGY`Private`bytes$", ",", 
+           "1"}], "]"}]}], "]"}]}], ",", 
+      RowBox[{"\<\"DataFile\"\>", 
+       "\[Rule]", "\<\"E:\\\\Test Items\\\\Wolfram \
+Language\\\\Mathematica\\\\Projects\\\\NonStandartImportExport\\\\Resources\\\
+\\MarmousiModel.segy\"\>"}], ",", 
+      RowBox[{"\<\"DataSize\"\>", "\[Rule]", "1200"}], ",", 
+      RowBox[{"\<\"Positions\"\>", "\[Rule]", "3840"}]}], "}"}], "]"}], ",", 
+   RowBox[{"SEGYUnloaded", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\<\"ConvertFunction\"\>", "\[Rule]", 
+       RowBox[{"Function", "[", 
+        RowBox[{
+         RowBox[{
+         "{", "NonStandartImportExport`Extensions`SEGY`Private`bytes$", "}"}],
+          ",", 
+         RowBox[{"FromNotIEEENumberFormat", "[", 
+          RowBox[{
+          "NonStandartImportExport`Extensions`SEGY`Private`bytes$", ",", 
+           "1"}], "]"}]}], "]"}]}], ",", 
+      RowBox[{"\<\"DataFile\"\>", 
+       "\[Rule]", "\<\"E:\\\\Test Items\\\\Wolfram \
+Language\\\\Mathematica\\\\Projects\\\\NonStandartImportExport\\\\Resources\\\
+\\MarmousiModel.segy\"\>"}], ",", 
+      RowBox[{"\<\"DataSize\"\>", "\[Rule]", "1200"}], ",", 
+      RowBox[{"\<\"Positions\"\>", "\[Rule]", "6720"}]}], "}"}], "]"}], ",", 
+   RowBox[{"SEGYUnloaded", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\<\"ConvertFunction\"\>", "\[Rule]", 
+       RowBox[{"Function", "[", 
+        RowBox[{
+         RowBox[{
+         "{", "NonStandartImportExport`Extensions`SEGY`Private`bytes$", "}"}],
+          ",", 
+         RowBox[{"FromNotIEEENumberFormat", "[", 
+          RowBox[{
+          "NonStandartImportExport`Extensions`SEGY`Private`bytes$", ",", 
+           "1"}], "]"}]}], "]"}]}], ",", 
+      RowBox[{"\<\"DataFile\"\>", 
+       "\[Rule]", "\<\"E:\\\\Test Items\\\\Wolfram \
+Language\\\\Mathematica\\\\Projects\\\\NonStandartImportExport\\\\Resources\\\
+\\MarmousiModel.segy\"\>"}], ",", 
+      RowBox[{"\<\"DataSize\"\>", "\[Rule]", "1200"}], ",", 
+      RowBox[{"\<\"Positions\"\>", "\[Rule]", "9600"}]}], "}"}], "]"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.698491191593718*^9, 3.6984912058317614`*^9}, 
+   3.698491350671459*^9}]
+}, Open  ]],
+
+Cell["\:0417\:0430\:0433\:0440\:0443\:0437\:0438\:0442\:044c \:0438\:0445 \
+\:0432\:0441\:0435 \:043c\:043e\:0436\:043d\:043e \:0442\:0430\:043a: ", \
+"Text",
+ CellChangeTimes->{{3.6984912171746964`*^9, 3.698491227545783*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"NonStandartLoad", "[", "unloaded1to5step2", "]"}]], "Code",
+ CellChangeTimes->{{3.698491234556484*^9, 3.698491252088733*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "1500.`", ",", "1499.999755859375`", ",", "1499.999755859375`", ",", 
+     "1509.65380859375`", ",", "1632.770263671875`", ",", "1662.49951171875`",
+      ",", "1664.99951171875`", ",", "1667.49951171875`", ",", 
+     "1686.320556640625`", ",", "1766.121826171875`", ",", 
+     "1774.99951171875`", ",", "1777.49951171875`", ",", "1779.99951171875`", 
+     ",", "1784.122314453125`", ",", "1707.04052734375`", ",", 
+     "1669.091796875`", ",", "1689.99951171875`", ",", "1692.49951171875`", 
+     ",", "1694.99951171875`", ",", "1697.49951171875`", ",", 
+     "1699.99951171875`", ",", "1701.984375`", ",", "1729.7392578125`", ",", 
+     "1758.02587890625`", ",", "1759.99951171875`", ",", "1762.49951171875`", 
+     ",", "1764.99951171875`", ",", "1761.229736328125`", ",", 
+     "1653.41064453125`", ",", "1632.49951171875`", ",", "1634.99951171875`", 
+     ",", "1637.49951171875`", ",", "1646.604248046875`", ",", 
+     "1679.97607421875`", ",", "1684.99951171875`", ",", "1687.49951171875`", 
+     ",", "1689.99951171875`", ",", "1692.49951171875`", ",", 
+     "1694.99951171875`", ",", "1731.161865234375`", ",", "1749.99951171875`",
+      ",", "1752.49951171875`", ",", "1754.99951171875`", ",", 
+     "1749.181640625`", ",", "1651.130859375`", ",", "1657.8408203125`", ",", 
+     "1714.99951171875`", ",", "1717.49951171875`", ",", "1719.99951171875`", 
+     ",", "1742.19921875`", ",", "1796.19677734375`", ",", 
+     "1807.682861328125`", ",", "1809.99951171875`", ",", "1812.49951171875`",
+      ",", "1814.99951171875`", ",", "1817.49951171875`", ",", 
+     "1809.4677734375`", ",", "1758.906982421875`", ",", "1709.549072265625`",
+      ",", "1679.869384765625`", ",", "1732.96142578125`", ",", 
+     "1798.906494140625`", ",", "1764.42529296875`", ",", 
+     "1726.677978515625`", ",", "1729.99951171875`", ",", 
+     "1719.482177734375`", ",", "1694.99951171875`", ",", 
+     "1697.441162109375`", ",", "1704.3388671875`", ",", "1727.699951171875`",
+      ",", "1800.862548828125`", ",", "1879.0439453125`", ",", 
+     "1879.99951171875`", ",", "1883.0244140625`", ",", "1859.79345703125`", 
+     ",", "1836.98291015625`", ",", "1839.99951171875`", ",", 
+     "1842.49951171875`", ",", "1844.99951171875`", ",", "1894.559326171875`",
+      ",", "1919.99951171875`", ",", "1922.49951171875`", ",", 
+     "1924.99951171875`", ",", "1921.70751953125`", ",", "1821.834228515625`",
+      ",", "1802.8134765625`", ",", "1789.9267578125`", ",", 
+     "1783.9150390625`", ",", "1871.28369140625`", ",", "1892.49951171875`", 
+     ",", "1894.99951171875`", ",", "1893.07568359375`", ",", 
+     "1841.53173828125`", ",", "1832.49951171875`", ",", "1834.99951171875`", 
+     ",", "1789.793701171875`", ",", "1769.99951171875`", ",", 
+     "1772.49951171875`", ",", "1774.99951171875`", ",", "1777.49951171875`", 
+     ",", "1779.99951171875`", ",", "1781.9365234375`", ",", "1812.03515625`",
+      ",", "1853.102783203125`", ",", "1859.99951171875`", ",", 
+     "1862.49951171875`", ",", "1864.99951171875`", ",", "1867.49951171875`", 
+     ",", "1889.559814453125`", ",", "1984.837646484375`", ",", 
+     "1994.99951171875`", ",", "1991.044921875`", ",", "1910.226806640625`", 
+     ",", "1857.9453125`", ",", "1824.99951171875`", ",", "1831.2041015625`", 
+     ",", "1879.8818359375`", ",", "1887.298583984375`", ",", 
+     "2145.63037109375`", ",", "2452.414306640625`", ",", 
+     "2449.999267578125`", ",", "2453.749267578125`", ",", 
+     "2457.499267578125`", ",", "2461.249267578125`", ",", 
+     "2469.972900390625`", ",", "2496.864013671875`", ",", 
+     "2502.499267578125`", ",", "2506.249267578125`", ",", 
+     "2509.999267578125`", ",", "2513.749267578125`", ",", 
+     "2517.499267578125`", ",", "2521.249267578125`", ",", 
+     "2524.999267578125`", ",", "2516.18505859375`", ",", 
+     "2487.959228515625`", ",", "2486.135498046875`", ",", 
+     "2489.999267578125`", ",", "2493.749267578125`", ",", 
+     "2497.499267578125`", ",", "2505.909912109375`", ",", 
+     "2595.798095703125`", ",", "2619.696533203125`", ",", 
+     "2577.010498046875`", ",", "2532.81201171875`", ",", 
+     "2506.638427734375`", ",", "2503.749267578125`", ",", 
+     "2507.499267578125`", ",", "2517.02490234375`", ",", "2597.21044921875`",
+      ",", "2637.09765625`", ",", "2642.499267578125`", ",", 
+     "2646.249267578125`", ",", "2649.999267578125`", ",", 
+     "2653.749267578125`", ",", "2657.499267578125`", ",", 
+     "2661.249267578125`", ",", "2664.999267578125`", ",", 
+     "2668.749267578125`", ",", "2672.499267578125`", ",", 
+     "2676.249267578125`", ",", "2679.999267578125`", ",", 
+     "2664.22802734375`", ",", "2627.499267578125`", ",", 
+     "2631.249267578125`", ",", "2634.999267578125`", ",", 
+     "2638.749267578125`", ",", "2642.499267578125`", ",", 
+     "3529.531982421875`", ",", "4069.992919921875`", ",", "4130.7578125`", 
+     ",", "4242.4921875`", ",", "4258.7421875`", ",", "4244.65625`", ",", 
+     "4121.5625`", ",", "4166.21484375`", ",", "4237.4609375`", ",", 
+     "3984.445068359375`", ",", "2883.794189453125`", ",", 
+     "2812.498291015625`", ",", "2812.43701171875`", ",", "2741.49365234375`",
+      ",", "2731.248291015625`", ",", "2737.498291015625`", ",", 
+     "2975.488037109375`", ",", "3053.728271484375`", ",", 
+     "2852.634033203125`", ",", "2842.498291015625`", ",", 
+     "2846.87060546875`", ",", "2829.989501953125`", ",", 
+     "2831.248291015625`", ",", "2837.498291015625`", ",", 
+     "2845.613037109375`", ",", "2874.97216796875`", ",", "2886.24853515625`",
+      ",", "2892.49853515625`", ",", "2898.74853515625`", ",", 
+     "2904.99853515625`", ",", "2911.24853515625`", ",", "2917.49853515625`", 
+     ",", "2924.9931640625`", ",", "2946.65185546875`", ",", 
+     "2956.24853515625`", ",", "2962.49853515625`", ",", "2968.74853515625`", 
+     ",", "2974.99853515625`", ",", "2941.9560546875`", ",", 
+     "2867.49853515625`", ",", "2890.074462890625`", ",", 
+     "3078.976806640625`", ",", "3015.4873046875`", ",", "3012.49853515625`", 
+     ",", "2971.1845703125`", ",", "2954.99853515625`", ",", 
+     "2960.526123046875`", ",", "3002.1875`", ",", "3044.484619140625`", ",", 
+     "3082.565673828125`", ",", "3243.4658203125`", ",", "3262.49853515625`", 
+     ",", "3268.74853515625`", ",", "3386.637451171875`", ",", 
+     "3951.8271484375`", ",", "4000.`", ",", "4000.`", ",", "4000.`", ",", 
+     "3432.06298828125`", ",", "2500.`", ",", "2500.`", ",", "2500.`", ",", 
+     "2547.372314453125`", ",", "2649.999755859375`", ",", "2505.697265625`", 
+     ",", "2439.999755859375`", ",", "2459.197509765625`", ",", "2500.`", ",",
+      "2500.`", ",", "2857.142822265625`", ",", "5274.58984375`", ",", 
+     "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+     "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+     "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+     "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+     "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+     "5499.99609375`", ",", "5499.99609375`", ",", "5342.46875`", ",", 
+     "3600.`", ",", "3299.999755859375`", ",", "3299.999755859375`", ",", 
+     "3297.001220703125`", ",", "3231.615234375`", ",", "3201.362060546875`", 
+     ",", "3200.`", ",", "3200.`", ",", "3200.`", ",", "3200.`", ",", 
+     "3200.`", ",", "3200.`", ",", "3200.`", ",", "3201.236328125`", ",", 
+     "3140.63916015625`", ",", "3059.32470703125`", ",", "3049.999755859375`",
+      ",", "3049.999755859375`", ",", "3049.999755859375`", ",", 
+     "3049.049560546875`", ",", "3118.5263671875`", ",", "3516.183349609375`",
+      ",", "3550.`", ",", "3550.`", ",", "3550.`", ",", "3550.`", ",", 
+     "3550.`", ",", "3535.0068359375`", ",", "3342.4736328125`", ",", 
+     "3254.056396484375`", ",", "3250.`", ",", "3250.`", ",", "3250.`", ",", 
+     "3403.2001953125`", ",", "3827.489501953125`", ",", "3892.650146484375`",
+      ",", "3733.75732421875`", ",", "3699.999755859375`", ",", 
+     "3699.999755859375`", ",", "3699.999755859375`", ",", 
+     "3699.999755859375`", ",", "3674.789306640625`", ",", "3610.9013671875`",
+      ",", "3599.772705078125`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "1500.`", ",", "1499.999755859375`", ",", "1499.999755859375`", ",", 
+     "1509.65380859375`", ",", "1632.770263671875`", ",", "1662.49951171875`",
+      ",", "1664.99951171875`", ",", "1734.470458984375`", ",", 
+     "1769.99951171875`", ",", "1772.49951171875`", ",", "1774.99951171875`", 
+     ",", "1777.49951171875`", ",", "1779.99951171875`", ",", 
+     "1749.53955078125`", ",", "1684.99951171875`", ",", "1687.49951171875`", 
+     ",", "1689.99951171875`", ",", "1692.49951171875`", ",", 
+     "1694.99951171875`", ",", "1697.49951171875`", ",", "1699.99951171875`", 
+     ",", "1718.45361328125`", ",", "1754.99951171875`", ",", 
+     "1757.49951171875`", ",", "1759.99951171875`", ",", "1763.995849609375`",
+      ",", "1693.126220703125`", ",", "1626.080078125`", ",", 
+     "1629.99951171875`", ",", "1632.49951171875`", ",", "1634.99951171875`", 
+     ",", "1639.975830078125`", ",", "1673.271484375`", ",", 
+     "1682.49951171875`", ",", "1684.99951171875`", ",", "1687.49951171875`", 
+     ",", "1689.99951171875`", ",", "1691.984375`", ",", "1719.73779296875`", 
+     ",", "1748.02587890625`", ",", "1749.99951171875`", ",", 
+     "1752.49951171875`", ",", "1754.99951171875`", ",", "1668.3017578125`", 
+     ",", "1643.10205078125`", ",", "1707.413818359375`", ",", 
+     "1714.99951171875`", ",", "1717.49951171875`", ",", "1719.99951171875`", 
+     ",", "1747.865966796875`", ",", "1804.99951171875`", ",", 
+     "1807.49951171875`", ",", "1809.99951171875`", ",", "1812.49951171875`", 
+     ",", "1814.99951171875`", ",", "1812.431884765625`", ",", 
+     "1753.146728515625`", ",", "1719.5693359375`", ",", "1674.99951171875`", 
+     ",", "1715.406982421875`", ",", "1788.16650390625`", ",", 
+     "1776.25048828125`", ",", "1724.99951171875`", ",", "1727.49951171875`", 
+     ",", "1729.99951171875`", ",", "1719.482177734375`", ",", 
+     "1694.99951171875`", ",", "1717.73876953125`", ",", "1752.69384765625`", 
+     ",", "1863.51611328125`", ",", "1874.99951171875`", ",", 
+     "1877.49951171875`", ",", "1879.99951171875`", ",", "1866.204833984375`",
+      ",", "1834.99951171875`", ",", "1837.49951171875`", ",", 
+     "1839.99951171875`", ",", "1841.7802734375`", ",", "1879.540283203125`", 
+     ",", "1918.238525390625`", ",", "1919.99951171875`", ",", 
+     "1923.883544921875`", ",", "1858.53125`", ",", "1796.17578125`", ",", 
+     "1794.97705078125`", ",", "1774.366455078125`", ",", "1774.99951171875`",
+      ",", "1851.145751953125`", ",", "1889.99951171875`", ",", 
+     "1892.49951171875`", ",", "1894.99951171875`", ",", "1849.8037109375`", 
+     ",", "1829.99951171875`", ",", "1833.2373046875`", ",", 
+     "1799.57177734375`", ",", "1766.779052734375`", ",", "1769.99951171875`",
+      ",", "1772.49951171875`", ",", "1774.99951171875`", ",", 
+     "1777.49951171875`", ",", "1779.99951171875`", ",", "1804.754638671875`",
+      ",", "1854.99951171875`", ",", "1857.49951171875`", ",", 
+     "1859.99951171875`", ",", "1862.49951171875`", ",", "1864.99951171875`", 
+     ",", "1874.832275390625`", ",", "1969.568603515625`", ",", 
+     "1992.49951171875`", ",", "1994.99951171875`", ",", "1989.205078125`", 
+     ",", "1891.197998046875`", ",", "1856.2041015625`", ",", 
+     "1824.99951171875`", ",", "1831.2041015625`", ",", "1879.8818359375`", 
+     ",", "1887.298583984375`", ",", "2145.63037109375`", ",", 
+     "2452.414306640625`", ",", "2449.999267578125`", ",", 
+     "2453.749267578125`", ",", "2457.499267578125`", ",", 
+     "2461.249267578125`", ",", "2469.972900390625`", ",", 
+     "2496.864013671875`", ",", "2502.499267578125`", ",", 
+     "2506.249267578125`", ",", "2509.999267578125`", ",", 
+     "2513.749267578125`", ",", "2517.499267578125`", ",", 
+     "2521.249267578125`", ",", "2524.999267578125`", ",", 
+     "2512.49853515625`", ",", "2482.499267578125`", ",", 
+     "2486.249267578125`", ",", "2489.999267578125`", ",", 
+     "2493.749267578125`", ",", "2497.499267578125`", ",", 
+     "2575.119384765625`", ",", "2614.999267578125`", ",", 
+     "2589.333251953125`", ",", "2532.499267578125`", ",", 
+     "2533.739501953125`", ",", "2506.638427734375`", ",", 
+     "2503.749267578125`", ",", "2507.499267578125`", ",", "2518.62109375`", 
+     ",", "2614.667724609375`", ",", "2638.749267578125`", ",", 
+     "2642.499267578125`", ",", "2646.249267578125`", ",", 
+     "2649.999267578125`", ",", "2653.749267578125`", ",", 
+     "2657.499267578125`", ",", "2661.249267578125`", ",", 
+     "2664.999267578125`", ",", "2668.749267578125`", ",", 
+     "2672.499267578125`", ",", "2676.249267578125`", ",", 
+     "2679.999267578125`", ",", "2664.22802734375`", ",", 
+     "2627.499267578125`", ",", "2631.249267578125`", ",", 
+     "2634.999267578125`", ",", "2638.749267578125`", ",", 
+     "2642.499267578125`", ",", "3529.531982421875`", ",", 
+     "4069.992919921875`", ",", "4130.7578125`", ",", "4242.4921875`", ",", 
+     "4247.37109375`", ",", "4124.65234375`", ",", "4110.2109375`", ",", 
+     "4176.98828125`", ",", "4142.59765625`", ",", "3006.687255859375`", ",", 
+     "2806.248291015625`", ",", "2812.498291015625`", ",", 
+     "2812.43701171875`", ",", "2741.49365234375`", ",", "2731.248291015625`",
+      ",", "2737.498291015625`", ",", "2959.148193359375`", ",", 
+     "2873.68798828125`", ",", "2836.248291015625`", ",", 
+     "2842.498291015625`", ",", "2846.87060546875`", ",", 
+     "2829.989501953125`", ",", "2831.248291015625`", ",", 
+     "2837.498291015625`", ",", "2845.613037109375`", ",", 
+     "2874.97216796875`", ",", "2886.24853515625`", ",", "2892.49853515625`", 
+     ",", "2898.74853515625`", ",", "2904.99853515625`", ",", 
+     "2911.24853515625`", ",", "2917.49853515625`", ",", "2924.9931640625`", 
+     ",", "2946.65185546875`", ",", "2956.24853515625`", ",", 
+     "2962.49853515625`", ",", "2968.74853515625`", ",", "2974.99853515625`", 
+     ",", "2941.9560546875`", ",", "2867.49853515625`", ",", 
+     "2890.074462890625`", ",", "3078.976806640625`", ",", "3015.4873046875`",
+      ",", "3012.49853515625`", ",", "2971.1845703125`", ",", 
+     "2954.99853515625`", ",", "2960.526123046875`", ",", "3002.1875`", ",", 
+     "3044.484619140625`", ",", "3082.565673828125`", ",", "3243.4658203125`",
+      ",", "3262.49853515625`", ",", "3268.74853515625`", ",", 
+     "3386.637451171875`", ",", "3951.8271484375`", ",", "4000.`", ",", 
+     "4000.`", ",", "4000.`", ",", "3432.06298828125`", ",", "2500.`", ",", 
+     "2500.`", ",", "2500.`", ",", "2547.372314453125`", ",", 
+     "2649.999755859375`", ",", "2505.697265625`", ",", "2439.999755859375`", 
+     ",", "2459.197509765625`", ",", "2500.`", ",", "2500.`", ",", "2500.`", 
+     ",", "3174.025634765625`", ",", "5499.99609375`", ",", "5499.99609375`", 
+     ",", "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",",
+      "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+     "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+     "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+     "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+     "5342.46875`", ",", "3579.97216796875`", ",", "3206.185302734375`", ",", 
+     "3200.`", ",", "3200.`", ",", "3200.`", ",", "3200.`", ",", "3200.`", 
+     ",", "3200.`", ",", "3200.`", ",", "3200.`", ",", "3200.`", ",", 
+     "3190.4765625`", ",", "3074.5966796875`", ",", "3049.999755859375`", ",",
+      "3049.999755859375`", ",", "3049.999755859375`", ",", 
+     "3049.999755859375`", ",", "3202.170166015625`", ",", "3550.`", ",", 
+     "3550.`", ",", "3550.`", ",", "3550.`", ",", "3550.`", ",", "3550.`", 
+     ",", "3550.`", ",", "3449.919677734375`", ",", "3250.`", ",", "3250.`", 
+     ",", "3250.`", ",", "3250.`", ",", "3250.`", ",", "3675.83251953125`", 
+     ",", "3900.`", ",", "3834.140380859375`", ",", "3699.999755859375`", ",",
+      "3699.999755859375`", ",", "3699.999755859375`", ",", 
+     "3699.999755859375`", ",", "3699.999755859375`", ",", 
+     "3631.958251953125`", ",", "3600.`", ",", "3600.`", ",", "3600.`", ",", 
+     "3584.0068359375`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "1500.`", ",", "1499.999755859375`", ",", "1499.999755859375`", ",", 
+     "1509.65380859375`", ",", "1632.770263671875`", ",", 
+     "1668.702392578125`", ",", "1725.2861328125`", ",", "1768.3271484375`", 
+     ",", "1769.99951171875`", ",", "1772.49951171875`", ",", 
+     "1774.99951171875`", ",", "1777.49951171875`", ",", "1763.033935546875`",
+      ",", "1688.635986328125`", ",", "1684.99951171875`", ",", 
+     "1687.49951171875`", ",", "1689.99951171875`", ",", "1692.49951171875`", 
+     ",", "1694.99951171875`", ",", "1697.49951171875`", ",", 
+     "1708.49853515625`", ",", "1750.302978515625`", ",", "1754.99951171875`",
+      ",", "1757.49951171875`", ",", "1759.99951171875`", ",", 
+     "1715.93359375`", ",", "1624.99951171875`", ",", "1627.49951171875`", 
+     ",", "1629.99951171875`", ",", "1632.49951171875`", ",", 
+     "1634.99951171875`", ",", "1664.45263671875`", ",", "1679.99951171875`", 
+     ",", "1682.49951171875`", ",", "1684.99951171875`", ",", 
+     "1687.49951171875`", ",", "1691.813720703125`", ",", "1715.23193359375`",
+      ",", "1744.99951171875`", ",", "1747.49951171875`", ",", 
+     "1749.99951171875`", ",", "1707.93798828125`", ",", "1622.9931640625`", 
+     ",", "1632.453369140625`", ",", "1696.43896484375`", ",", 
+     "1712.49951171875`", ",", "1714.99951171875`", ",", "1718.585693359375`",
+      ",", "1744.809814453125`", ",", "1798.540283203125`", ",", 
+     "1804.99951171875`", ",", "1807.49951171875`", ",", "1809.99951171875`", 
+     ",", "1812.49951171875`", ",", "1814.99951171875`", ",", 
+     "1761.364990234375`", ",", "1727.779541015625`", ",", 
+     "1676.304931640625`", ",", "1699.73486328125`", ",", 
+     "1776.400634765625`", ",", "1786.842529296875`", ",", "1727.4296875`", 
+     ",", "1724.99951171875`", ",", "1727.49951171875`", ",", 
+     "1723.288818359375`", ",", "1694.673095703125`", ",", 
+     "1709.900146484375`", ",", "1736.58349609375`", ",", 
+     "1848.950927734375`", ",", "1872.77685546875`", ",", "1874.99951171875`",
+      ",", "1877.49951171875`", ",", "1871.6005859375`", ",", 
+     "1835.600341796875`", ",", "1834.99951171875`", ",", "1837.49951171875`",
+      ",", "1839.99951171875`", ",", "1864.765625`", ",", "1914.99951171875`",
+      ",", "1917.49951171875`", ",", "1919.99951171875`", ",", 
+     "1879.4560546875`", ",", "1794.99951171875`", ",", "1795.616455078125`", 
+     ",", "1774.97705078125`", ",", "1779.321533203125`", ",", 
+     "1841.295654296875`", ",", "1888.41015625`", ",", "1889.99951171875`", 
+     ",", "1888.11083984375`", ",", "1852.0810546875`", ",", 
+     "1826.93505859375`", ",", "1827.4384765625`", ",", "1800.273681640625`", 
+     ",", "1764.99951171875`", ",", "1767.49951171875`", ",", 
+     "1769.99951171875`", ",", "1772.49951171875`", ",", "1774.99951171875`", 
+     ",", "1777.49951171875`", ",", "1791.50244140625`", ",", 
+     "1848.063232421875`", ",", "1854.99951171875`", ",", "1857.49951171875`",
+      ",", "1859.99951171875`", ",", "1862.49951171875`", ",", 
+     "1864.99951171875`", ",", "1890.9111328125`", ",", "1974.09619140625`", 
+     ",", "1992.49951171875`", ",", "1994.99951171875`", ",", 
+     "1908.448486328125`", ",", "1869.99951171875`", ",", "1856.2041015625`", 
+     ",", "1824.99951171875`", ",", "1831.2041015625`", ",", 
+     "1879.8818359375`", ",", "2051.922119140625`", ",", "2442.499267578125`",
+      ",", "2446.249267578125`", ",", "2449.999267578125`", ",", 
+     "2453.749267578125`", ",", "2457.499267578125`", ",", 
+     "2463.114013671875`", ",", "2489.97314453125`", ",", 
+     "2498.749267578125`", ",", "2502.499267578125`", ",", 
+     "2506.249267578125`", ",", "2509.999267578125`", ",", 
+     "2513.749267578125`", ",", "2517.499267578125`", ",", 
+     "2521.249267578125`", ",", "2516.62060546875`", ",", 
+     "2481.857666015625`", ",", "2482.499267578125`", ",", 
+     "2486.249267578125`", ",", "2489.999267578125`", ",", 
+     "2493.749267578125`", ",", "2497.499267578125`", ",", 
+     "2575.119384765625`", ",", "2614.999267578125`", ",", 
+     "2589.333251953125`", ",", "2532.499267578125`", ",", "2509.1015625`", 
+     ",", "2499.999267578125`", ",", "2503.749267578125`", ",", 
+     "2507.499267578125`", ",", "2518.62109375`", ",", "2614.667724609375`", 
+     ",", "2638.749267578125`", ",", "2642.499267578125`", ",", 
+     "2646.249267578125`", ",", "2649.999267578125`", ",", 
+     "2653.749267578125`", ",", "2657.499267578125`", ",", 
+     "2661.249267578125`", ",", "2664.999267578125`", ",", 
+     "2668.749267578125`", ",", "2672.499267578125`", ",", 
+     "2676.249267578125`", ",", "2679.999267578125`", ",", 
+     "2664.22802734375`", ",", "2627.499267578125`", ",", 
+     "2631.249267578125`", ",", "2634.999267578125`", ",", 
+     "2626.369384765625`", ",", "3242.88671875`", ",", "4070.150146484375`", 
+     ",", "4092.988525390625`", ",", "4217.36328125`", ",", "4242.4921875`", 
+     ",", "4247.37109375`", ",", "4124.65234375`", ",", "4110.2109375`", ",", 
+     "4176.98828125`", ",", "4142.59765625`", ",", "3006.687255859375`", ",", 
+     "2806.248291015625`", ",", "2812.498291015625`", ",", 
+     "2750.649169921875`", ",", "2724.998291015625`", ",", 
+     "2731.248291015625`", ",", "2737.498291015625`", ",", 
+     "2959.148193359375`", ",", "2873.68798828125`", ",", 
+     "2836.248291015625`", ",", "2842.498291015625`", ",", 
+     "2846.87060546875`", ",", "2829.989501953125`", ",", 
+     "2831.248291015625`", ",", "2837.498291015625`", ",", 
+     "2864.008544921875`", ",", "2879.99853515625`", ",", "2886.24853515625`",
+      ",", "2892.49853515625`", ",", "2898.74853515625`", ",", 
+     "2904.99853515625`", ",", "2911.24853515625`", ",", "2917.49853515625`", 
+     ",", "2924.9931640625`", ",", "2946.65185546875`", ",", 
+     "2956.24853515625`", ",", "2962.49853515625`", ",", "2968.74853515625`", 
+     ",", "2974.99853515625`", ",", "2941.9560546875`", ",", 
+     "2867.49853515625`", ",", "2890.074462890625`", ",", 
+     "3078.976806640625`", ",", "3015.4873046875`", ",", "3012.49853515625`", 
+     ",", "2971.1845703125`", ",", "2954.99853515625`", ",", 
+     "2960.526123046875`", ",", "3002.1875`", ",", "3044.484619140625`", ",", 
+     "3082.565673828125`", ",", "3243.4658203125`", ",", "3262.49853515625`", 
+     ",", "3268.74853515625`", ",", "3386.637451171875`", ",", 
+     "3951.8271484375`", ",", "4000.`", ",", "4000.`", ",", "4000.`", ",", 
+     "3432.06298828125`", ",", "2500.`", ",", "2500.`", ",", "2500.`", ",", 
+     "2547.372314453125`", ",", "2649.999755859375`", ",", "2505.697265625`", 
+     ",", "2439.999755859375`", ",", "2438.7578125`", ",", 
+     "2468.80810546875`", ",", "2500.649658203125`", ",", "2500.`", ",", 
+     "3174.025634765625`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+     "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+     "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+     "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+     "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+     "5499.99609375`", ",", "5499.99609375`", ",", "5499.99609375`", ",", 
+     "3788.185302734375`", ",", "3200.`", ",", "3200.`", ",", "3200.`", ",", 
+     "3200.`", ",", "3200.`", ",", "3200.`", ",", "3200.`", ",", 
+     "3197.937744140625`", ",", "3152.782958984375`", ",", 
+     "3057.226806640625`", ",", "3049.999755859375`", ",", 
+     "3049.999755859375`", ",", "3049.999755859375`", ",", "3044.9111328125`",
+      ",", "3294.576416015625`", ",", "3560.819091796875`", ",", "3550.`", 
+     ",", "3550.`", ",", "3550.`", ",", "3550.`", ",", "3550.`", ",", 
+     "3553.3173828125`", ",", "3390.689208984375`", ",", "3243.897705078125`",
+      ",", "3250.`", ",", "3250.`", ",", "3250.`", ",", "3258.676025390625`", 
+     ",", "3447.365966796875`", ",", "3867.22119140625`", ",", 
+     "3877.990966796875`", ",", "3749.183837890625`", ",", 
+     "3699.999755859375`", ",", "3699.999755859375`", ",", 
+     "3699.999755859375`", ",", "3698.628173828125`", ",", 
+     "3668.619384765625`", ",", "3604.845947265625`", ",", "3600.`", ",", 
+     "3600.`", ",", "3590.809814453125`", ",", "3481.4423828125`", ",", 
+     "3346.141357421875`", ",", "3350.080322265625`"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.6984912528404627`*^9, 3.6984913506904745`*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{775, 872},
+WindowMargins->{{564, Automatic}, {Automatic, 54}},
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (September 21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 196, 3, 64, "Chapter"],
+Cell[779, 27, 189, 2, 30, "Text"],
+Cell[971, 31, 135, 2, 50, "Code"],
+Cell[1109, 35, 242, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[1376, 42, 124, 1, 50, "Code"],
+Cell[1503, 45, 322, 5, 30, "Output"]
+}, Open  ]],
+Cell[1840, 53, 392, 5, 30, "Text"],
+Cell[CellGroupData[{
+Cell[2257, 62, 372, 8, 50, "Code"],
+Cell[2632, 72, 374, 6, 50, "Output"]
+}, Open  ]],
+Cell[3021, 81, 183, 2, 30, "Text"],
+Cell[CellGroupData[{
+Cell[3229, 87, 271, 5, 50, "Code"],
+Cell[3503, 94, 9109, 227, 189, "Output"]
+}, Open  ]],
+Cell[12627, 324, 245, 3, 30, "Text"],
+Cell[12875, 329, 262, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[13162, 336, 161, 3, 50, "Code"],
+Cell[13326, 341, 3531, 44, 715, "Output"]
+}, Open  ]],
+Cell[16872, 388, 252, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[17149, 395, 145, 2, 50, "Code"],
+Cell[17297, 399, 1974, 33, 164, "Output"]
+}, Open  ]],
+Cell[19286, 435, 274, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[19585, 442, 252, 5, 50, "Code"],
+Cell[19840, 449, 227, 4, 30, "Output"]
+}, Open  ]],
+Cell[20082, 456, 314, 4, 30, "Text"],
+Cell[CellGroupData[{
+Cell[20421, 464, 212, 5, 50, "Code"],
+Cell[20636, 471, 9543, 233, 151, "Output"]
+}, Open  ]],
+Cell[30194, 707, 448, 7, 30, "Text"],
+Cell[CellGroupData[{
+Cell[30667, 718, 281, 7, 50, "Code"],
+Cell[30951, 727, 210, 4, 30, "Output"]
+}, Open  ]],
+Cell[31176, 734, 171, 2, 30, "Text"],
+Cell[CellGroupData[{
+Cell[31372, 740, 192, 3, 50, "Code"],
+Cell[31567, 745, 9663, 237, 115, "Output"]
+}, Open  ]],
+Cell[41245, 985, 159, 2, 30, "Text"],
+Cell[CellGroupData[{
+Cell[41429, 991, 220, 4, 50, "Code"],
+Cell[41652, 997, 8118, 115, 544, "Output"]
+}, Open  ]],
+Cell[49785, 1115, 197, 2, 30, "Text"],
+Cell[CellGroupData[{
+Cell[50007, 1121, 325, 7, 50, "Code"],
+Cell[50335, 1130, 16632, 247, 1076, "Output"]
+}, Open  ]],
+Cell[66982, 1380, 210, 2, 30, "Text"],
+Cell[CellGroupData[{
+Cell[67217, 1386, 356, 6, 50, "Code"],
+Cell[67576, 1394, 9643, 237, 115, "Output"]
+}, Open  ]],
+Cell[77234, 1634, 268, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[77527, 1641, 375, 6, 50, "Code"],
+Cell[77905, 1649, 9645, 237, 115, "Output"]
+}, Open  ]],
+Cell[87565, 1889, 234, 3, 30, "Text"],
+Cell[87802, 1894, 205, 2, 30, "Text"],
+Cell[CellGroupData[{
+Cell[88032, 1900, 310, 6, 50, "Code"],
+Cell[88345, 1908, 17742, 267, 2235, "Output"]
+}, Open  ]],
+Cell[106102, 2178, 284, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[106411, 2185, 146, 2, 50, "Code"],
+Cell[106560, 2189, 5808, 88, 658, "Output"]
+}, Open  ]],
+Cell[112383, 2280, 679, 11, 49, "Text"],
+Cell[CellGroupData[{
+Cell[113087, 2295, 368, 7, 50, "Code"],
+Cell[113458, 2304, 915, 23, 126, "Output"]
+}, Open  ]],
+Cell[114388, 2330, 211, 2, 30, "Text"],
+Cell[CellGroupData[{
+Cell[114624, 2336, 145, 2, 50, "Code"],
+Cell[114772, 2340, 8046, 114, 544, "Output"]
+}, Open  ]],
+Cell[122833, 2457, 366, 5, 30, "Text"],
+Cell[CellGroupData[{
+Cell[123224, 2466, 291, 6, 50, "Code"],
+Cell[123518, 2474, 2571, 62, 316, "Output"]
+}, Open  ]],
+Cell[126104, 2539, 226, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[126355, 2546, 149, 2, 50, "Code"],
+Cell[126507, 2550, 24765, 366, 1589, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

@@ -36,6 +36,9 @@ SEGYData[
 ][key_String, subkey_String] := 
 value; 
 
+object_SEGYData[key_String, subkeys: {__String}] := 
+Table[object[key, subkey], {subkey, subkeys}]; 
+
 object_SEGYData[keys: {__String}] := 
 Map[object][keys];
 

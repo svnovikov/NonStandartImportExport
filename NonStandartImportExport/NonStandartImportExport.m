@@ -75,7 +75,8 @@ SEGYLoad[unloaded, opts];
 End[]; (*`Private`*) 
 
 (* protection from change *) 
-SetAttributes[Evaluate[Names["`*"]], ReadProtected]; 
+SetAttributes[Evaluate[Names["`*"]], {ReadProtected}]; 
+SetAttributes[Evaluate[Names["`NonStandart*"]], {Listable}]; 
 Protect["`*"]; 
 
 EndPackage[]; (*NonStandartImportExport`*)  
