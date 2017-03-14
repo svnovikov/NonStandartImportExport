@@ -1,1 +1,1 @@
-# Примеры Использования
+# Custom Encoding - Example Of Use
