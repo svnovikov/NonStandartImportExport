@@ -10,7 +10,9 @@
 
 BeginPackage["NonStandartImportExport`", 
 	{
-		"NonStandartImportExport`Extensions`SEGY`"
+		(* SEG-Y *)
+		"NonStandartImportExport`Extensions`SEGY`", 
+		"FileFormats`SEGY`"
 	}
 ]; 
 
@@ -71,7 +73,7 @@ SEGYExport[file, data, opts];
 
 SetAttributes[NonStandartLoad, {Listable}]; 
 
-NonStandartLoad[unloaded_FileFormats`SEGY`SEGYUnloaded, opts: OptionsPattern[SEGYLoad]] := 
+NonStandartLoad[unloaded_SEGYUnloaded, opts: OptionsPattern[SEGYLoad]] := 
 SEGYLoad[unloaded, opts]; 
 
 (* /SEG-Y *) 

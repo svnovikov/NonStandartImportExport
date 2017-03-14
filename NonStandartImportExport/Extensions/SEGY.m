@@ -309,7 +309,6 @@ Module[
 	]
 ]; 
 
-
 (* SEGYExport *)
 
 SEGYExport[file_String, data_SEGYData] := 
