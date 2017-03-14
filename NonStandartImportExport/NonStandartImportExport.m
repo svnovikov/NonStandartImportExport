@@ -47,6 +47,8 @@ FileNameJoin[FileNameSplit[$InputFileName][[1 ;; -3]]];
 
 (* SEG-Y *) 
 
+SetAttributes[NonStandartImport, {Listable}]; 
+
 NonStandartImport[file: (_File | _String), "SEGY" | "SGY", opts: OptionsPattern[SEGYImport]] /; 
 If[
 	FileExistsQ[file], 
@@ -67,6 +69,8 @@ If[
 ] := 
 SEGYExport[file, data, opts]; 
 
+SetAttributes[NonStandartLoad, {Listable}]; 
+
 NonStandartLoad[unloaded_FileFormats`SEGY`SEGYUnloaded, opts: OptionsPattern[SEGYLoad]] := 
 SEGYLoad[unloaded, opts]; 
 
@@ -76,7 +80,6 @@ End[]; (*`Private`*)
 
 (* protection from change *) 
 SetAttributes[Evaluate[Names["`*"]], {ReadProtected}]; 
-SetAttributes[Evaluate[Names["`NonStandart*"]], {Listable}]; 
 Protect["`*"]; 
 
 EndPackage[]; (*NonStandartImportExport`*)  

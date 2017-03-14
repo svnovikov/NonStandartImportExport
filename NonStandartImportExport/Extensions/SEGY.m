@@ -296,15 +296,16 @@ Module[
 				Close[stream]; 
 			][[-1, -1, -1]], 
 		{__Integer}, 
-			Table[
-				Reap[
-					SetStreamPosition[stream, i]; 
-					Sow[convertfunction[BinaryReadList[stream, "Byte", datasize]]]; 
-					Close[stream]; 
-				][[-1, -1, -1]], 
-				
-				{i, position}
-			]
+			Reap[
+				Sow[
+					Table[
+						SetStreamPosition[stream, i]; 
+						convertfunction[BinaryReadList[stream, "Byte", datasize]], 
+						{i, position}
+					]
+				]; 
+				Close[stream]; 
+			][[-1, -1, -1]]
 	]
 ]; 
 
