@@ -1,6 +1,12 @@
 (* ::Package:: *) 
 
-(**)
+(* :Title: SEGY *) 
+(* :Context: FileFormats`SEGY` *) 
+(* :Version: 0.0.2 *) 
+(* :MathematicaVersion: 10.0+ *) 
+(* :Keywords: SEG-Y; IBM File Formats *) 
+(* :Email: KirillBelovTest@gmail.com *) 
+(* :Creator: Kirill Belov *) 
 
 BeginPackage["FileFormats`SEGY`"]; 
 

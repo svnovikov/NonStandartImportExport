@@ -1,12 +1,12 @@
-# Non Standart Import and Export
+# Non Standard Import and Export
 
-Support import and export non standart files
+Support import and export non standard files 
 
 ---
 
 # Нестандартный Импорт и Экспорт
 
-Поддержка импорта и экспорта файлов нестандартного формата
+Поддержка импорта и экспорта файлов нестандартного формата. 
 
 ## Обзор Проекта
 
@@ -18,25 +18,31 @@ Support import and export non standart files
 
 ### Документация
 
-Документация к проекту разделена на три части. 
+Документация к проекту разделена на четыре части. 
 Два раздела документации относятся к вспомогательным проектам, 
 которые связаны с поддержкой различных кодировок и 
 форматов представления чисел с плавующей точкой отличных от форматов IEEE. 
 
-- [Руководство - Пользовательские Кодировки](./CustomEncoding/Documentation/Russian/Guides/Guide.md)
-- [Руководство - Не IEEE Форматы Чисел](./NotIEEENumberFormat/Documentation/Russian/Guides/Guide.md)
+- [Пользовательские Кодировки - Руководство](./CustomEncoding/Documentation/Russian/Guides/Guide.md) 
+- [Не IEEE Форматы Чисел - Руководство](./NotIEEENumberFormat/Documentation/Russian/Guides/Guide.md) 
 
-Главный раздел документации посвящен работе с различными нестандартными типами файлов. 
-В этом разделе описаны функции для импортирования и экспортирования данных, а также представлены примеры 
-их использования. Кроме того подробно рассматриваются поддерживаемые расширения файлов. 
+Один раздел описывает поддерживаемые форматы файлов и типы данных, которые представляют их в Математике. 
 
-- [Руководство - Нестандартный Импорт и Экспорт](./NonStandartImportExport/Documentation/Russian/Guides/Guide.md)
+- [Фораматы Файлов - Руководство](./FileFormats/Documentation/Russian/Guides/Guide.md) 
+
+Главный раздел документации посвящен работе с нестандартными типами файлов. 
+В этом разделе описаны функции для импортирования и экспортирования данных, 
+а также представлены примеры их использования. 
+
+- [Нестандартный Импорт и Экспорт - Руководство](./NonStandartImportExport/Documentation/Russian/Guides/Guide.md) 
 
 ### Пакеты
 
 Весь код приложения хранится в пакетах Mathematica и имеет следующую структуру: 
 
-- **[CustomEncoding\`](./CustomEncoding/CustomEncoding.m )**
-- **[NotIEEENumberFormat\`](./NotIEEENumberFormat/NotIEEENumberFormat.m)**
-- **[NonStandartImportExport\`](./NonStandartImportExport/NonStandartImportExport.m)**
-  - [\`Extensions\`SEGY\`](./NonStandartImportExport/Extensions/SEGY.m)
+- **[CustomEncoding\`](./CustomEncoding/CustomEncoding.m)** 
+- **[FileFormats\`](./FileFormats/)** 
+  - [`SEGY`](./FileFormats/SEGY.m) 
+- **[NotIEEENumberFormat\`](./NotIEEENumberFormat/NotIEEENumberFormat.m)** 
+- **[NonStandartImportExport\`](./NonStandartImportExport/NonStandartImportExport.m)** 
+  - [\`Extensions\`SEGY\`](./NonStandartImportExport/Extensions/SEGY.m) 

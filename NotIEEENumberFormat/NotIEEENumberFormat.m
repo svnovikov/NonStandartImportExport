@@ -6,9 +6,9 @@
 (* :MathematicaVersion: 10.0+ *)
 (* :Keywords: Not IEEE; IBM 32 Float *)
 (* :Email: KirillBelovTest@gmail.com *)
-(* :Creator: Kirill Belov *) 
+(* :Creator: Kirill Belov *)
 
-BeginPackage["NotIEEENumberFormat`"]; 
+BeginPackage["NotIEEENumberFormat`"];
 
 (* preparation *)
 Unprotect["`*"]; 
@@ -38,17 +38,17 @@ Flatten[ToIBM32Float[numbers]];
 
 FromIBM32Float = 
 Compile[{{bytes, _Integer, 1}}, 
-	
+
 	(* return *) 
 	Table[
 
-		(* sign of the number *)	
+		(* sign of the number *) 
 		(-1)^(UnitStep[bytes[[i4th]] - 127.5]) * 
 
-		(* 16th exp *)
+		(* 16th exp *) 
 		16.0^(BitAnd[127, bytes[[i4th]]] - 64) * 
 
-		(* fraction part *)
+		(* fraction part *) 
 		(
 			bytes[[i4th + 1]] * 256.0^2 + 
 			bytes[[i4th + 2]] * 256.0 + 
@@ -67,20 +67,20 @@ Compile[{{number, _Real}},
 		If[number <= - 7.2370051459731155`*^75, Return[{255, 255, 255, 255}]]; 
 		If[- 8.636168040338686`*^-78 <= number <= 8.636168040338686`*^-78, Return[{0, 0, 0, 0}]]; 
 
-		(* bit for the represintation of the sign of the number *)
+		(* bit for the represintation of the sign of the number *) 
         rsign = UnitStep[-number]; 
 
-        (* 16-th exponent *)
+        (* 16-th exponent *) 
 		exp = Ceiling[Log[16, Abs[number]]]; 
-		
-		(* first byte *)
+
+		(* first byte *) 
 		firstbyte = exp + 64 + rsign * 128; 
 
-        (* bytes og the fraction part *)
+        (* bytes og the fraction part *) 
 		fractbytes = IntegerDigits[Floor[256.0^3 number / (16.0^exp)], 256, 3]; 
 
-        (* return *)
-       	Join[{firstbyte}, fractbytes]
+        (* return *) 
+       	Join[{firstbyte}, fractbytes] 
     ], 
 
 	RuntimeAttributes -> {Listable}, 
@@ -89,7 +89,7 @@ Compile[{{number, _Real}},
 
 (* /IBM 32 Float *) 
 
-End[]; (*`Private`*)
+End[]; (*`Private`*) 
 
 (* protection from change *) 
 SetAttributes[Evaluate[Names["`*"]], ReadProtected]; 

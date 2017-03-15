@@ -2,7 +2,7 @@
 
 (* :Title: NonStandartImportExport *)
 (* :Context: NonStandartImportExport` *)
-(* :Version: 0.0.4 *)
+(* :Version: 0.0.5 *)
 (* :MathematicaVersion: 10.0+ *)
 (* :Keywords: non standart file extensions; SEG-Y *)
 (* :Email: KirillBelovTest@gmail.com *)

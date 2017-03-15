@@ -4,14 +4,12 @@
 
 Paclet[
     Name -> "NonStandartImportExport",
-    Version -> "0.0.4",
+    Version -> "0.0.5",
     MathematicaVersion -> "10.0+",
-    Description -> "Support import and export non standart files",
+    Description -> "Support import and export non standard files",
     Creator -> "Anton Ekimenko, Kirill Belov",
-    Extensions -> 
+    Extensions ->
         {
             {"Kernel", Root -> ".", Context -> "NonStandartImportExport`"}
         }
 ]
-
-

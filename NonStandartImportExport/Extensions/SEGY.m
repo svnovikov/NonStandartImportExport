@@ -1,12 +1,12 @@
 (* ::Package:: *)
 
-(* :Title: SEGY *)
-(* :Context: NonStandartImportExport`Extensions`SEGY` *)
-(* :Version: 0.0.4 *)
-(* :MathematicaVersion: 10.0+ *)
-(* :Keywords: non standart file extensions; SEG-Y *)
-(* :Email: KirillBelovTest@gmail.com *)
-(* :Creator: Kirill Belov *)
+(* :Title: SEGY *) 
+(* :Context: NonStandartImportExport`Extensions`SEGY` *) 
+(* :Version: 0.0.5 *) 
+(* :MathematicaVersion: 10.0+ *) 
+(* :Keywords: non standart file extensions; SEG-Y *) 
+(* :Email: KirillBelovTest@gmail.com *) 
+(* :Creator: Kirill Belov *) 
 
 BeginPackage["NonStandartImportExport`Extensions`SEGY`", 
 	{
@@ -17,7 +17,7 @@ BeginPackage["NonStandartImportExport`Extensions`SEGY`",
 	}
 ]; 
 
-(* preparation *)
+(* preparation *) 
 Unprotect["`*"]; 
 Clear["`*"]; 
 
