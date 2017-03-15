@@ -1,8 +1,8 @@
-# ToNonStandartNumberFormat
+# ToNotIEEENumberFormat
 
 ---
 
-**ToNonStandartNumberFormat[**_numbers_, _format_**]** - возращает представление списка чисел в виде массива байт указанного формата
+**ToNotIEEENumberFormat[**_numbers_, _format_**]** - возращает представление списка чисел в виде массива байт указанного формата
 
 ---
 
@@ -23,23 +23,29 @@
 Get["NonStandartImportExport`"]
 ```
 
-После чего станет доступна для использования функция **ToNonStandartNumberFormat** из контекста NonStandartNumberFormat\`.
+После чего станет доступна для использования функция **ToNotIEEENumberFormat** из контекста NonStandartNumberFormat\`.
 
 ### Форматы
 
 #### IBM 32 Float
 
+Перевод действительного числа в представление IBM 32 Float в виде 4 байт: 
 
+```mathematica
+ToNotIEEENumberFormat[{(256.0^3 - 1.0)/256.0^3}, "IBM 32 Float"]
 
+(* {64, 255, 255, 255} *)
+```
 
 ## Смотрите Также
 
-**[NonStandartNumberByteSize](./NonStandartNumberByteSize.md)** **[FromNonStandartNumberFormat](./FromNonStandartNumberFormat.md)**
+**[NotIEEENumberSize](./NotIEEENumberSize.md)** 
+**[FromNotIEEENumberFormat](./FromNotIEEENumberFormat.md)**
 
 ## Туториалы
 
-[Примеры Использования](../../Tutorials/ExampleOfUse.md)
+[Не IEEE Форматы Чисел - Примеры Использования](../../Tutorials/ExampleOfUse.md)
 
 ## Связанные Руководства
 
-[Руководство - Нестандартные Форматы Числел](../../Guides/Guide.md)
+[Не IEEE Форматы Чисел - Руководство](../../Guides/Guide.md)
