@@ -10,48 +10,64 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      2077,         77]
-NotebookOptionsPosition[      1621,         56]
-NotebookOutlinePosition[      1969,         71]
-CellTagsIndexPosition[      1926,         68]
+NotebookDataLength[      2619,         89]
+NotebookOptionsPosition[      2268,         72]
+NotebookOutlinePosition[      2616,         87]
+CellTagsIndexPosition[      2573,         84]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
-Cell[BoxData[
- RowBox[{"<<", "CustomEncoding`"}]], "Input",
+Cell[BoxData[{
+ RowBox[{"<<", "NonStandartImportExport`"}], "\[IndentingNewLine]", 
+ RowBox[{"<<", "CustomEncoding`"}]}], "Input",
  CellChangeTimes->{{3.697862407341296*^9, 3.6978624186710587`*^9}, {
-  3.698337774819642*^9, 3.69833777989503*^9}}],
+  3.698337774819642*^9, 3.69833777989503*^9}, {3.6985547265636272`*^9, 
+  3.698554735723431*^9}}],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"ToCustomCharacterCode", "[", 
-  RowBox[{"\"\<1\\n\\r\\t2t \>\"", ",", " ", "\"\<EBCDIC\>\""}], 
-  "]"}]], "Input",
- CellChangeTimes->{{3.698337785119129*^9, 3.698337837877426*^9}}],
+ RowBox[{"?", "CustomEncoding`*"}]], "Input",
+ CellChangeTimes->{{3.698554740263622*^9, 3.6985547516601133`*^9}}],
 
 Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-  "241", ",", "37", ",", "13", ",", "5", ",", "242", ",", "163", ",", "64"}], 
-  "}"}]], "Output",
- CellChangeTimes->{{3.698337802848797*^9, 3.6983378383412743`*^9}}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"FromCustomCharacterCode", "[", 
-  RowBox[{
-   RowBox[{"{", 
-    RowBox[{
-    "241", ",", "37", ",", "13", ",", "5", ",", "242", ",", "163", ",", 
-     "64"}], "}"}], ",", " ", "\"\<EBCDIC\>\""}], "]"}]], "Input",
- CellChangeTimes->{{3.698337845716634*^9, 3.6983378577489176`*^9}}],
-
-Cell[BoxData["\<\"1\\n\\r\\t2t \"\>"], "Output",
- CellChangeTimes->{3.698337858280856*^9}]
+ DynamicModuleBox[{Typeset`open$$ = True}, 
+  PaneSelectorBox[{False->
+   RowBox[{
+    OpenerBox[Dynamic[Typeset`open$$],
+     ImageSize->Small], 
+    StyleBox["CustomEncoding`", "InfoHeading"]}], True->GridBox[{
+     {
+      RowBox[{
+       OpenerBox[Dynamic[Typeset`open$$],
+        ImageSize->Small], 
+       StyleBox["CustomEncoding`", "InfoHeading"]}]},
+     {GridBox[{
+        {
+         ButtonBox["FromCustomCharacterCode",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info103698569152-4313218", {
+            "FromCustomCharacterCode", "CustomEncoding`"}},
+          ButtonNote->"CustomEncoding`"], 
+         ButtonBox["ToCustomCharacterCode",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info103698569152-4313218", {
+            "ToCustomCharacterCode", "CustomEncoding`"}},
+          ButtonNote->"CustomEncoding`"]}
+       },
+       DefaultBaseStyle->"InfoGrid",
+       GridBoxItemSize->{"Columns" -> {{
+            Scaled[0.475]}}}]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}}]}, 
+   Dynamic[Typeset`open$$],
+   ImageSize->Automatic]]], "Print", "InfoCell",
+ CellChangeTimes->{3.698554752390585*^9}]
 }, Open  ]]
 },
 WindowSize->{775, 872},
@@ -70,14 +86,10 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 175, 3, 30, "Input"],
+Cell[558, 20, 297, 5, 50, "Input"],
 Cell[CellGroupData[{
-Cell[758, 27, 204, 4, 30, "Input"],
-Cell[965, 33, 206, 5, 30, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[1208, 43, 304, 7, 30, "Input"],
-Cell[1515, 52, 90, 1, 69, "Output"]
+Cell[880, 29, 127, 2, 30, "Input"],
+Cell[1010, 33, 1242, 36, 55, "Print"]
 }, Open  ]]
 }
 ]

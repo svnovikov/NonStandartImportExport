@@ -10,14 +10,65 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[       769,         33]
-NotebookOptionsPosition[       561,         21]
-NotebookOutlinePosition[       909,         36]
-CellTagsIndexPosition[       866,         33]
+NotebookDataLength[      2706,         89]
+NotebookOptionsPosition[      2355,         72]
+NotebookOutlinePosition[      2703,         87]
+CellTagsIndexPosition[      2660,         84]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+Cell[BoxData[{
+ RowBox[{"<<", "NonStandartImportExport`"}], "\[IndentingNewLine]", 
+ RowBox[{"<<", "FileFormats`"}]}], "Input",
+ CellChangeTimes->{{3.697862407341296*^9, 3.6978624186710587`*^9}, {
+  3.698337774819642*^9, 3.69833777989503*^9}, {3.6985547265636272`*^9, 
+  3.698554735723431*^9}, {3.698554776500065*^9, 3.698554778579171*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "FileFormats`SEGY`*"}]], "Input",
+ CellChangeTimes->{{3.698554740263622*^9, 3.6985547516601133`*^9}, {
+  3.6985547856442733`*^9, 3.6985548183813915`*^9}, {3.698554850992668*^9, 
+  3.6985548750516415`*^9}}],
+
+Cell[BoxData[
+ DynamicModuleBox[{Typeset`open$$ = True}, 
+  PaneSelectorBox[{False->
+   RowBox[{
+    OpenerBox[Dynamic[Typeset`open$$],
+     ImageSize->Small], 
+    StyleBox["FileFormats`SEGY`", "InfoHeading"]}], True->GridBox[{
+     {
+      RowBox[{
+       OpenerBox[Dynamic[Typeset`open$$],
+        ImageSize->Small], 
+       StyleBox["FileFormats`SEGY`", "InfoHeading"]}]},
+     {GridBox[{
+        {
+         ButtonBox["SEGYData",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info203698569275-4313218", {"SEGYData", "FileFormats`SEGY`"}},
+          ButtonNote->"FileFormats`SEGY`"], 
+         ButtonBox["SEGYUnloaded",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info203698569275-4313218", {"SEGYUnloaded", "FileFormats`SEGY`"}},
+          ButtonNote->"FileFormats`SEGY`"]}
+       },
+       DefaultBaseStyle->"InfoGrid",
+       GridBoxItemSize->{"Columns" -> {{
+            Scaled[0.475]}}}]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}}]}, 
+   Dynamic[Typeset`open$$],
+   ImageSize->Automatic]]], "Print", "InfoCell",
+ CellChangeTimes->{3.698554875809328*^9}]
+}, Open  ]]
 },
 WindowSize->{775, 872},
 WindowMargins->{{564, Automatic}, {Automatic, 54}},
@@ -35,6 +86,11 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
+Cell[558, 20, 340, 5, 50, "Input"],
+Cell[CellGroupData[{
+Cell[923, 29, 233, 4, 30, "Input"],
+Cell[1159, 35, 1180, 34, 55, "Print"]
+}, Open  ]]
 }
 ]
 *)
