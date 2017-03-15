@@ -42,7 +42,7 @@ Support import and export non standard files
 
 - **[CustomEncoding\`](./CustomEncoding/CustomEncoding.m)** 
 - **[FileFormats\`](./FileFormats/)** 
-  - [`SEGY`](./FileFormats/SEGY.m) 
+  - [\`SEGY\`](./FileFormats/SEGY.m) 
 - **[NotIEEENumberFormat\`](./NotIEEENumberFormat/NotIEEENumberFormat.m)** 
 - **[NonStandartImportExport\`](./NonStandartImportExport/NonStandartImportExport.m)** 
   - [\`Extensions\`SEGY\`](./NonStandartImportExport/Extensions/SEGY.m) 
