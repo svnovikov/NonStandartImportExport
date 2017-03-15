@@ -40,7 +40,11 @@ Block[
 	If[!FileExistsQ[$TargetKernelDirectory], CreateDirectory[$TargetKernelDirectory]]; 
 
 	With[{ProjectDirectory = $ProjectDirectory, ApplicationContext = $ApplicationContext}, 
-		With[{code = Unevaluated[$Path = DeleteDuplicates[Prepend[$Path, ProjectDirectory]]; Get[ApplicationContext, Path -> {ProjectDirectory}];]}, 
+		With[
+			{
+				code = 
+				Unevaluated[$Path = DeleteDuplicates[Prepend[$Path, ProjectDirectory]]; 
+				Get[ApplicationContext, Path -> {ProjectDirectory}];]}, 
 			Put[code, $ApplicationInitFilePath]; 
 		]; 
 	]; 
