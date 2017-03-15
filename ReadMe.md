@@ -2,11 +2,19 @@
 
 Support import and export non standard files 
 
+## License
+
+This package is released under [The MIT License](./License).
+
 ---
 
 # Нестандартный Импорт и Экспорт
 
 Поддержка импорта и экспорта файлов нестандартного формата. 
+
+## Лицензия 
+
+Этот пакет выпущен под [Лицензией MIT](./License)
 
 ## Обзор Проекта
 
