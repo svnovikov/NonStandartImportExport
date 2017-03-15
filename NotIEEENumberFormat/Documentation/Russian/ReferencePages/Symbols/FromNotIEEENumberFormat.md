@@ -1,8 +1,8 @@
-# FromNonStandartNumberFormat
+# FromNotIEEENumberFormat
 
 ---
 
-**FromNonStandartNumberFormat[**_bytes_, _format_**]** - конвертирует набор байт в список чисел с плавующей точкой
+**FromNotIEEENumberFormat[**_bytes_, _format_**]** - конвертирует набор байт в список чисел с плавующей точкой
 
 ---
 
@@ -50,7 +50,7 @@ bytes = {0, 255, 255, 255}
 Сконвертируем его в число с плавующе точкой:  
 
 ```mathematica
-FromNonStandartNumberFormat[bytes, "IBM 32 Float"]
+FromNotIEEENumberFormat[bytes, "IBM 32 Float"]
 
 (* Out[..] := {8.63617*10^-78} *)
 ```
@@ -58,7 +58,7 @@ FromNonStandartNumberFormat[bytes, "IBM 32 Float"]
 Число близкое к единице можно получить так:  
 
 ```mathematica
-{one} = FromNonStandartNumberFormat[{64, 255, 255, 255}, "IBM 32 Float"]
+{one} = FromNotIEEENumberFormat[{64, 255, 255, 255}, "IBM 32 Float"]
 
 (* Out[..] := {1.} *)
 ```
@@ -74,19 +74,18 @@ FullForm[one]
 Кроме перевода 4 байт в число, можно перевести любое количество байт, кратное 4 в список чисел:  
 
 ```mathematica
-FromNonStandartNumberFormat[RandomInteger[{0, 255}, 16], "IBM 32 Float"]
+FromNotIEEENumberFormat[RandomInteger[{0, 255}, 16], "IBM 32 Float"]
 
 (* Out[..] := {-5.68179*10^30, -1.19861*10^-15, -3.99971*10^62, 3.28465*10^-67} *)
 ```
-
 ## Смотрите Также
 
-**[NonStandartNumberByteSize](./NonStandartNumberByteSize.md)** **[ToNonStandartNumberFormat](./ToNonStandartNumberFormat.md)**
+**[NotIEEENumberSize](./NotIEEENumberSize.md)** **[ToNotIEEENumberFormat](./ToNotIEEENumberFormat.md)**
 
 ## Туториалы
 
-[Примеры Использования](../../Tutorials/ExampleOfUse.md)
+[Не IEEE Форматы Числел - Примеры Использования](../../Tutorials/ExampleOfUse.md)
 
 ## Связанные Руководства
 
-[Руководство - Нестандартные Форматы Числел](../../Guides/Guide.md)
+[Не IEEE Форматы Числел - Руководство](../../Guides/Guide.md)
