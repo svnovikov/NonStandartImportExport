@@ -1,8 +1,8 @@
-# NonStandartNumberByteSize
+# NotIEEENumberSize
 
 ---
 
-**NonStandartNumberByteSize[**_format_**]** - возвращает количество байт для представления числа в указанном формате
+**NotIEEENumberSize[**_format_**]** - возвращает количество байт для представления числа в указанном формате
 
 ---
 
@@ -24,19 +24,20 @@ Get["NonStandartImportExport`"]
 Так можно вычислить длину числа в представлении формата числа с плавующей точкой и 32-х битной точностью IBM:
 
 ```mathematica
-NonStandartNumberByteSize["IBM 32 Float"]
+NotIEEENumberSize["IBM 32 Float"]
 
 (* Out[..] := 4 *)
 ```
 
 ## Смотрите Также
 
-**[FromNonStandartNumberFormat](./FromNonStandartNumberFormat.md)** **[ToNonStandartNumberFormat](./ToNonStandartNumberFormat.md)**
+**[FromNotIEEENumberFormat](./FromNotIEEENumberFormat.md)** 
+**[ToNotIEEENumberFormat](./ToNotIEEENumberFormat.md)**
 
 ## Туториалы
 
-[Примеры Использования](../../Tutorials/ExampleOfUse.md)
+[Не IEEE Форматы Числел - Примеры Использования](../../Tutorials/ExampleOfUse.md)
 
 ## Связанные Руководства
 
-[Руководство - Нестандартные Форматы Числел](../../Guides/Guide.md)
+[Не IEEE Форматы Числел - Руководство](../../Guides/Guide.md)
