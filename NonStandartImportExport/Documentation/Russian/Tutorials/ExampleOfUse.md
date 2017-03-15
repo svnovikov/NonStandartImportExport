@@ -36,7 +36,7 @@ data = NonStandartImport[file, "SEGY"]
 Чтобы получить данные измерения в виде списка трасс достаточно выполнить вот такой код: 
 
 ```mathematica
-tracks = data[["Tracks"]]
+tracks = data["Tracks"]
 
 (* {{1500., .. <299>}, .. <297>} *)
 ```
